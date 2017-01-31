@@ -8,7 +8,7 @@ Another useful feature is the Hidden Power calculator that allows Pokémon Sun r
 
 ## Download
 
-The IV-Calculator can be downloaded on the folloing page:
+The IV-Calculator can be downloaded on the following page:
 
 http://vincent.lycoops.be/iv-calculator.html
 
