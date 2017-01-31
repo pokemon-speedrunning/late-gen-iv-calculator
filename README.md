@@ -66,6 +66,8 @@ Once the Hidden Power is determined, left/right clicking _H. Power_ on the botto
 
 ### Reset
 
+When nothing goes right, click on Reset.
+
 ### Undo
 
 Pressing Ctrl + Z can undo the following actions: changing stat, changing manual EVs, evolving.
