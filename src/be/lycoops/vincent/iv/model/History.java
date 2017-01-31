@@ -22,11 +22,11 @@ public class History {
             return stat;
         }
 
-        public int getLowIv() {
+        int getLowIv() {
             return lowIv;
         }
 
-        public int getHighIv() {
+        int getHighIv() {
             return highIv;
         }
     }
