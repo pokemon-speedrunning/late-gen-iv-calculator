@@ -98,6 +98,19 @@ public class Pokemon {
     }
 
     /**
+     * Defines the base stats of the Pokémon to Popplio's base stats
+     */
+    public void unevolve() {
+        baseValues.put("hp", 50);
+        baseValues.put("atk", 54);
+        baseValues.put("def", 54);
+        baseValues.put("spd", 40);
+        baseValues.put("spAtk", 66);
+        baseValues.put("spDef", 56);
+        evolved.set(false);
+    }
+
+    /**
      * Increases the current Pokémon's level by 1
      */
     public void levelUp() {
@@ -269,5 +282,11 @@ public class Pokemon {
 
     public ObjectProperty<Nature> natureProperty() {
         return nature;
+    }
+
+    public void setStatRange(History.Stat statRange) {
+        String stat = statRange.getStat();
+        this.minIndividualValues.get(stat).set(statRange.getLowIv());
+        this.maxIndividualValues.get(stat).set(statRange.getHighIv());
     }
 }

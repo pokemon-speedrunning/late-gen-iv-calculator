@@ -1,10 +1,7 @@
 package be.lycoops.vincent.iv.calculator.configuration;
 
 
-import be.lycoops.vincent.iv.model.EffortValueProvider;
-import be.lycoops.vincent.iv.model.Game;
-import be.lycoops.vincent.iv.model.GameService;
-import be.lycoops.vincent.iv.model.Pokemon;
+import be.lycoops.vincent.iv.model.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,6 +33,9 @@ public class ConfigurationPresenter implements Initializable {
     @Inject
     private GameService gameService;
 
+    @Inject
+    private History history;
+
     public void levelPlus() {
         pokemon.levelUp();
     }
@@ -46,6 +46,7 @@ public class ConfigurationPresenter implements Initializable {
 
     public void evolve() {
         pokemon.evolve();
+        history.addEvolution();
     }
 
     public void setSun() {

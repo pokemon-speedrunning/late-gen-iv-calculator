@@ -1,6 +1,7 @@
 package be.lycoops.vincent.iv.calculator.reset;
 
 import be.lycoops.vincent.iv.model.HiddenPowerCalculator;
+import be.lycoops.vincent.iv.model.History;
 import be.lycoops.vincent.iv.model.NatureCalculator;
 import be.lycoops.vincent.iv.model.Pokemon;
 
@@ -17,10 +18,14 @@ public class ResetPresenter {
     @Inject
     private NatureCalculator natureCalculator;
 
+    @Inject
+    private History history;
+
     public void reset() {
         natureCalculator.reset();
         pokemon.reset();
         pokemon.setHiddenPower(hiddenPowerCalculator.setUnknown());
+        history.reset();
     }
 
 }

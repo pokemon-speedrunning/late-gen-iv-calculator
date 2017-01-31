@@ -1,5 +1,6 @@
 package be.lycoops.vincent.iv.calculator.statselector;
 
+import be.lycoops.vincent.iv.model.History;
 import be.lycoops.vincent.iv.model.Pokemon;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +25,9 @@ public class StatSelectorPresenter implements Initializable {
     private Pokemon pokemon;
 
     @Inject
+    private History history;
+
+    @Inject
     private String stat;
 
     public void setStat(MouseEvent event) {
@@ -32,7 +36,11 @@ public class StatSelectorPresenter implements Initializable {
             return;
         }
         int value = Integer.valueOf(button.getText());
-        // TODO append to history
+
+        int min = pokemon.getMinIndividualValues().get(stat).get();
+        int max = pokemon.getMaxIndividualValues().get(stat).get();
+        history.addStat(stat, min, max);
+
         if (!event.isShiftDown()) {
             pokemon.setKnownStat(stat, value);
         } else {
@@ -42,6 +50,7 @@ public class StatSelectorPresenter implements Initializable {
 
     public void statUp() {
         pokemon.addAdditionalEffortValue(stat);
+        history.addEvAdded(stat);
     }
 
     @Override

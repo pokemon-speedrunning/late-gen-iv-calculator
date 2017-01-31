@@ -6,15 +6,17 @@ import be.lycoops.vincent.iv.calculator.hiddenpower.HiddenPowerView;
 import be.lycoops.vincent.iv.calculator.output.OutputView;
 import be.lycoops.vincent.iv.calculator.reset.ResetView;
 import be.lycoops.vincent.iv.calculator.statselector.StatSelectorView;
+import be.lycoops.vincent.iv.model.History;
 import be.lycoops.vincent.iv.model.NatureCalculator;
 import be.lycoops.vincent.iv.model.Pokemon;
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
@@ -55,6 +57,9 @@ public class CalculatorPresenter implements Initializable {
 
     @Inject
     private NatureCalculator natureCalculator;
+
+    @Inject
+    private History history;
 
     public void initialize(URL location, ResourceBundle resources) {
         pane.setTop(new HiddenPowerView().getView());
@@ -159,5 +164,32 @@ public class CalculatorPresenter implements Initializable {
 
     public void spDefNature(MouseEvent event) {
         setNature(event, "spDef");
+    }
+
+    public void setScene(Scene scene) {
+        final KeyCombination ctrlZCombination = new KeyCodeCombination(KeyCode.Z, KeyCombination.CONTROL_DOWN);
+        scene.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            if (ctrlZCombination.match(event)) {
+                undo();
+            }
+        });
+    }
+
+    private void undo() {
+        History.HistoryAction action = history.undo();
+        if (action == null) {
+            return;
+        }
+        if (action instanceof History.Stat) {
+            History.Stat statAction = (History.Stat) action;
+            pokemon.setStatRange(statAction);
+        } else if (action instanceof History.Evolution) {
+            pokemon.unevolve();
+        } else if (action instanceof History.EvAdded) {
+            History.EvAdded evAction = (History.EvAdded) action;
+            String stat = evAction.getStat();
+            IntegerProperty statProperty = pokemon.getEffortValues().get(stat);
+            statProperty.set(statProperty.get() - 1);
+        }
     }
 }
