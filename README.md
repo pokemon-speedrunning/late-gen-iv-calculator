@@ -6,6 +6,12 @@ Effort values (EVs) are predetermined according to a specific route.
 
 Another useful feature is the Hidden Power calculator that allows Pokémon Sun runners to usually determine Popplio's Hidden Power before picking Hidden Power up.
 
+## Download
+
+The IV-Calculator can be downloaded on the folloing page:
+
+http://vincent.lycoops.be/iv-calculator.html
+
 ## Screenshot
 
 ![Screenshot](http://vincent.lycoops.be/calculator.png)
