@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import java.util.ArrayList?>
+<HBox xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" BorderPane.alignment="TOP_RIGHT" fx:controller="be.lycoops.vincent.iv.calculator.hiddenpower.HiddenPowerPresenter">
+    <children>
+        <Region prefHeight="120.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+        <VBox>
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" fx:id="feelsBadMan" />
+            </children>
+        </VBox>
+        <VBox fx:id="hiddenPowerColumn1">
+            <children>
+                <Label fx:id="hiddenPower5" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="BUG: 7.8%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower15" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="DARK: 1.6%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower14" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="DRAGON: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower11" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="ELECTRIC: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+        <VBox fx:id="hiddenPowerColumn2">
+            <children>
+                <Label fx:id="hiddenPower0" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="FIGHTING: 7.8%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower8" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="FIRE: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower1" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="FLYING: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower6" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="GHOST: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+        <VBox fx:id="hiddenPowerColumn3">
+            <children>
+                <Label fx:id="hiddenPower10" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="GRASS: 7.8%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower3" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="GROUND: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower13" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="ICE: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower2" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="POISON: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+        <VBox fx:id="hiddenPowerColumn4">
+            <children>
+                <Label fx:id="hiddenPower12" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="PSYCHIC: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower4" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="ROCK: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower7" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="STEEL: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="hiddenPower9" alignment="CENTER_LEFT" minWidth="100.0" prefWidth="100.0" text="WATER: 6.3%">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+    <BorderPane.margin>
+        <Insets top="5.0" />
+    </BorderPane.margin>
+
+
+    <fx:define>
+        <ArrayList fx:id="hiddenPowerLabels">
+            <fx:reference source="hiddenPower0" />
+            <fx:reference source="hiddenPower1" />
+            <fx:reference source="hiddenPower2" />
+            <fx:reference source="hiddenPower3" />
+            <fx:reference source="hiddenPower4" />
+            <fx:reference source="hiddenPower5" />
+            <fx:reference source="hiddenPower6" />
+            <fx:reference source="hiddenPower7" />
+            <fx:reference source="hiddenPower8" />
+            <fx:reference source="hiddenPower9" />
+            <fx:reference source="hiddenPower10" />
+            <fx:reference source="hiddenPower11" />
+            <fx:reference source="hiddenPower12" />
+            <fx:reference source="hiddenPower13" />
+            <fx:reference source="hiddenPower14" />
+            <fx:reference source="hiddenPower15" />
+        </ArrayList>
+    </fx:define>
+
+
+</HBox>

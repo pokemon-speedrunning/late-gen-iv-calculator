@@ -1,0 +1,16 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<VBox BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.lycoops.vincent.iv.calculator.reset.ResetPresenter">
+    <children>
+        <Button mnemonicParsing="false" onAction="#reset" prefHeight="35.0" prefWidth="45.0" text="Reset" textAlignment="CENTER">
+            <VBox.margin>
+                <Insets top="45.0" />
+            </VBox.margin>
+        </Button>
+    </children>
+    <padding>
+        <Insets right="3.0" />
+    </padding>
+</VBox>
