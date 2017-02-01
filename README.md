@@ -122,4 +122,4 @@ Pressing Ctrl + Z can undo the following actions: changing stat, changing manual
 * Level 21: Lillipup (1 Atk), Growlithe (1 Atk), Drowzee (1 Sp.Def)
 * Level 22: Marowak (2 Def), Magmar (2 Sp.Atk)
 * Level 23: Salazzle (4 Spd), Salandit (2 Spd)
-* Level 24: Shiinotic (2 Sp.Def), 2 Fomantis (2 Atk)
+* Level 24: Parasect (2 Atk, 1 Def), 2 Fomantis (2 Atk)
