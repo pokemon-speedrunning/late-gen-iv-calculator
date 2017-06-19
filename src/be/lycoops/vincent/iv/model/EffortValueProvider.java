@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EffortValueProvider {
-    public static Map<String, Integer> getEffortValues(Game game, int level) {
-        Map<String, Integer> effortValues = new HashMap<>();
+    public static Map<Stat, Integer> getEffortValues(Game game, int level) {
+        Map<Stat, Integer> effortValues = new HashMap<>();
         int hp = 0, atk = 0, def = 0, spd = 0, spAtk = 0, spDef = 0;
         if (game.equals(Game.MOON)) {
             switch (level) {
@@ -47,7 +47,7 @@ public class EffortValueProvider {
                     hp = 8; atk = 7; def = 5; spd = 20; spAtk = 5; spDef = 3; break;
                 case 23: // Salazzle (2SPD * 2): 8 7 5 24 5 3
                     hp = 8; atk = 7; def = 5; spd = 24; spAtk = 5; spDef = 3; break;
-                case 24: // Salandit (1SPD * 2), Shiinotic (2SpDEF), 2 Fomantis (2ATK): 8 9 5 26 5 5
+                default: // Salandit (1SPD * 2), Shiinotic (2SpDEF), 2 Fomantis (2ATK): 8 9 5 26 5 5
                     hp = 8; atk = 9; def = 5; spd = 26; spAtk = 5; spDef = 5; break;
             }
         } else {
@@ -90,16 +90,16 @@ public class EffortValueProvider {
                     hp = 9; atk = 17; def = 5; spd = 9; spAtk = 5; spDef = 3; break;
                 case 23: // Salazzle (2SPD * 2), Salandit (1SPD * 2) : 9 17 5 15 5 3
                     hp = 9; atk = 17; def = 5; spd = 15; spAtk = 5; spDef = 3; break;
-                case 24: // Parasect (2ATK, 1DEF), 2 Fomantis (2ATK): 9 21 6 15 5 3
+                default: // Parasect (2ATK, 1DEF), 2 Fomantis (2ATK): 9 21 6 15 5 3
                     hp = 9; atk = 21; def = 6; spd = 15; spAtk = 5; spDef = 3; break;
             }
         }
-        effortValues.put("hp", hp);
-        effortValues.put("atk", atk);
-        effortValues.put("def", def);
-        effortValues.put("spd", spd);
-        effortValues.put("spAtk", spAtk);
-        effortValues.put("spDef", spDef);
+        effortValues.put(Stat.HP, hp);
+        effortValues.put(Stat.ATK, atk);
+        effortValues.put(Stat.DEF, def);
+        effortValues.put(Stat.SPD, spd);
+        effortValues.put(Stat.SP_ATK, spAtk);
+        effortValues.put(Stat.SP_DEF, spDef);
         return effortValues;
     }
 }

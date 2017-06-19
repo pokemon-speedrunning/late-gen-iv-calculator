@@ -6,6 +6,8 @@ import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Pokemon {
     /**
@@ -31,34 +33,51 @@ public class Pokemon {
     /**
      * Amount of individual values of each stat that have already been collected.
      */
-    private Map<String, IntegerProperty> effortValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> effortValues = new HashMap<>();
 
     /**
      * Base values for each stat of the current Pokémon. Used to compute expected stats at certain IVs.
      */
-    private Map<String, Integer> baseValues = new HashMap<>();
+    private Map<Stat, Integer> baseValues = new HashMap<>();
 
     /**
      * Minimal IV bound for each stat.
      */
-    private Map<String, IntegerProperty> minIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> minIndividualValues = new HashMap<>();
 
     /**
      * Maximal IV bound for each stat.
      */
-    private Map<String, IntegerProperty> maxIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> maxIndividualValues = new HashMap<>();
+
+    private Map<Stat, IntegerProperty> minMinusIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> maxMinusIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> minNeutralIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> maxNeutralIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> minPlusIndividualValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> maxPlusIndividualValues = new HashMap<>();
 
     /**
      * Additional effort values of the current Pokémon
      */
     private AdditionalEffortValues additionalEffortValues = new AdditionalEffortValues();
+    private NatureCalculator natureCalculator;
 
     @PostConstruct
     public void init() {
-        for (final String stat: Arrays.asList("hp", "atk", "def", "spd", "spAtk", "spDef")) {
+        for (final Stat stat: Stat.ALL_STATS) {
             effortValues.put(stat, new SimpleIntegerProperty(0));
             minIndividualValues.put(stat, new SimpleIntegerProperty(0));
             maxIndividualValues.put(stat, new SimpleIntegerProperty(31));
+            if (!stat.equals(Stat.HP)) {
+                minMinusIndividualValues.put(stat, new SimpleIntegerProperty(0));
+                maxMinusIndividualValues.put(stat, new SimpleIntegerProperty(31));
+                minNeutralIndividualValues.put(stat, new SimpleIntegerProperty(0));
+                maxNeutralIndividualValues.put(stat, new SimpleIntegerProperty(31));
+                minPlusIndividualValues.put(stat, new SimpleIntegerProperty(0));
+                maxPlusIndividualValues.put(stat, new SimpleIntegerProperty(31));
+            }
+
         }
         reset();
     }
@@ -68,19 +87,31 @@ public class Pokemon {
      */
     public void reset() {
         level.set(5);
-        baseValues.put("hp", 50);
-        baseValues.put("atk", 54);
-        baseValues.put("def", 54);
-        baseValues.put("spd", 40);
-        baseValues.put("spAtk", 66);
-        baseValues.put("spDef", 56);
+        baseValues.put(Stat.HP, 50);
+        baseValues.put(Stat.ATK, 54);
+        baseValues.put(Stat.DEF, 54);
+        baseValues.put(Stat.SPD, 40);
+        baseValues.put(Stat.SP_ATK, 66);
+        baseValues.put(Stat.SP_DEF, 56);
         evolved.set(false);
-        for (String stat: Arrays.asList("hp", "atk", "def", "spd", "spAtk", "spDef")) {
+        for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
             minIndividualValues.get(stat).set(0);
             maxIndividualValues.get(stat).set(31);
+            if (!stat.equals(Stat.HP)) {
+                minMinusIndividualValues.get(stat).set(0);
+                maxMinusIndividualValues.get(stat).set(31);
+                minNeutralIndividualValues.get(stat).set(0);
+                maxNeutralIndividualValues.get(stat).set(31);
+                minPlusIndividualValues.get(stat).set(0);
+                maxPlusIndividualValues.get(stat).set(31);
+            }
         }
         additionalEffortValues.reset();
+        if (natureCalculator != null) {
+            natureCalculator.setPlusNature(null);
+            natureCalculator.setMinusNature(null);
+        }
         setNature(null);
     }
 
@@ -88,12 +119,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put("hp", 60);
-        baseValues.put("atk", 69);
-        baseValues.put("def", 69);
-        baseValues.put("spd", 50);
-        baseValues.put("spAtk", 91);
-        baseValues.put("spDef", 81);
+        baseValues.put(Stat.HP, 60);
+        baseValues.put(Stat.ATK, 69);
+        baseValues.put(Stat.DEF, 69);
+        baseValues.put(Stat.SPD, 50);
+        baseValues.put(Stat.SP_ATK, 91);
+        baseValues.put(Stat.SP_DEF, 81);
         evolved.set(true);
     }
 
@@ -101,12 +132,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put("hp", 50);
-        baseValues.put("atk", 54);
-        baseValues.put("def", 54);
-        baseValues.put("spd", 40);
-        baseValues.put("spAtk", 66);
-        baseValues.put("spDef", 56);
+        baseValues.put(Stat.HP, 50);
+        baseValues.put(Stat.ATK, 54);
+        baseValues.put(Stat.DEF, 54);
+        baseValues.put(Stat.SPD, 40);
+        baseValues.put(Stat.SP_ATK, 66);
+        baseValues.put(Stat.SP_DEF, 56);
         evolved.set(false);
     }
 
@@ -115,7 +146,15 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 24) {
+        if (level == 35) {
+            baseValues.put(Stat.HP, 80);
+            baseValues.put(Stat.ATK, 74);
+            baseValues.put(Stat.DEF, 74);
+            baseValues.put(Stat.SPD, 60);
+            baseValues.put(Stat.SP_ATK, 126);
+            baseValues.put(Stat.SP_DEF, 116);
+        }
+        if (level == 50) {
             return;
         }
         this.level.set(level + 1);
@@ -144,20 +183,34 @@ public class Pokemon {
         this.level.set(level);
     }
 
-    public Map<String, IntegerProperty> getMinIndividualValues() {
+    public Map<Stat, IntegerProperty> getMinIndividualValues() {
         return minIndividualValues;
     }
 
-    public void setMinIndividualValues(Map<String, IntegerProperty> minIndividualValues) {
+    public void setMinIndividualValues(Map<Stat, IntegerProperty> minIndividualValues) {
         this.minIndividualValues = minIndividualValues;
     }
 
-    public Map<String, IntegerProperty> getMaxIndividualValues() {
+    public Map<Stat, IntegerProperty> getMaxIndividualValues() {
         return maxIndividualValues;
     }
 
-    public void setMaxIndividualValues(Map<String, IntegerProperty> maxIndividualValues) {
+    public void setMaxIndividualValues(Map<Stat, IntegerProperty> maxIndividualValues) {
         this.maxIndividualValues = maxIndividualValues;
+    }
+
+    private static int getExpectedStat(Stat stat, int level, int iv, int ev, final Map<Stat, Integer> baseValues, int nature) {
+        int statValue = (2 * baseValues.get(stat) + iv + ev / 4) * level / 100 + 5;
+        if (nature == 1) {
+            statValue *= 1.1;
+        } else if (nature == -1) {
+            statValue *= 0.9;
+        }
+        return statValue;
+    }
+
+    private static int getExpectedHp(int level, int iv, int ev, final Map<Stat, Integer> baseValues) {
+        return ((2 * baseValues.get(Stat.HP) + iv + ev / 4) * level)/ 100 + level + 10;
     }
 
     /**
@@ -167,22 +220,26 @@ public class Pokemon {
      * @param individualValue The individual value level
      * @return The expected stat
      */
-    public int getExpectedStat(String stat, int individualValue) {
-        if (stat.equals("hp")) {
+    public int getExpectedStat(Stat stat, int individualValue) {
+        if (stat.equals(Stat.HP)) {
             return getExpectedHp(individualValue);
         }
-        int ev = effortValues.get(stat).get() + additionalEffortValues.getEffortValue(stat).get();
-        int statValue = ((2 * baseValues.get(stat) + individualValue + ev / 4) * level.get()) / 100 + 5;
-        Nature nature = this.nature.get();
-        if (nature != null) {
-            if (nature.getStat(stat) == 1) {
-                statValue = (int) (statValue * 1.1);
-            } else if (nature.getStat(stat) == -1) {
-                statValue = (int) (statValue * 0.9);
-            }
-        }
+        int minusValue = stat.equals(natureCalculator.getMinusNature()) ? -1 : 0;
+        int plusValue = stat.equals(natureCalculator.getPlusNature()) ? 1 : 0;
+        int natureValue = minusValue + plusValue;
+        return getExpectedStat(stat, individualValue, natureValue);
+    }
 
-        return statValue;
+    /**
+     * Computes the expected stat given a specified individual value.
+     * This computation is based on effort values, current level, and nature.
+     * @param stat The name of the stat
+     * @param individualValue The individual value level
+     * @return The expected stat
+     */
+    private int getExpectedStat(Stat stat, int individualValue, int natureValue) {
+        return getExpectedStat(stat, getLevel(), individualValue, getTotalEvs(stat), baseValues, natureValue);
+
     }
 
     /**
@@ -192,9 +249,7 @@ public class Pokemon {
      * @return The expected HP stat
      */
     private int getExpectedHp(int hpIv) {
-        int level = this.level.get();
-        int ev = effortValues.get("hp").get() + additionalEffortValues.getEffortValue("hp").get();
-        return ((2 * baseValues.get("hp") + hpIv + ev / 4) * level)/ 100 + level + 10;
+        return getExpectedHp(getLevel(), hpIv, getTotalEvs(Stat.HP), baseValues);
     }
 
     /**
@@ -203,27 +258,50 @@ public class Pokemon {
      * @param stat The name of the stat
      * @param value The value of the stat
      */
-    public void setKnownStat(String stat, int value) {
+    public void setKnownStat(Stat stat, int value) {
 
-        int min = minIndividualValues.get(stat).get();
-        int max = maxIndividualValues.get(stat).get();
+        if (stat.equals(Stat.HP)) {
+            setKnownStat(stat, value, minIndividualValues.get(Stat.HP), maxIndividualValues.get(Stat.HP), 0);
+            return;
+        }
+
+        int minIv = setKnownStat(stat, value, minMinusIndividualValues.get(stat), maxMinusIndividualValues.get(stat), -1);
+        int neutralIv = setKnownStat(stat, value, minNeutralIndividualValues.get(stat), maxNeutralIndividualValues.get(stat), 0);
+        int plusIv = setKnownStat(stat, value, minPlusIndividualValues.get(stat), maxPlusIndividualValues.get(stat), 1);
+
+        refreshIvRange(stat, minIv, neutralIv, plusIv);
+    }
+
+    private int setKnownStat(Stat stat, int value, IntegerProperty minProp, IntegerProperty maxProp, int nature) {
+        int min = minProp.get();
+        if (min == -1) {
+            return -1;
+        }
+
+        int max = maxProp.get();
+
+        boolean isHp = stat.equals(Stat.HP);
 
         // Increases lower bound and decreases upper bound of the computed IV until they are compatible.
-        for (int i = min, j = max; j <= max; ++i, --j) {
-            int expectedMin = getExpectedStat(stat, i);
-            int expectedMax = getExpectedStat(stat, j);
+        for (int i = min, j = max; j <= max && j >= min && i <= max; ++i, --j) {
+            int expectedMin = isHp ? getExpectedHp(i) : getExpectedStat(stat, i, nature);
+            int expectedMax = isHp ? getExpectedHp(j) : getExpectedStat(stat, j, nature);
             if (expectedMin < value) {
-                minIndividualValues.get(stat).set(minIndividualValues.get(stat).get() + 1);
+                minProp.set(minProp.get() + 1);
             }
             if (expectedMax > value) {
-                maxIndividualValues.get(stat).set(maxIndividualValues.get(stat).get() - 1);
+                maxProp.set(maxProp.get() - 1);
             }
 
             if (expectedMin >= value && expectedMax <= value) {
-                // Can skip since we know the upper and lower bounds already.
-                break;
+                return minProp.get();
             }
         }
+
+        minProp.set(-1);
+        maxProp.set(-1);
+
+        return -1;
     }
 
     /**
@@ -231,7 +309,7 @@ public class Pokemon {
      * @param stat The name of the stat
      * @param iv The IV level to set that stat to
      */
-    public void setKnownIv(String stat, int iv) {
+    public void setKnownIv(Stat stat, int iv) {
         this.minIndividualValues.get(stat).set(iv);
         this.maxIndividualValues.get(stat).set(iv);
     }
@@ -240,7 +318,7 @@ public class Pokemon {
      * Adds 1 additional effort value to the Pokémon of a given stat
      * @param stat The name of the stat
      */
-    public void addAdditionalEffortValue(String stat) {
+    public void addAdditionalEffortValue(Stat stat) {
         additionalEffortValues.increment(stat);
     }
 
@@ -264,7 +342,7 @@ public class Pokemon {
         this.nature.set(nature);
     }
 
-    public Map<String, IntegerProperty> getEffortValues() {
+    public Map<Stat, IntegerProperty> getEffortValues() {
         return effortValues;
     }
 
@@ -284,9 +362,172 @@ public class Pokemon {
         return nature;
     }
 
-    public void setStatRange(History.Stat statRange) {
-        String stat = statRange.getStat();
+    public void setStatRange(History.StatAction statRange) {
+        Stat stat = statRange.getStat();
         this.minIndividualValues.get(stat).set(statRange.getLowIv());
         this.maxIndividualValues.get(stat).set(statRange.getHighIv());
     }
+
+    int getTotalEvs(Stat stat) {
+        return effortValues.get(stat).get() + additionalEffortValues.getEffortValue(stat).get();
+    }
+
+    Map<Stat, Integer> getBaseValues() {
+        return baseValues;
+    }
+
+    public void setNatureCalculator(NatureCalculator natureCalculator) {
+        this.natureCalculator = natureCalculator;
+    }
+
+    public Map<Stat, IntegerProperty> getMinMinusIndividualValues() {
+        return minMinusIndividualValues;
+    }
+
+    public Map<Stat, IntegerProperty> getMinNeutralIndividualValues() {
+        return minNeutralIndividualValues;
+    }
+
+    public Map<Stat, IntegerProperty> getMinPlusIndividualValues() {
+        return minPlusIndividualValues;
+    }
+
+    public Map<Stat, IntegerProperty> getMaxMinusIndividualValues() {
+        return maxMinusIndividualValues;
+    }
+
+    public Map<Stat, IntegerProperty> getMaxNeutralIndividualValues() {
+        return maxNeutralIndividualValues;
+    }
+
+    public Map<Stat, IntegerProperty> getMaxPlusIndividualValues() {
+        return maxPlusIndividualValues;
+    }
+
+    public SortedSet<Integer> getPossibleStats(Stat stat) {
+        SortedSet<Integer> stats = new TreeSet<>();
+
+        int min = minMinusIndividualValues.get(stat).get();
+        int max;
+        if (min != -1) {
+            max = maxMinusIndividualValues.get(stat).get();
+            for (int i = min; i <= max; ++i) {
+                stats.add(getExpectedStat(stat, i, -1));
+            }
+        }
+
+        min = minNeutralIndividualValues.get(stat).get();
+        if (min != -1) {
+            max = maxNeutralIndividualValues.get(stat).get();
+            for (int i = min; i <= max; ++i) {
+                stats.add(getExpectedStat(stat, i, 0));
+            }
+        }
+
+        min = minPlusIndividualValues.get(stat).get();
+        if (min != -1) {
+            max = maxPlusIndividualValues.get(stat).get();
+            for (int i = min; i <= max; ++i) {
+                stats.add(getExpectedStat(stat, i, 1));
+            }
+        }
+
+        return stats;
+    }
+
+    void refreshIvRange(Stat stat) {
+        refreshIvRange(stat, minMinusIndividualValues.get(stat).get(),
+                minNeutralIndividualValues.get(stat).get(), minPlusIndividualValues.get(stat).get());
+    }
+
+    private void refreshIvRange(Stat stat, int minIv, int neutralIv, int plusIv) {
+        int lowest = 31;
+        int highest = 0;
+
+        int possible = 0;
+        int nature = 0;
+
+        if (minIv != -1) {
+            ++possible;
+            nature = -1;
+            if (minIv < lowest) {
+                lowest = minIv;
+            }
+            if (maxMinusIndividualValues.get(stat).get() > highest) {
+                highest = maxMinusIndividualValues.get(stat).get();
+            }
+        }
+
+        if (neutralIv != -1) {
+            ++possible;
+            if (neutralIv < lowest) {
+                lowest = neutralIv;
+            }
+            if (maxNeutralIndividualValues.get(stat).get() > highest) {
+                highest = maxNeutralIndividualValues.get(stat).get();
+            }
+        }
+
+        if (plusIv != -1) {
+            ++possible;
+            nature = 1;
+            if (plusIv < lowest) {
+                lowest = plusIv;
+            }
+            if (maxPlusIndividualValues.get(stat).get() > highest) {
+                highest = maxPlusIndividualValues.get(stat).get();
+            }
+        }
+
+
+        minIndividualValues.get(stat).set(lowest);
+        maxIndividualValues.get(stat).set(highest);
+
+        if (possible == 1) {
+
+            boolean knowledgeChanged = false;
+            // We found the correct nature!
+            switch (nature) {
+                case -1: knowledgeChanged = natureCalculator.setMinusNature(stat); break;
+                case 1: knowledgeChanged = natureCalculator.setPlusNature(stat); break;
+                case 0: knowledgeChanged = natureCalculator.addNeutralNature(stat); break;
+            }
+
+            Stat minus = natureCalculator.getMinusNature();
+            Stat plus = natureCalculator.getPlusNature();
+
+            if (minus != null && plus != null) {
+                setNature(Nature.getNature(minus, plus));
+            }
+
+            if (knowledgeChanged) {
+                cleanUpIncompatibleRanges(stat, nature);
+            }
+        }
+    }
+
+    private void cleanUpIncompatibleRanges(Stat referenceNature, int value) {
+
+        for (final Stat stat: Stat.DEFAULT_STATS) {
+            if (stat.equals(referenceNature)) {
+                continue;
+            }
+            if (value == 1) {
+                int oldMin = minPlusIndividualValues.get(stat).get();
+                if (oldMin != -1) {
+                    minPlusIndividualValues.get(stat).set(-1);
+                    maxPlusIndividualValues.get(stat).set(-1);
+                    refreshIvRange(stat);
+                }
+            } else if (value == -1) {
+                int oldMin = minMinusIndividualValues.get(stat).get();
+                if (oldMin != -1) {
+                    minMinusIndividualValues.get(stat).set(-1);
+                    maxMinusIndividualValues.get(stat).set(-1);
+                    refreshIvRange(stat);
+                }
+            }
+        }
+    }
+
 }

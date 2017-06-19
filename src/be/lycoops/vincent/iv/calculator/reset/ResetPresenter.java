@@ -22,8 +22,8 @@ public class ResetPresenter {
     private History history;
 
     public void reset() {
-        natureCalculator.reset();
         pokemon.reset();
+        natureCalculator.reset();
         pokemon.setHiddenPower(hiddenPowerCalculator.setUnknown());
         history.reset();
     }

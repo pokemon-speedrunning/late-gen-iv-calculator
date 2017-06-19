@@ -64,9 +64,7 @@ public class ConfigurationPresenter implements Initializable {
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        gameService.gameProperty().addListener((o, old, newGame) -> {
-            setGame(newGame);
-        });
+        gameService.gameProperty().addListener((o, old, newGame) -> setGame(newGame));
         moon.setDisable(true);
     }
 
@@ -82,8 +80,8 @@ public class ConfigurationPresenter implements Initializable {
     }
 
     private void updateEffortValues() {
-        Map<String, IntegerProperty> effortValues = pokemon.getEffortValues();
-        Map<String, Integer> newEffortValues = EffortValueProvider.getEffortValues(gameService.getGame(), pokemon.getLevel());
+        Map<Stat, IntegerProperty> effortValues = pokemon.getEffortValues();
+        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(gameService.getGame(), pokemon.getLevel());
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
     }
 }

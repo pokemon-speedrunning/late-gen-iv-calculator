@@ -93,13 +93,13 @@ public class HiddenPowerCalculator {
     private double combinationProbability(Pokemon pokemon, int hp, int atk, int def, int spd, int spAtk, int spDef) {
 
         final int[] oddness = new int[]{hp, atk, def, spd, spAtk, spDef};
-        final String[] names = new String[]{"hp", "atk", "def", "spd", "spAtk", "spDef"};
+        final Stat[] stats = Stat.ALL_STATS;
 
         double probability = 1;
 
         for (int i = 0; i < oddness.length; ++i) {
-            int minIv = pokemon.getMinIndividualValues().get(names[i]).get();
-            int maxIv = pokemon.getMaxIndividualValues().get(names[i]).get();
+            int minIv = pokemon.getMinIndividualValues().get(stats[i]).get();
+            int maxIv = pokemon.getMaxIndividualValues().get(stats[i]).get();
             if (minIv % 2 != maxIv % 2) {
                 // 50/50 chance, since even amount of possible IVs are possible.
                 probability*= 0.5;

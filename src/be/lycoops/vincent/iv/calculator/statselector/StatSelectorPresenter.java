@@ -1,81 +1,201 @@
 package be.lycoops.vincent.iv.calculator.statselector;
 
-import be.lycoops.vincent.iv.model.History;
+
+import be.lycoops.vincent.iv.calculator.statselector.knownselector.KnownSelectorPresenter;
+import be.lycoops.vincent.iv.calculator.statselector.knownselector.KnownSelectorView;
+import be.lycoops.vincent.iv.calculator.statselector.unknownselector.UnknownSelectorPresenter;
+import be.lycoops.vincent.iv.calculator.statselector.unknownselector.UnknownSelectorView;
+import be.lycoops.vincent.iv.model.NatureCalculator;
 import be.lycoops.vincent.iv.model.Pokemon;
+import be.lycoops.vincent.iv.model.Stat;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 
 import javax.inject.Inject;
 import java.net.URL;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class StatSelectorPresenter implements Initializable {
 
     @FXML
-    private List<Button> statButtons;
+    private GridPane centerGrid;
 
     @FXML
-    private Label statEv;
+    private Label atkNatureLabel;
+
+    @FXML
+    private Label defNatureLabel;
+
+    @FXML
+    private Label spdNatureLabel;
+
+    @FXML
+    private Label spAtkNatureLabel;
+
+    @FXML
+    private Label spDefNatureLabel;
+
+    private Map<Stat, Label> natureLabels = new HashMap<>();
+
+    private Map<Stat, GridPane> known = new HashMap<>();
+
+    private Map<Stat, GridPane> unknown = new HashMap<>();
 
     @Inject
     private Pokemon pokemon;
 
     @Inject
-    private History history;
+    private NatureCalculator natureCalculator;
 
-    @Inject
-    private String stat;
-
-    public void setStat(MouseEvent event) {
-        Button button = (Button) event.getSource();
-        if (button.isDisabled()) {
-            return;
-        }
-        int value = Integer.valueOf(button.getText());
-
-        int min = pokemon.getMinIndividualValues().get(stat).get();
-        int max = pokemon.getMaxIndividualValues().get(stat).get();
-        history.addStat(stat, min, max);
-
-        if (!event.isShiftDown()) {
-            pokemon.setKnownStat(stat, value);
-        } else {
-            pokemon.setKnownIv(stat, statButtons.indexOf(button));
+    private void formatNatures(final Stat minusNature, final Stat plusNature) {
+        for (final Stat stat: Stat.DEFAULT_STATS) {
+            formatNature(stat, minusNature, plusNature);
         }
     }
 
-    public void statUp() {
-        pokemon.addAdditionalEffortValue(stat);
-        history.addEvAdded(stat);
+    private void formatNature(Stat stat, Stat minusNature, Stat plusNature) {
+        int value = 0;
+        if (stat.equals(plusNature)) {
+            value = 1;
+        } else if (stat.equals(minusNature)) {
+            value = -1;
+        }
+        natureLabels.get(stat).setTextFill(getTextFillColor(value));
+
+        ObservableList<Node> children = centerGrid.getChildren();
+        children.remove(known.get(stat));
+        children.remove(unknown.get(stat));
+        children.add((mustShowKnown(stat) ? known : unknown).get(stat));
+    }
+
+    private boolean mustShowKnown(Stat stat) {
+
+        if (pokemon.getNature() != null) {
+            return true;
+        }
+
+        if (stat.equals(natureCalculator.getMinusNature()) || stat.equals(natureCalculator.getPlusNature())) {
+            return true;
+        }
+
+        if (natureCalculator.neutralNaturesProperty().contains(stat)){
+            return true;
+        }
+
+        int possible = 0;
+        int minus = pokemon.getMinMinusIndividualValues().get(stat).get();
+        int neutral = pokemon.getMinNeutralIndividualValues().get(stat).get();
+        int plus = pokemon.getMinPlusIndividualValues().get(stat).get();
+
+        if (minus != -1) ++possible;
+        if (neutral != -1) ++possible;
+        if (plus != -1) ++possible;
+
+        // Covers neutral case.
+        return possible == 1;
+    }
+
+    private static Paint getTextFillColor(int value) {
+        String color;
+        switch (value) {
+            case -1: color = "#79CEE3"; break;
+            case 1: color = "#FF5555"; break;
+            default: color = "#000000"; break;
+        }
+        return Paint.valueOf(color);
+    }
+
+    private void setNature(MouseEvent event, Stat stat) {
+        MouseButton button = event.getButton();
+        switch (button) {
+            case PRIMARY: {
+                natureCalculator.setPlusNature(stat);
+            } break;
+            case SECONDARY: {
+                natureCalculator.setMinusNature(stat);
+            } break;
+            case MIDDLE: {
+                natureCalculator.undoNature(stat);
+            } break;
+        }
+        pokemon.setNature(natureCalculator.computeNature());
+    }
+
+    public void atkNature(MouseEvent event) {
+        setNature(event, Stat.ATK);
+    }
+
+    public void defNature(MouseEvent event) {
+        setNature(event, Stat.DEF);
+    }
+
+    public void spdNature(MouseEvent event) {
+        setNature(event, Stat.SPD);
+    }
+
+    public void spAtkNature(MouseEvent event) {
+        setNature(event, Stat.SP_ATK);
+    }
+
+    public void spDefNature(MouseEvent event) {
+        setNature(event, Stat.SP_DEF);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        pokemon.getMinIndividualValues().get(stat).addListener((o, oldMin, newMin) ->formatButtons());
-        pokemon.getMaxIndividualValues().get(stat).addListener((o, oldMax, newMax) -> formatButtons());
-        pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> formatButtons());
-        pokemon.getEffortValues().get(stat).addListener((o, oldEv, newEv) -> formatButtons());
-        pokemon.natureProperty().addListener((o, oldNature, newNature) -> formatButtons());
-        pokemon.getAdditionalEffortValues().getEffortValue(stat).addListener((o, oldEv, newEv) -> {
-            statEv.setText(String.valueOf(newEv));
-            formatButtons();
-        });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> formatButtons());
+        ObservableList<Node> children = centerGrid.getChildren();
 
-        formatButtons();
-    }
+        KnownSelectorView hpSelector = new KnownSelectorView();
+        GridPane hpGrid = (GridPane) hpSelector.getView();
+        GridPane.setConstraints(hpGrid, 1, 1);
+        children.add(hpGrid);
+        ((KnownSelectorPresenter) hpSelector.getPresenter()).setStat(Stat.HP);
 
-    private void formatButtons() {
-        int min = pokemon.getMinIndividualValues().get(stat).get();
-        int max = pokemon.getMaxIndividualValues().get(stat).get();
-        for (int i = 0; i < 32; ++i) {
-            Button button = statButtons.get(i);
-            button.setDisable(i < min || i > max);
-            button.setText(String.valueOf(pokemon.getExpectedStat(stat, i)));
+
+        int columnIndex = 2;
+        for (final Stat stat: Stat.DEFAULT_STATS) {
+            KnownSelectorView knownSelectorView = new KnownSelectorView();
+            ((KnownSelectorPresenter) knownSelectorView.getPresenter()).setStat(stat);
+
+            UnknownSelectorView unknownSelectorView = new UnknownSelectorView();
+            ((UnknownSelectorPresenter) unknownSelectorView.getPresenter()).setStat(stat);
+
+            GridPane grid = (GridPane) knownSelectorView.getView();
+            GridPane.setConstraints(grid, columnIndex, 1);
+            known.put(stat, grid);
+
+            grid = (GridPane) unknownSelectorView.getView();
+            GridPane.setConstraints(grid, columnIndex++, 1);
+            unknown.put(stat, grid);
+
+            children.add(grid);
         }
+
+        natureLabels.put(Stat.ATK, atkNatureLabel);
+        natureLabels.put(Stat.DEF, defNatureLabel);
+        natureLabels.put(Stat.SPD, spdNatureLabel);
+        natureLabels.put(Stat.SP_ATK, spAtkNatureLabel);
+        natureLabels.put(Stat.SP_DEF, spDefNatureLabel);
+
+        natureCalculator.minusNatureProperty().addListener((o, old, newNature) ->
+                formatNatures(newNature, natureCalculator.plusNatureProperty().get()));
+
+        natureCalculator.neutralNaturesProperty().addListener((o, old, n) ->
+                formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get()));
+
+        natureCalculator.plusNatureProperty().addListener((o, old, newNature) ->
+                formatNatures(natureCalculator.minusNatureProperty().get(), newNature));
+
+        pokemon.natureProperty().addListener((o, old, newNature) ->
+                formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get()));
     }
 }

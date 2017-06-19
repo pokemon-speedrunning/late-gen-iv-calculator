@@ -4,6 +4,7 @@ package be.lycoops.vincent.iv.calculator.hiddenpower;
 import be.lycoops.vincent.iv.model.HiddenPower;
 import be.lycoops.vincent.iv.model.HiddenPowerCalculator;
 import be.lycoops.vincent.iv.model.Pokemon;
+import be.lycoops.vincent.iv.model.Stat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -36,7 +37,7 @@ public class HiddenPowerPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for (final String stat: Arrays.asList("hp", "atk", "def", "spd", "spAtk", "spDef")) {
+        for (final Stat stat: Stat.ALL_STATS) {
             pokemon.getMinIndividualValues().get(stat).addListener((obs, old, n) -> displayProbabilities());
             pokemon.getMaxIndividualValues().get(stat).addListener((obs, old, n) -> displayProbabilities());
         }

@@ -4,21 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class History {
+
+    public static String name = "a";
+
+
     public interface HistoryAction {
     }
 
-    public class Stat implements HistoryAction {
-        private String stat;
+    public class StatAction implements HistoryAction {
+        private Stat stat;
         private int lowIv;
         private int highIv;
 
-        private Stat(String stat, int lowIv, int highIv) {
+        private StatAction(Stat stat, int lowIv, int highIv) {
             this.stat = stat;
             this.lowIv = lowIv;
             this.highIv = highIv;
         }
 
-        public String getStat() {
+        public Stat getStat() {
             return stat;
         }
 
@@ -34,13 +38,13 @@ public class History {
     public class Evolution implements HistoryAction {}
 
     public class EvAdded implements HistoryAction {
-        private String stat;
+        private Stat stat;
 
-        private EvAdded(String stat) {
+        private EvAdded(Stat stat) {
             this.stat = stat;
         }
 
-        public String getStat() {
+        public Stat getStat() {
             return stat;
         }
     }
@@ -51,15 +55,16 @@ public class History {
         stats.clear();
     }
 
-    public void addStat(String stat, int lowIv, int highIv) {
-        stats.add(new Stat(stat, lowIv, highIv));
+
+    public void addStat(Stat stat, int lowIv, int highIv) {
+        stats.add(new StatAction(stat, lowIv, highIv));
     }
 
     public void addEvolution() {
         stats.add(new Evolution());
     }
 
-    public void addEvAdded(String stat) {
+    public void addEvAdded(Stat stat) {
         stats.add(new EvAdded(stat));
     }
 

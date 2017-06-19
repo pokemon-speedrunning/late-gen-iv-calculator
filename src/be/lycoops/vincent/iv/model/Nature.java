@@ -65,25 +65,25 @@ public enum Nature {
         return natures;
     }
 
-    public static Nature getNature(String minusNature, String plusNature) {
+    public static Nature getNature(Stat minusNature, Stat plusNature) {
         if (minusNature == null || plusNature == null) {
             return null;
         }
 
-        for (Nature nature: values()) {
+        for (final Nature nature: values()) {
             switch (minusNature) {
-                case "atk": if (nature.atk != -1) continue; break;
-                case "def": if (nature.def != -1) continue; break;
-                case "spd": if (nature.spd != -1) continue; break;
-                case "spAtk": if (nature.spAtk != -1) continue; break;
-                case "spDef": if (nature.spDef != -1) continue; break;
+                case ATK: if (nature.atk != -1) continue; break;
+                case DEF: if (nature.def != -1) continue; break;
+                case SPD: if (nature.spd != -1) continue; break;
+                case SP_ATK: if (nature.spAtk != -1) continue; break;
+                case SP_DEF: if (nature.spDef != -1) continue; break;
             }
             switch (plusNature) {
-                case "atk": if (nature.atk != 1) continue; break;
-                case "def": if (nature.def != 1) continue; break;
-                case "spd": if (nature.spd != 1) continue; break;
-                case "spAtk": if (nature.spAtk != 1) continue; break;
-                case "spDef": if (nature.spDef != 1) continue; break;
+                case ATK: if (nature.atk != 1) continue; break;
+                case DEF: if (nature.def != 1) continue; break;
+                case SPD: if (nature.spd != 1) continue; break;
+                case SP_ATK: if (nature.spAtk != 1) continue; break;
+                case SP_DEF: if (nature.spDef != 1) continue; break;
             }
             return nature;
         }
@@ -91,13 +91,13 @@ public enum Nature {
     }
 
 
-    public int getStat(String stat) {
+    public int getStat(Stat stat) {
         switch (stat) {
-            case "atk": return atk;
-            case "def": return def;
-            case "spd": return spd;
-            case "spAtk": return spAtk;
-            case "spDef": return spDef;
+            case ATK: return atk;
+            case DEF: return def;
+            case SPD: return spd;
+            case SP_ATK: return spAtk;
+            case SP_DEF: return spDef;
         }
         throw new IllegalArgumentException(stat + " is not a valid stat modified by a nature.");
     }

@@ -1,9 +1,6 @@
 package be.lycoops.vincent.iv.calculator.output;
 
-import be.lycoops.vincent.iv.model.HiddenPowerCalculator;
-import be.lycoops.vincent.iv.model.Nature;
-import be.lycoops.vincent.iv.model.NatureCalculator;
-import be.lycoops.vincent.iv.model.Pokemon;
+import be.lycoops.vincent.iv.model.*;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,7 +43,7 @@ public class OutputPresenter implements Initializable {
     @FXML
     private Label nature;
 
-    private Map<String, Label> statRanges = new HashMap<>();
+    private Map<Stat, Label> statRanges = new HashMap<>();
 
     @FXML
     private Label atkText;
@@ -63,7 +60,7 @@ public class OutputPresenter implements Initializable {
     @FXML
     private Label spDefText;
 
-    private Map<String, Label> natureLabels = new HashMap<>();
+    private Map<Stat, Label> natureLabels = new HashMap<>();
 
     @Inject
     private HiddenPowerCalculator hiddenPowerCalculator;
@@ -102,40 +99,59 @@ public class OutputPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        statRanges.put("hp", hpIvRange);
-        statRanges.put("atk", atkIvRange);
-        statRanges.put("def", defIvRange);
-        statRanges.put("spd", spdIvRange);
-        statRanges.put("spAtk", spAtkIvRange);
-        statRanges.put("spDef", spDefIvRange);
+        statRanges.put(Stat.HP, hpIvRange);
+        statRanges.put(Stat.ATK, atkIvRange);
+        statRanges.put(Stat.DEF, defIvRange);
+        statRanges.put(Stat.SPD, spdIvRange);
+        statRanges.put(Stat.SP_ATK, spAtkIvRange);
+        statRanges.put(Stat.SP_DEF, spDefIvRange);
 
 
-        natureLabels.put("atk", atkText);
-        natureLabels.put("def", defText);
-        natureLabels.put("spd", spdText);
-        natureLabels.put("spAtk", spAtkText);
-        natureLabels.put("spDef", spDefText);
+        natureLabels.put(Stat.ATK, atkText);
+        natureLabels.put(Stat.DEF, defText);
+        natureLabels.put(Stat.SPD, spdText);
+        natureLabels.put(Stat.SP_ATK, spAtkText);
+        natureLabels.put(Stat.SP_DEF, spDefText);
 
-        for (final String stat: Arrays.asList("hp", "atk", "def", "spd", "spAtk", "spDef")) {
-            pokemon.getMinIndividualValues().get(stat).addListener((o, oldMin, newMin) -> asMinIv(stat, (int) newMin));
-            pokemon.getMaxIndividualValues().get(stat).addListener((o, oldMax, newMax) -> asMaxIv(stat, (int) newMax));
+        for (final Stat stat: Stat.ALL_STATS) {
+            pokemon.getMinIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            pokemon.getMaxIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            if (stat.equals(Stat.HP)) {
+                continue;
+            }
+            pokemon.getMinMinusIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            pokemon.getMaxMinusIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            pokemon.getMinNeutralIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            pokemon.getMaxNeutralIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            pokemon.getMinPlusIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            pokemon.getMaxPlusIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
+            displayIndividualValues(stat);
         }
 
         pokemon.hiddenPowerProperty().addListener((o, oldHp, newHp) ->
-            hiddenPowerLabel.setText(newHp == null ? "?" : newHp.getName()));
+                hiddenPowerLabel.setText(newHp == null ? "?" : newHp.getName()));
 
         pokemon.natureProperty().addListener((o, oldNature, newNature) ->
                 nature.setText(newNature == null ? "?" : newNature.getName()));
 
-        natureCalculator.minusNatureProperty().addListener((o, old, newNature) ->
-                formatNatures(newNature, natureCalculator.plusNatureProperty().get()));
+        natureCalculator.minusNatureProperty().addListener((o, old, newNature) -> {
+            formatNatures(newNature, natureCalculator.plusNatureProperty().get());
+            for (final Stat stat: Stat.DEFAULT_STATS) {
+                displayIndividualValues(stat);
+            }
+        });
 
-        natureCalculator.plusNatureProperty().addListener((o, old, newNature) ->
-                formatNatures(natureCalculator.minusNatureProperty().get(), newNature));
+        natureCalculator.plusNatureProperty().addListener((o, old, newNature) -> {
+            formatNatures(natureCalculator.minusNatureProperty().get(), newNature);
+            for (final Stat stat: Stat.DEFAULT_STATS) {
+                displayIndividualValues(stat);
+            }
+        });
+
 
     }
 
-    private void formatNatures(String minusNature, String plusNature) {
+    private void formatNatures(Stat minusNature, Stat plusNature) {
         natureLabels.forEach((nature, label) -> {
             int value = 0;
             if (nature.equals(plusNature)) {
@@ -157,15 +173,47 @@ public class OutputPresenter implements Initializable {
         return Paint.valueOf(color);
     }
 
-    private void asMinIv(String stat, int min) {
-        displayIndividualValues(stat, min, pokemon.getMaxIndividualValues().get(stat).get());
-    }
+    private void displayIndividualValues(Stat stat) {
 
-    private void asMaxIv(String stat, int max) {
-        displayIndividualValues(stat, pokemon.getMinIndividualValues().get(stat).get(), max);
-    }
+        int min = pokemon.getMinIndividualValues().get(stat).get();
+        int max = pokemon.getMaxIndividualValues().get(stat).get();
 
-    private void displayIndividualValues(String stat, int min, int max) {
+
         statRanges.get(stat).setText(min == max ? String.valueOf(min) : (min + "-" + max));
+
+        if (stat.equals(Stat.HP)) {
+            return;
+        }
+
+        boolean canBeMinus = pokemon.getMinMinusIndividualValues().get(stat).get() != -1;
+        boolean canBeNeutral = pokemon.getMinNeutralIndividualValues().get(stat).get() != -1;
+        boolean canBePlus = pokemon.getMinPlusIndividualValues().get(stat).get() != -1;
+
+        String visualName = stat.getVisualName();
+
+        Stat minusNature = natureCalculator.getMinusNature();
+        Stat plusNature = natureCalculator.getPlusNature();
+
+        if (canBeMinus && minusNature != null && !minusNature.equals(stat)) {
+            canBeMinus = false;
+        }
+
+        if (canBePlus && plusNature != null && !plusNature.equals(stat)) {
+            canBePlus = false;
+        }
+
+        int sum = (canBeMinus ? 1 : 0) + (canBeNeutral ? 1 : 0) + (canBePlus ? 1 : 0);
+
+
+        if (sum > 1 && !stat.equals(minusNature) && !stat.equals(plusNature)) {
+            if (canBeMinus && canBePlus) {
+                visualName = "±" + visualName;
+            } else if (canBeMinus) {
+                visualName = "-" + visualName;
+            } else if (canBePlus) {
+                visualName = "+" + visualName;
+            }
+        }
+        natureLabels.get(stat).setText(visualName);
     }
 }

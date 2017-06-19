@@ -8,11 +8,12 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         CalculatorView view = new CalculatorView();
         CalculatorPresenter presenter = (CalculatorPresenter) view.getPresenter();
         Scene scene = new Scene(view.getView());

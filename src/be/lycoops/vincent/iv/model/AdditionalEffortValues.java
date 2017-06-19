@@ -9,24 +9,24 @@ import java.util.Map;
 
 public class AdditionalEffortValues {
 
-    private Map<String, IntegerProperty> effortValues = new HashMap<>();
+    private Map<Stat, IntegerProperty> effortValues = new HashMap<>();
 
     AdditionalEffortValues() {
-        for (final String stat: Arrays.asList("hp", "atk", "def", "spd", "spAtk", "spDef")) {
+        for (final Stat stat: Stat.ALL_STATS) {
             effortValues.put(stat, new SimpleIntegerProperty(0));
         }
     }
 
-    void increment(final String stat) {
+    void increment(final Stat stat) {
         effortValues.get(stat).set(effortValues.get(stat).get() + 1);
     }
 
-    public IntegerProperty getEffortValue(String stat) {
+    public IntegerProperty getEffortValue(Stat stat) {
         return effortValues.get(stat);
     }
 
     public void reset() {
-        for (final String stat: Arrays.asList("hp", "atk", "def", "spd", "spAtk", "spDef")) {
+        for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
         }
     }
