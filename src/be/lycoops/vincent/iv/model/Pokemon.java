@@ -3,7 +3,6 @@ package be.lycoops.vincent.iv.model;
 import javafx.beans.property.*;
 
 import javax.annotation.PostConstruct;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedSet;
@@ -270,6 +269,7 @@ public class Pokemon {
         int plusIv = setKnownStat(stat, value, minPlusIndividualValues.get(stat), maxPlusIndividualValues.get(stat), 1);
 
         refreshIvRange(stat, minIv, neutralIv, plusIv);
+        natureCalculator.checkNeutralNature();
     }
 
     private int setKnownStat(Stat stat, int value, IntegerProperty minProp, IntegerProperty maxProp, int nature) {

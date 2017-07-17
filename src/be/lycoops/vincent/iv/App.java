@@ -8,8 +8,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.HashMap;
-
 public class App extends Application {
 
     @Override

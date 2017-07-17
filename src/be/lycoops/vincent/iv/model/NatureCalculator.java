@@ -86,6 +86,35 @@ public class NatureCalculator {
         return Nature.getNature(minusNature.get(), plusNature.get());
     }
 
+    public void checkNeutralNature() {
+        if (minusNature.get() != null || plusNature.get() != null) {
+            return;
+        }
+
+        int potentialMinus = 0;
+        int potentialPlus = 0;
+
+        for (final Stat s: Stat.DEFAULT_STATS) {
+            if (pokemon.getMinMinusIndividualValues().get(s).get() != -1) {
+                ++potentialMinus;
+            }
+            if (pokemon.getMinPlusIndividualValues().get(s).get() != -1) {
+                ++potentialPlus;
+            }
+        }
+
+        if (potentialMinus == 0 || potentialPlus == 0) {
+            pokemon.setNature(Nature.DOCILE);
+            for (final Stat s: Stat.DEFAULT_STATS) {
+                pokemon.getMinMinusIndividualValues().get(s).set(-1);
+                pokemon.getMaxMinusIndividualValues().get(s).set(-1);
+                pokemon.getMinPlusIndividualValues().get(s).set(-1);
+                pokemon.getMaxPlusIndividualValues().get(s).set(-1);
+                pokemon.refreshIvRange(s);
+            }
+        }
+    }
+
     public boolean addNeutralNature(final Stat stat) {
         boolean added = !neutralNatures.contains(stat);
         if (added) {
