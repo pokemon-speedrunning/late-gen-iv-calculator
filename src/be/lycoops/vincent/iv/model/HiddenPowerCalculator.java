@@ -93,7 +93,7 @@ public class HiddenPowerCalculator {
     private double combinationProbability(Pokemon pokemon, int hp, int atk, int def, int spd, int spAtk, int spDef) {
 
         final int[] oddness = new int[]{hp, atk, def, spd, spAtk, spDef};
-        final Stat[] stats = Stat.ALL_STATS;
+        final Stat[] stats = new Stat[]{Stat.HP, Stat.ATK, Stat.DEF, Stat.SPD, Stat.SP_ATK, Stat.SP_DEF};
 
         double probability = 1;
 
