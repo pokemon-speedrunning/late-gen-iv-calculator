@@ -2,9 +2,12 @@ package be.lycoops.vincent.iv.model;
 
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
+import javafx.util.Callback;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.nio.file.DirectoryStream;
+import java.util.Map;
 
 public class NatureCalculator {
 
@@ -43,9 +46,25 @@ public class NatureCalculator {
     }
 
     public boolean setPlusNature(Stat plusNature) {
+
         if (this.plusNature.get() == null && plusNature == null) {
             return false;
         }
+
+        if (plusNature != null) {
+            pokemon.getMinMinusIndividualValues().get(plusNature).set(-1);
+            pokemon.getMaxMinusIndividualValues().get(plusNature).set(-1);
+            pokemon.getMinNeutralIndividualValues().get(plusNature).set(-1);
+            pokemon.getMaxNeutralIndividualValues().get(plusNature).set(-1);
+
+            for (final Stat stat : Stat.DEFAULT_STATS) {
+                if (!stat.equals(plusNature)) {
+                    pokemon.getMinPlusIndividualValues().get(stat).set(-1);
+                    pokemon.getMaxPlusIndividualValues().get(stat).set(-1);
+                }
+            }
+        }
+
         boolean changed = plusNature == null || !plusNature.equals(this.plusNature.get());
         this.plusNature.set(plusNature);
         if (plusNature != null && plusNature.equals(minusNature.get())) {
@@ -71,9 +90,25 @@ public class NatureCalculator {
     }
 
     public boolean setMinusNature(Stat minusNature) {
+
         if (this.minusNature.get() == null && minusNature == null) {
             return false;
         }
+
+        if (minusNature != null) {
+            pokemon.getMinPlusIndividualValues().get(minusNature).set(-1);
+            pokemon.getMaxPlusIndividualValues().get(minusNature).set(-1);
+            pokemon.getMinNeutralIndividualValues().get(minusNature).set(-1);
+            pokemon.getMaxNeutralIndividualValues().get(minusNature).set(-1);
+
+            for (final Stat stat : Stat.DEFAULT_STATS) {
+                if (!stat.equals(minusNature)) {
+                    pokemon.getMinMinusIndividualValues().get(stat).set(-1);
+                    pokemon.getMaxMinusIndividualValues().get(stat).set(-1);
+                }
+            }
+        }
+
         boolean changed = minusNature == null || !minusNature.equals(this.minusNature.get());
         this.minusNature.set(minusNature);
         if (minusNature != null && minusNature.equals(plusNature.get())) {
@@ -86,7 +121,56 @@ public class NatureCalculator {
         return Nature.getNature(minusNature.get(), plusNature.get());
     }
 
-    public void checkNeutralNature() {
+    /**
+     * Dirty method to verify nature - this method just fixes the oversight of the initial nature calculation.
+     */
+    public void checkNatures() {
+        if (pokemon.getNature() != null) {
+            return;
+        }
+        checkNeutralNature();
+
+        if (pokemon.getNature() != null) {
+            return;
+        }
+        if (minusNature.get() == null && plusNature.get() == null) {
+            return;
+        }
+        Stat foundStat = null;
+        Map<Stat, IntegerProperty> minIvs;
+        Map<Stat, IntegerProperty> maxIvs;
+        Callback<Stat, Boolean> setNature;
+        if (minusNature.get() != null) {
+            minIvs = pokemon.getMinPlusIndividualValues();
+            maxIvs = pokemon.getMaxPlusIndividualValues();
+            setNature = this::setPlusNature;
+        } else {
+            minIvs = pokemon.getMinMinusIndividualValues();
+            maxIvs = pokemon.getMaxMinusIndividualValues();
+            setNature = this::setMinusNature;
+        }
+
+        for (final Stat s: Stat.DEFAULT_STATS) {
+            if (minIvs.get(s).get() != -1) {
+                if (foundStat != null) {
+                    foundStat = null;
+                    break;
+                }
+                foundStat = s;
+            }
+        }
+
+        if (foundStat != null) {
+            pokemon.getMinNeutralIndividualValues().get(foundStat).set(-1);
+            pokemon.getMaxNeutralIndividualValues().get(foundStat).set(-1);
+            pokemon.getMinIndividualValues().get(foundStat).set(minIvs.get(foundStat).get());
+            pokemon.getMaxIndividualValues().get(foundStat).set(maxIvs.get(foundStat).get());
+            setNature.call(foundStat);
+            pokemon.setNature(Nature.getNature(getMinusNature(), getPlusNature()));
+        }
+    }
+
+    private void checkNeutralNature() {
         if (minusNature.get() != null || plusNature.get() != null) {
             return;
         }

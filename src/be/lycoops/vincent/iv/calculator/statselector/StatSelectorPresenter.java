@@ -118,14 +118,18 @@ public class StatSelectorPresenter implements Initializable {
         MouseButton button = event.getButton();
         switch (button) {
             case PRIMARY: {
-                natureCalculator.setPlusNature(stat);
+                if (natureCalculator.getPlusNature() == null) {
+                    natureCalculator.setPlusNature(stat);
+                }
             } break;
             case SECONDARY: {
-                natureCalculator.setMinusNature(stat);
+                if (natureCalculator.getMinusNature() == null) {
+                    natureCalculator.setMinusNature(stat);
+                }
             } break;
-            case MIDDLE: {
-                natureCalculator.undoNature(stat);
-            } break;
+//            case MIDDLE: {
+//                natureCalculator.undoNature(stat);
+//            } break;
         }
         pokemon.setNature(natureCalculator.computeNature());
     }

@@ -269,7 +269,7 @@ public class Pokemon {
         int plusIv = setKnownStat(stat, value, minPlusIndividualValues.get(stat), maxPlusIndividualValues.get(stat), 1);
 
         refreshIvRange(stat, minIv, neutralIv, plusIv);
-        natureCalculator.checkNeutralNature();
+        natureCalculator.checkNatures();
     }
 
     private int setKnownStat(Stat stat, int value, IntegerProperty minProp, IntegerProperty maxProp, int nature) {
