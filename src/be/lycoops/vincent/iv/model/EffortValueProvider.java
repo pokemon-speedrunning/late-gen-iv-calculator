@@ -5,7 +5,8 @@ import java.util.Map;
 
 public class EffortValueProvider {
     public static Map<Stat, Integer> getEffortValues(Game game, int level) {
-        Map<Stat, Integer> effortValues = new HashMap<>();
+        return getPikipekEffortValues(game, level);
+        /*Map<Stat, Integer> effortValues = new HashMap<>();
         int hp = 0, atk = 0, def = 0, spd = 0, spAtk = 0, spDef = 0;
         if (game.equals(Game.MOON)) {
             switch (level) {
@@ -47,8 +48,20 @@ public class EffortValueProvider {
                     hp = 8; atk = 7; def = 5; spd = 20; spAtk = 5; spDef = 3; break;
                 case 23: // Salazzle (2SPD * 2): 8 7 5 24 5 3
                     hp = 8; atk = 7; def = 5; spd = 24; spAtk = 5; spDef = 3; break;
-                default: // Salandit (1SPD * 2), Shiinotic (2SpDEF), 2 Fomantis (2ATK): 8 9 5 26 5 5
+                case 24: // Salandit (1SPD * 2), Shiinotic (2SpDEF), 2 Fomantis (2ATK): 8 9 5 26 5 5
                     hp = 8; atk = 9; def = 5; spd = 26; spAtk = 5; spDef = 5; break;
+                case 25: //
+                    hp = 8; atk = 9; def = 5; spd = 26; spAtk = 5; spDef = 5; break;
+                case 26: //
+                    hp = 8; atk = 9; def = 5; spd = 26; spAtk = 5; spDef = 5; break;
+                case 27: //
+                    hp = 8; atk = 9; def = 5; spd = 26; spAtk = 5; spDef = 5; break;
+                case 28: //
+                    hp = 8; atk = 9; def = 5; spd = 26; spAtk = 5; spDef = 5; break;
+                case 29: // Trumbeak (2ATK * 2), Lurantis (2ATK * 2), Fomantis (1ATK), Salandit (1SPD), Raticate (2SPD)
+                    hp = 8; atk = 18; def = 5; spd = 29; spAtk = 5; spDef = 5; break;
+                default: // Golbat (2SPD), Salandit (1SPD), Nosepass (1DEF), Boldore (1ATK + 1DEF)
+                    hp = 8; atk = 19; def = 7; spd = 32; spAtk = 5; spDef = 5; break;
             }
         } else {
             switch (level) {
@@ -93,6 +106,36 @@ public class EffortValueProvider {
                 default: // Parasect (2ATK, 1DEF), 2 Fomantis (2ATK): 9 21 6 15 5 3
                     hp = 9; atk = 21; def = 6; spd = 15; spAtk = 5; spDef = 3; break;
             }
+        }
+        effortValues.put(Stat.HP, hp);
+        effortValues.put(Stat.ATK, atk);
+        effortValues.put(Stat.DEF, def);
+        effortValues.put(Stat.SPD, spd);
+        effortValues.put(Stat.SP_ATK, spAtk);
+        effortValues.put(Stat.SP_DEF, spDef);
+        return effortValues;*/
+    }
+
+    public static Map<Stat, Integer> getPikipekEffortValues(Game game, int level) {
+        Map<Stat, Integer> effortValues = new HashMap<>();
+        int hp = 0, atk = 0, def = 0, spd = 0, spAtk = 0, spDef = 0;
+        if (game.equals(Game.MOON)) {
+            switch (level) {
+                case 2:
+                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
+                case 3:
+                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
+                case 4:
+                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
+                case 5:
+                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
+                case 6:
+                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
+                default:
+                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
+            }
+        } else {
+            throw new RuntimeException();
         }
         effortValues.put(Stat.HP, hp);
         effortValues.put(Stat.ATK, atk);

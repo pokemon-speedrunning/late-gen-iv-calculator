@@ -6,7 +6,6 @@ import javafx.util.Callback;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.nio.file.DirectoryStream;
 import java.util.Map;
 
 public class NatureCalculator {

@@ -1,6 +1,7 @@
 package be.lycoops.vincent.iv.calculator.output;
 
 import be.lycoops.vincent.iv.model.*;
+import javafx.beans.property.IntegerProperty;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -73,6 +74,24 @@ public class OutputPresenter implements Initializable {
 
     public void makeNeutralNature() {
         natureCalculator.reset();
+        pokemon.getMinMinusIndividualValues().forEach((stat, integerProperty) -> {
+            integerProperty.set(-1);
+        });
+        pokemon.getMinPlusIndividualValues().forEach((stat, integerProperty) -> {
+            integerProperty.set(-1);
+        });
+        pokemon.getMaxPlusIndividualValues().forEach((stat, integerProperty) -> {
+            integerProperty.set(-1);
+        });
+        pokemon.getMaxPlusIndividualValues().forEach((stat, integerProperty) -> {
+            integerProperty.set(-1);
+        });
+
+        natureCalculator.addNeutralNature(Stat.ATK);
+        natureCalculator.addNeutralNature(Stat.DEF);
+        natureCalculator.addNeutralNature(Stat.SP_ATK);
+        natureCalculator.addNeutralNature(Stat.SP_DEF);
+        natureCalculator.addNeutralNature(Stat.SPD);
         pokemon.setNature(Nature.DOCILE);
     }
 
