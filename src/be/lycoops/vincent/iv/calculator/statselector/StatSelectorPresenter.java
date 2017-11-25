@@ -115,23 +115,23 @@ public class StatSelectorPresenter implements Initializable {
     }
 
     private void setNature(MouseEvent event, Stat stat) {
-        MouseButton button = event.getButton();
-        switch (button) {
-            case PRIMARY: {
-                if (natureCalculator.getPlusNature() == null) {
-                    natureCalculator.setPlusNature(stat);
-                }
-            } break;
-            case SECONDARY: {
-                if (natureCalculator.getMinusNature() == null) {
-                    natureCalculator.setMinusNature(stat);
-                }
-            } break;
+//        MouseButton button = event.getButton();
+//        switch (button) {
+//            case PRIMARY: {
+//                if (natureCalculator.getPlusNature() == null) {
+//                    natureCalculator.setPlusNature(stat);
+//                }
+//            } break;
+//            case SECONDARY: {
+//                if (natureCalculator.getMinusNature() == null) {
+//                    natureCalculator.setMinusNature(stat);
+//                }
+//            } break;
 //            case MIDDLE: {
 //                natureCalculator.undoNature(stat);
 //            } break;
-        }
-        pokemon.setNature(natureCalculator.computeNature());
+//        }
+//        pokemon.setNature(natureCalculator.computeNature());
     }
 
     public void atkNature(MouseEvent event) {
@@ -196,10 +196,13 @@ public class StatSelectorPresenter implements Initializable {
         natureCalculator.neutralNaturesProperty().addListener((o, old, n) ->
                 formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get()));
 
+
         natureCalculator.plusNatureProperty().addListener((o, old, newNature) ->
                 formatNatures(natureCalculator.minusNatureProperty().get(), newNature));
 
         pokemon.natureProperty().addListener((o, old, newNature) ->
                 formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get()));
+
+        formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get());
     }
 }

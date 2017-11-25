@@ -150,8 +150,14 @@ public class OutputPresenter implements Initializable {
         pokemon.hiddenPowerProperty().addListener((o, oldHp, newHp) ->
                 hiddenPowerLabel.setText(newHp == null ? "?" : newHp.getName()));
 
+
+        Nature initialNature = pokemon.natureProperty().get();
+        if (initialNature != null) {
+            nature.setText(initialNature.getName());
+        }
         pokemon.natureProperty().addListener((o, oldNature, newNature) ->
                 nature.setText(newNature == null ? "?" : newNature.getName()));
+
 
         natureCalculator.minusNatureProperty().addListener((o, old, newNature) -> {
             formatNatures(newNature, natureCalculator.plusNatureProperty().get());
@@ -159,6 +165,7 @@ public class OutputPresenter implements Initializable {
                 displayIndividualValues(stat);
             }
         });
+        formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get());
 
         natureCalculator.plusNatureProperty().addListener((o, old, newNature) -> {
             formatNatures(natureCalculator.minusNatureProperty().get(), newNature);
@@ -166,7 +173,11 @@ public class OutputPresenter implements Initializable {
                 displayIndividualValues(stat);
             }
         });
+        formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get());
 
+        for (final Stat stat: Stat.DEFAULT_STATS) {
+            displayIndividualValues(stat);
+        }
 
     }
 

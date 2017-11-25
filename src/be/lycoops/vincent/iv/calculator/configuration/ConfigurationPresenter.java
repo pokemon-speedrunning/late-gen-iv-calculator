@@ -18,14 +18,14 @@ public class ConfigurationPresenter implements Initializable {
     @FXML
     private Label level;
 
-    @FXML
-    private Button evolved;
-
-    @FXML
-    private Button sun;
-
-    @FXML
-    private Button moon;
+//    @FXML
+//    private Button evolved;
+//
+//    @FXML
+//    private Button sun;
+//
+//    @FXML
+//    private Button moon;
 
     @Inject
     private Pokemon pokemon;
@@ -63,19 +63,19 @@ public class ConfigurationPresenter implements Initializable {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
+//        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
         gameService.gameProperty().addListener((o, old, newGame) -> setGame(newGame));
-        moon.setDisable(true);
+//        moon.setDisable(true);
     }
 
     private void setGame(Game game) {
-        if (game.equals(Game.MOON)) {
-            sun.setDisable(false);
-            moon.setDisable(true);
-        } else {
-            sun.setDisable(true);
-            moon.setDisable(false);
-        }
+//        if (game.equals(Game.MOON)) {
+//            sun.setDisable(false);
+//            moon.setDisable(true);
+//        } else {
+//            sun.setDisable(true);
+//            moon.setDisable(false);
+//        }
         updateEffortValues();
     }
 

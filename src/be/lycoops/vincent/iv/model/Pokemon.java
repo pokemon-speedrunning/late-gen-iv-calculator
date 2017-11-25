@@ -96,17 +96,38 @@ public class Pokemon {
             baseValues.put(Stat.SP_ATK, 30);
             baseValues.put(Stat.SP_DEF, 30);
         } else {
-            level.set(5);
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 54);
-            baseValues.put(Stat.DEF, 54);
-            baseValues.put(Stat.SPD, 40);
-            baseValues.put(Stat.SP_ATK, 66);
-            baseValues.put(Stat.SP_DEF, 56);
+            level.set(8);
+            baseValues.put(Stat.HP, 78);
+            baseValues.put(Stat.ATK, 92);
+            baseValues.put(Stat.DEF, 75);
+            baseValues.put(Stat.SPD, 118);
+            baseValues.put(Stat.SP_ATK, 74);
+            baseValues.put(Stat.SP_DEF, 63);
         }
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
+            if (stat.equals(Stat.ATK)) {
+                minMinusIndividualValues.get(stat).set(-1);
+                maxMinusIndividualValues.get(stat).set(-1);
+                minNeutralIndividualValues.get(stat).set(-1);
+                maxNeutralIndividualValues.get(stat).set(-1);
+                minPlusIndividualValues.get(stat).set(31);
+                maxPlusIndividualValues.get(stat).set(31);
+                minIndividualValues.get(stat).set(31);
+                maxIndividualValues.get(stat).set(31);
+                continue;
+            } else  if (stat.equals(Stat.SPD)) {
+                minMinusIndividualValues.get(stat).set(0);
+                maxMinusIndividualValues.get(stat).set(31);
+                minNeutralIndividualValues.get(stat).set(-1);
+                maxNeutralIndividualValues.get(stat).set(-1);
+                minPlusIndividualValues.get(stat).set(-1);
+                maxPlusIndividualValues.get(stat).set(-1);
+                minIndividualValues.get(stat).set(0);
+                maxIndividualValues.get(stat).set(31);
+                continue;
+            }
             minIndividualValues.get(stat).set(0);
             maxIndividualValues.get(stat).set(31);
             if (!stat.equals(Stat.HP)) {
@@ -120,10 +141,10 @@ public class Pokemon {
         }
         additionalEffortValues.reset();
         if (natureCalculator != null) {
-            natureCalculator.setPlusNature(null);
-            natureCalculator.setMinusNature(null);
+            natureCalculator.setPlusNature(Stat.ATK);
+            natureCalculator.setMinusNature(Stat.SPD);
         }
-        setNature(null);
+        setNature(Nature.BRAVE);
     }
 
     /**

@@ -20,11 +20,12 @@ public class NatureCalculator {
     @PostConstruct
     public void init() {
         pokemon.setNatureCalculator(this);
+        pokemon.reset();
     }
 
     public void reset() {
-        plusNature.set(null);
-        minusNature.set(null);
+        plusNature.set(Stat.ATK);
+        minusNature.set(Stat.SPD);
         neutralNatures.clear();
     }
 
