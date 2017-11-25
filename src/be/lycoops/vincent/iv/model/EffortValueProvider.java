@@ -39,7 +39,7 @@ public class EffortValueProvider {
                     hp = 1; atk = 2; def = 0; spd = 8; spAtk = 4; spDef = 1; break;
                 case 20:
                     hp = 1; atk = 2; def = 0; spd = 10; spAtk = 4; spDef = 1; break;
-                case 21:
+                default:
                     hp = 1; atk = 2; def = 0; spd = 11; spAtk = 4; spDef = 2; break;
             }
 //        } else {
