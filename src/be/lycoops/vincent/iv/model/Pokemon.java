@@ -204,7 +204,7 @@ public class Pokemon {
             baseValues.put(Stat.SP_ATK, 126);
             baseValues.put(Stat.SP_DEF, 116);
         }
-        if (level == 50) {
+        if (level == 99) {
             return;
         }
         this.level.set(level + 1);

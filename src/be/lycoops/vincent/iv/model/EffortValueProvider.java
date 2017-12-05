@@ -1,11 +1,30 @@
 package be.lycoops.vincent.iv.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class EffortValueProvider {
     public static Map<Stat, Integer> getEffortValues(Game game, int level) {
-        Map<Stat, Integer> effortValues = new HashMap<>();
+
+
+
+
+        Map<Stat, Integer> effortValues = importEffortValues(level);
+
+        if (effortValues != null) {
+            return effortValues;
+        }
+        effortValues = new HashMap<>();
+
         int hp = 0, atk = 0, def = 0, spd = 0, spAtk = 0, spDef = 0;
 //        if (game.equals(Game.MOON)) {
             switch (level) {
@@ -16,31 +35,7 @@ public class EffortValueProvider {
 //                case 7:
 //                    hp = 0; atk = 1; def = 0; spd = 2; spAtk = 0; spDef = 0; break;
                 case 8:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-                case 9:
-                    hp = 0; atk = 0; def = 0; spd = 2; spAtk = 0; spDef = 0; break;
-                case 10:
-                    hp = 0; atk = 0; def = 0; spd = 2; spAtk = 0; spDef = 1; break;
-                case 11:
-                    hp = 0; atk = 0; def = 0; spd = 4; spAtk = 0; spDef = 1; break;
-                case 12:
-                case 13:
-                    hp = 0; atk = 0; def = 0; spd = 4; spAtk = 0; spDef = 1; break;
-                case 14:
-                case 15:
-                    hp = 0; atk = 0; def = 0; spd = 5; spAtk = 0; spDef = 1; break;
-                case 16:
-                    hp = 0; atk = 0; def = 0; spd = 7; spAtk = 0; spDef = 1; break;
-                case 17:
-                    hp = 0; atk = 1; def = 0; spd = 8; spAtk = 0; spDef = 1; break;
-                case 18:
-                    hp = 1; atk = 2; def = 0; spd = 8; spAtk = 0; spDef = 1; break;
-                case 19:
-                    hp = 1; atk = 2; def = 0; spd = 8; spAtk = 4; spDef = 1; break;
-                case 20:
-                    hp = 1; atk = 2; def = 0; spd = 10; spAtk = 4; spDef = 1; break;
-                default:
-                    hp = 1; atk = 2; def = 0; spd = 11; spAtk = 4; spDef = 2; break;
+                    hp = 0; atk = 0; def = 0; spAtk = 0; spDef = 0; spd = 0; break;
             }
 //        } else {
 //            switch (level) {
@@ -93,6 +88,47 @@ public class EffortValueProvider {
         effortValues.put(Stat.SP_ATK, spAtk);
         effortValues.put(Stat.SP_DEF, spDef);
         return effortValues;
+    }
+
+    private static final Pattern pattern = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)");
+
+    private static Map<Stat, Integer> importEffortValues(int level) {
+        File file = new File("effort-values.txt");
+        if (!file.exists() || !file.canRead()) {
+            return null;
+        }
+
+        final Map<Stat, Integer> effortValues = new HashMap<>();
+
+        try (Stream<String> stream = Files.lines(Paths.get("effort-values.txt"))) {
+            stream.forEach(line -> {
+                Matcher m = pattern.matcher(line);
+                if (m.find()){
+                    if (Integer.parseInt(m.group(1)) == level) {
+                        effortValues.put(Stat.HP, Integer.parseInt(m.group(2)));
+                        effortValues.put(Stat.ATK, Integer.parseInt(m.group(3)));
+                        effortValues.put(Stat.DEF, Integer.parseInt(m.group(4)));
+                        effortValues.put(Stat.SPD, Integer.parseInt(m.group(5)));
+                        effortValues.put(Stat.SP_ATK, Integer.parseInt(m.group(6)));
+                        effortValues.put(Stat.SP_DEF, Integer.parseInt(m.group(7)));
+                    }
+                }
+            });
+            if (effortValues.size() == 0) {
+                System.out.println("Default values");
+                return null;
+            }
+            System.out.println("Custom values: ");
+            System.out.println(effortValues.get(Stat.HP));
+            System.out.println(effortValues.get(Stat.ATK));
+            System.out.println(effortValues.get(Stat.DEF));
+            System.out.println(effortValues.get(Stat.SPD));
+            System.out.println(effortValues.get(Stat.SP_ATK));
+            System.out.println(effortValues.get(Stat.SP_DEF));
+            return effortValues;
+        } catch (IOException e) {
+            return null;
+        }
     }
 
     public static Map<Stat, Integer> getPikipekEffortValues(Game game, int level) {
