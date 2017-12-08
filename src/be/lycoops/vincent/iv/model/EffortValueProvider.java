@@ -108,9 +108,9 @@ public class EffortValueProvider {
                         effortValues.put(Stat.HP, Integer.parseInt(m.group(2)));
                         effortValues.put(Stat.ATK, Integer.parseInt(m.group(3)));
                         effortValues.put(Stat.DEF, Integer.parseInt(m.group(4)));
-                        effortValues.put(Stat.SPD, Integer.parseInt(m.group(5)));
-                        effortValues.put(Stat.SP_ATK, Integer.parseInt(m.group(6)));
-                        effortValues.put(Stat.SP_DEF, Integer.parseInt(m.group(7)));
+                        effortValues.put(Stat.SP_ATK, Integer.parseInt(m.group(5)));
+                        effortValues.put(Stat.SP_DEF, Integer.parseInt(m.group(6)));
+                        effortValues.put(Stat.SPD, Integer.parseInt(m.group(7)));
                     }
                 }
             });
