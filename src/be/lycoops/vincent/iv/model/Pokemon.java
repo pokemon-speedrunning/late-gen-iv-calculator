@@ -98,11 +98,11 @@ public class Pokemon {
         } else {
             level.set(5);
             baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 54);
-            baseValues.put(Stat.DEF, 54);
+            baseValues.put(Stat.ATK, 70);
+            baseValues.put(Stat.DEF, 50);
+            baseValues.put(Stat.SP_ATK, 50);
+            baseValues.put(Stat.SP_DEF, 50);
             baseValues.put(Stat.SPD, 40);
-            baseValues.put(Stat.SP_ATK, 66);
-            baseValues.put(Stat.SP_DEF, 56);
         }
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
@@ -134,16 +134,16 @@ public class Pokemon {
             baseValues.put(Stat.HP, 55);
             baseValues.put(Stat.ATK, 85);
             baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SPD, 75);
             baseValues.put(Stat.SP_ATK, 40);
             baseValues.put(Stat.SP_DEF, 50);
+            baseValues.put(Stat.SPD, 75);
         } else {
             baseValues.put(Stat.HP, 60);
             baseValues.put(Stat.ATK, 69);
             baseValues.put(Stat.DEF, 69);
-            baseValues.put(Stat.SPD, 50);
             baseValues.put(Stat.SP_ATK, 91);
             baseValues.put(Stat.SP_DEF, 81);
+            baseValues.put(Stat.SPD, 50);
         }
         evolved.set(true);
     }
@@ -156,16 +156,16 @@ public class Pokemon {
             baseValues.put(Stat.HP, 35);
             baseValues.put(Stat.ATK, 75);
             baseValues.put(Stat.DEF, 30);
-            baseValues.put(Stat.SPD, 65);
             baseValues.put(Stat.SP_ATK, 30);
             baseValues.put(Stat.SP_DEF, 30);
+            baseValues.put(Stat.SPD, 65);
         } else {
             baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 54);
-            baseValues.put(Stat.DEF, 54);
+            baseValues.put(Stat.ATK, 70);
+            baseValues.put(Stat.DEF, 50);
+            baseValues.put(Stat.SP_ATK, 50);
+            baseValues.put(Stat.SP_DEF, 50);
             baseValues.put(Stat.SPD, 40);
-            baseValues.put(Stat.SP_ATK, 66);
-            baseValues.put(Stat.SP_DEF, 56);
         }
         evolved.set(false);
     }
@@ -179,9 +179,9 @@ public class Pokemon {
             baseValues.put(Stat.HP, 80);
             baseValues.put(Stat.ATK, 74);
             baseValues.put(Stat.DEF, 74);
-            baseValues.put(Stat.SPD, 60);
             baseValues.put(Stat.SP_ATK, 126);
             baseValues.put(Stat.SP_DEF, 116);
+            baseValues.put(Stat.SPD, 60);
         }
         if (level == 50) {
             return;
