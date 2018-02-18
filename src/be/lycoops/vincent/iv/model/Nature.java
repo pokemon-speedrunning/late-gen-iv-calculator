@@ -17,7 +17,7 @@ public enum Nature {
     ADAMANT ("Adamant", 1, 0, 0, -1, 0),
     NAUGHTY ("Naughty", 1, 0, 0, 0, -1),
     BOLD    ("Bold", -1, 1, 0, 0, 0),
-    DOCILE  ("Docile", 0, 0 , 0, 0, 0),
+    DOCILE  ("Docile", 0, 0, 0, 0, 0),
     RELAXED ("Relaxed", 0, 1, -1, 0, 0),
     IMPISH  ("Impish", 0, 1, 0, -1, 0),
     LAX     ("Lax", 0, 1, 0, 0, -1),
