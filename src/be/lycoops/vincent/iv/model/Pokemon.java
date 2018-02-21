@@ -138,11 +138,11 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 50);
             baseValues.put(Stat.SPD, 75);
         } else {
-            baseValues.put(Stat.HP, 60);
-            baseValues.put(Stat.ATK, 69);
-            baseValues.put(Stat.DEF, 69);
-            baseValues.put(Stat.SP_ATK, 91);
-            baseValues.put(Stat.SP_DEF, 81);
+            baseValues.put(Stat.HP, 70);
+            baseValues.put(Stat.ATK, 85);
+            baseValues.put(Stat.DEF, 70);
+            baseValues.put(Stat.SP_ATK, 60);
+            baseValues.put(Stat.SP_DEF, 70);
             baseValues.put(Stat.SPD, 50);
         }
         evolved.set(true);
