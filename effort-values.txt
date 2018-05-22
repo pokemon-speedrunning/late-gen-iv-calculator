@@ -1,26 +1,63 @@
 5    0  0  0  0  0  0
-6    0  0  0  0  0  1   Litten
-7    0  0  0  0  0  3   Spearow, Bunneary
-8    0  0  0  0  0  5   Pichu, Litten
-9    0  0  0  0  0  5
-10   1  0  2  0  0  5   Grimer, Metapod
-11   1  1  3  0  0  5   Bonsly, Ekans
-12   2  1  3  0  0  6   Rowlet, Zubat
-13   2  2  3  0  0  7   Yungoos, Smeargle
-14   2  4  3  0  1  8   Drowzee, Spearow, Yungoos, Yungoos
-15   2 10  3  0  2  8   Drowzee, Gumshoos, Gumshoos
-16   2 12  3  0  2 10   Yungoos, Furfrou, Litten
-17   3 14  3  0  2 13   Noibat, Pikachu, Machop, Makuhita, Crabrawler
-18   3 14  3  2  3 13   Mime Jr., Espeon
-19   3 14  3  2  3 18   Torracat, Pikachu, Noibat
-20   7 14  3  3  8 19   Eevee, Zorua, Zubat, Type: Null, Wishiwashi, Wishiwashi, Araquanid
-21   7 14  3  3 10 20   Dewpider, Poipole
-22   7 14  3  3 10 20
-23   7 14  3  3 10 20
-24   7 14  7  5 11 20   Drowzee, Marowak, Magmar, Marowak
-25   7 14  7  5 13 24   Salazzle, Kecleon
-26   7 19  7  5 13 27   Lurantis, Salandit, Ekans, Raticate
-27   7 19  7  5 13 30
-28   7 19  7  5 13 30
-29   7 19  7  5 13 30
-30   7 19  7  5 13 30
+6    0  0  0  0  0  1   Litten (1 Spd)
+7    0  0  0  0  0  3   Spearow (1 Spd), Bunneary (1 Spd)
+8    0  0  0  0  0  5   Pichu (1 Spd), Litten (1 Spd)
+9    0  0  0  1  0  5   Zorua (1 Sp.Atk)
+10   1  0  0  1  0  5   Grimer (1 HP)
+11   1  0  3  1  0  5   Metapod (2 Def), Bonsly (1 Def)
+12   2  1  3  1  0  5   Ekans (1 Atk), Rowlet (1 HP)
+13   2  2  3  1  0  7   Zubat (1 Spd), Yungoos (1 Atk), Smeargle (1 Spd)
+14   2  3  3  1  1  7   Drowzee (1 Sp.Def), Yungoos (1 Atk)
+15   2  6  3  1  2  7   Yungoos (1 Atk), Drowzee (1 Sp.Def), Gumshoos (2 Atk)
+16   2 12  3  1  2  7   Yungoos (2 Atk), Gumshoos (4 Atk)
+17   2 12  3  1  2  8   Furfrou (1 Spd)
+18   2 12  3  1  2 11   Litten (1 Spd), Pikachu (2 Spd)
+19   3 14  3  1  2 12   Noibat (1 Spd), Machop (1 Atk), Makuhita (1 HP), Crabrawler (1 Atk)
+20   3 15  3  3  3 12   Ekans (1 Atk), Mime Jr. (1 Sp.Def), Espeon (2 Sp.Atk)
+21   3 15  3  3  4 17   Torracat (2 Spd), Pikachu (2 Spd), Noibat (1 Spd), Eevee (1 Sp.Def)
+22   7 15  3  4  4 18   Zorua (1 Sp.Atk), Zubat (1 Spd), Type: Null (2 HP), Wishiwashi (1 HP), Wishiwashi (1 HP)
+23   7 15  3  4 10 19   Araquanid (4 Sp.Def), Dewpider (2 Sp.Def), Poipole (1 Spd)
+24   7 15  5  6 11 19   Drowzee (1 Sp.Def), Marowak (2 Def), Magmar  (2 Sp.Atk)
+25   7 15  9  6 11 23   Marowak (4 Def), Salazzle (4 Spd)
+26   7 15  9  6 11 23
+27   7 15  9  6 11 23
+28   7 15  9  6 11 23
+29   7 20  9  6 13 26   Kecleon (2 Sp.Def), Lurantis (4 Atk), Salandit (1 Spd), Ekans (1 Atk), Raticate (2 Spd)
+30   7 21  9  6 14 29   Golbat (2 Spd), Salandit (1 Spd), Anorith (1 Atk), Lileep (1 Sp.Def)
+31   7 23  9  7 14 31   Lycanroc (2 Atk), Houndour (1 Sp.Atk), Golbat (2 Spd)
+32   7 23  9  7 14 31
+33   7 23  9  7 14 31
+34   7 23  9  7 14 31
+35   7 27 13  7 14 34   Elekid (1 Spd), Electabuzz (2 Spd), Togedemaru (4 Atk), Skarmory (4 Def)
+36   7 29 15  8 15 34   Golisopod (2 Def), Masquerain (1 Sp.Atk, 1 Sp.Def), Bewear (2 Atk)
+37   7 29 15 14 16 35   Elekid (1 Spd), Drowzee (1 Sp.Def), Gastly (1 Sp.Atk), Haunter (2 Sp.Atk), Gengar (3 Sp.Atk)
+38   7 33 15 14 20 37   Banette (4 Atk) , Mimikyu (4 Sp.Def), Golbat (2 Spd)
+39   7 36 17 14 20 39   Salazzle (2 Spd), Gible (1 Atk), Marowak (2 Def), Scraggy (1 Atk), Pawniard (1 Atk)
+40   7 37 19 15 21 40   Spinarak (1 Atk), Trubbish (1 Spd), Golisopod (2 Def), Masquerain (1 Sp.Atk, 1 Sp.Def)
+41   7 42 20 15 21 42   Pinsir (2 Atk), Sableye (1 Atk, 1 Def), Krokorok (2 Atk), Persian (2 Spd)
+42   7 42 20 15 21 42
+43   7 42 20 15 21 42
+44   7 42 20 15 21 42
+45   7 42 20 15 21 42
+46   8 43 20 19 23 42   Hypno (2 Sp.Def), Muk (1 HP, 1 Atk), Magneton (2 Sp.Atk), Porygon 2 (2 Sp.Atk)
+47   8 45 21 23 24 44   Gorebyss (2 Sp.Atk), Huntail (1 Atk, 1 Def), Anorith (1 Atk), Lileep (1 Sp.Def), Electabuzz (2 Spd), Magamar (2 Sp.Atk)
+48   8 45 21 25 28 46   Manectric (2 Spd), Houndoom (2 Sp.Atk), Ledian (2 Sp.Def), Claydol (2 Sp.Def)
+49   8 49 21 25 30 50   Pupitar (2 Atk), Hypno (2 Sp.Def), Bruxish (2 Atk), Golbat (2 Spd), Raticate (2 Spd)
+50   8 51 23 29 31 51   Golisopod (2 Def), Vikavolt (3 Sp.Atk), Pinsir (2 Atk), Masquerain (1 Sp.Atk, 1 Sp.Def), Poipole (1 Spd)
+51   8 59 24 29 31 51   Pinsir (2 Atk), Pinsir (2 Atk), Pinsir (2 Atk), Ekans (1 Atk), Fomantis (1 Atk), Mareanie (1 Def)
+52   8 61 24 32 31 56   Golbat (2 Spd), Raticate (2 Spd), Houndour (1 Sp.Atk), Poipole (1 Spd), Beheeyem (2 Sp.Atk), Banette (2 Atk)
+53  12 61 26 34 31 59   Graveler (2 Def), Lapras (2 HP), Talonflame (3 Spd), Wailord (2HP), Glaceon (2 Sp.Atk)
+54  14 62 26 37 34 61   Noctowl (2 HP), Flygon (1 Atk, 2 Spd), Slowking (3 Sp.Def), Gengar (3 Sp.Atk)
+55  14 69 35 37 34 61   Jangmo-o (1 Def), Hakamo-o (2 Def), Kommo-o (6 Def), Scizor (4 Atk), Necrozma (3 Atk)
+56  14 73 36 38 34 62   Necrozma (1 Atk, 1 Sp.Atk, 1 Spd), Mawile (1 Atk, 1 Def), Granbull (2 Atk)
+57  14 82 36 38 36 65   Ribombee (2 Spd), Gumshoos (2 Atk), Smeargle (1 Spd), Komala (2 Atk), Trevenant (2 Atk), Shiinotic (2 Sp.Def), Tsareena (3 Atk)
+58  14 84 38 43 36 68   Arcanine (2 Atk), Talonflame (3 Spd), Marowak (2 Def), Magmar (2 Sp.Atk), Magnezone (3 Sp.Atk)
+59  14 88 45 43 36 72   Golem (3 Def), Togedemaru (2 Atk), Ribombee (4 Spd), Pelipper (4 Def), Golurk (2 Atk)
+60  16 91 45 45 36 77   Mudsdale (2 Atk), Flygon (1 Atk, 2 Spd), Gastrodon (2 HP), Crobat (3 Spd), Zoroark (2 Sp.Atk)
+61  19 94 45 49 36 77   Silvally (3 HP), Lucario (1 Atk, 1 Sp.Atk), Scyther (1 Atk), Malamar (2 Atk), Vanilluxe (3 Sp.Atk)
+62  19 96 49 53 37 77   Mismagius (1 Sp.Atk, 1 Sp.Def), Klefki (1 Def), Magnezone (3 Sp.Atk), Dugtrio (2 Atk), Metagross (3 Def)
+63  21 102 51 53 37 79  Bisharp (2 Atk), Banette (2 Atk), Dhelmise (2 Atk), Palossand (2 Def), Froslass (2 Spd), Drifblim (2 HP)
+64  21 111 52 53 41 79  Armaldo (2 Atk), Cradily (2 Sp.Def), Gigalith (3 Atk), Lycanroc (2 Atk), Probopass (1 Def, 2 Sp.Def), Braviary (2 Atk)
+65  21 116 54 57 41 81  Hawlucha (2 Atk), Mandibuzz (2 Sp.Atk), Toucannon (3 Atk), Oricorio (2 Sp.Atk), Raichu (2 Spd), Leafeon (2 Def)
+
+
