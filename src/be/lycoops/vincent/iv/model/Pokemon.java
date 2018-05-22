@@ -97,12 +97,12 @@ public class Pokemon {
             baseValues.put(Stat.SPD, 65);
         } else {
             level.set(5);
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 54);
-            baseValues.put(Stat.DEF, 54);
-            baseValues.put(Stat.SP_ATK, 66);
-            baseValues.put(Stat.SP_DEF, 56);
-            baseValues.put(Stat.SPD, 40);
+            baseValues.put(Stat.HP, 68);
+            baseValues.put(Stat.ATK, 55);
+            baseValues.put(Stat.DEF, 55);
+            baseValues.put(Stat.SP_ATK, 50);
+            baseValues.put(Stat.SP_DEF, 50);
+            baseValues.put(Stat.SPD, 42);
         }
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
@@ -138,12 +138,12 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 50);
             baseValues.put(Stat.SPD, 75);
         } else {
-            baseValues.put(Stat.HP, 60);
-            baseValues.put(Stat.ATK, 69);
-            baseValues.put(Stat.DEF, 69);
-            baseValues.put(Stat.SP_ATK, 91);
-            baseValues.put(Stat.SP_DEF, 81);
-            baseValues.put(Stat.SPD, 50);
+            baseValues.put(Stat.HP, 78);
+            baseValues.put(Stat.ATK, 75);
+            baseValues.put(Stat.DEF, 75);
+            baseValues.put(Stat.SP_ATK, 70);
+            baseValues.put(Stat.SP_DEF, 70);
+            baseValues.put(Stat.SPD, 52);
         }
         evolved.set(true);
     }
@@ -160,12 +160,12 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 30);
             baseValues.put(Stat.SPD, 65);
         } else {
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 54);
-            baseValues.put(Stat.DEF, 54);
-            baseValues.put(Stat.SP_ATK, 66);
-            baseValues.put(Stat.SP_DEF, 56);
-            baseValues.put(Stat.SPD, 40);
+            baseValues.put(Stat.HP, 68);
+            baseValues.put(Stat.ATK, 55);
+            baseValues.put(Stat.DEF, 55);
+            baseValues.put(Stat.SP_ATK, 50);
+            baseValues.put(Stat.SP_DEF, 50);
+            baseValues.put(Stat.SPD, 42);
         }
         evolved.set(false);
     }
