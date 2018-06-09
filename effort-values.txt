@@ -1,26 +1,27 @@
-5    0  0  0  0  0  0
-6    0  0  0  0  0  1   Litten
-7    0  0  0  0  0  3   Spearow, Bunneary
-8    0  0  0  0  0  5   Pichu, Litten
-9    0  0  0  0  0  5
-10   1  0  2  0  0  5   Grimer, Metapod
-11   1  1  3  0  0  5   Bonsly, Ekans
-12   2  1  3  0  0  6   Rowlet, Zubat
-13   2  2  3  0  0  7   Yungoos, Smeargle
-14   2  4  3  0  1  8   Drowzee, Spearow, Yungoos, Yungoos
-15   2 10  3  0  2  8   Drowzee, Gumshoos, Gumshoos
-16   2 12  3  0  2 10   Yungoos, Furfrou, Litten
-17   3 14  3  0  2 13   Noibat, Pikachu, Machop, Makuhita, Crabrawler
-18   3 14  3  2  3 13   Mime Jr., Espeon
-19   3 14  3  2  3 18   Torracat, Pikachu, Espeon
-20   7 14  3  3  8 19   Eevee, Zorua, Zubat, Type: Null, Wishiwashi, Wishiwashi, Araquanid
-21   7 14  3  3 10 20   Dewpider, Poipole
-22   7 14  3  3 10 20
-23   7 14  3  3 10 20
-24   7 14  7  5 11 20   Drowzee, Marowak, Magmar, Marowak
-25   7 14  7  5 13 24   Salazzle, Kecleon
-26   7 19  7  5 13 27   Lurantis, Salandit, Ekans, Raticate
-27   7 19  7  5 13 30
-28   7 19  7  5 13 30
-29   7 19  7  5 13 30
-30   7 19  7  5 13 30
+5	0	0	0	0	0	0
+6	0	1	0	0	0	1	Poochyena (1 Atk), Treecko (1 Spd)
+7	0	1	0	0	0	2   Zigzagoon (1 Spd)
+8	0	2	0	0	0	2   Poochyena (1 Atk)
+9	0	2	1	0	0	2   Geodude (1 Def)
+10	0	2	2	0	0	2   Geodude (1 Def)
+11	0	2	3	0	0	2   Nosepass (1 Def)
+12  0	2	5	0	0	2   Geodude (1 Def), Geodude (1 Def)
+13  0	3	5	0	0	3   Poochyena (1 Atk)
+14  0   4   5   0   0   4   Meditite (1 Spd), Machop (1 Atk), Meditite (1 Spd)
+15  0   5   5   0   0   4   Machop (1 Atk), Machop (1 Atk)
+16  1   6   5   0   0   5   Makuhita (1 HP), Carvanha (1 Atk), Zubat (1 Spd)
+17  1   7   5   0   0   6   Carvanha (1 Atk), Plusle (1 Spd)
+18  1   7   5   1   0   7   Minun (1 Spd), Slugma (1 Sp.Atk)
+19  1   7   5   1   0   9   Grovyle (2 Spd)
+20  1   7   5   3   0  11   Wailmer (1 HP), Ralts (1 Sp.Atk), Magnemite (1 Sp.Atk), Electrike (1 Spd), Electrike (1 Spd)
+21  1   7   5   6   0  13   Voltorb (1 Spd), Voltorb (1 Spd), Magnemite (1 Sp.Atk), Magneton (2 Sp.Atk)
+22  1   8   5   6   0  15   Voltorb (1 Spd), Electrike (1 Spd), Bagon (1 Atk)
+23  3  11   6   6   0  16   Makuhita (1 HP), Trapinch (1 Atk), Electrike (1 Spd), Aron (1 Def), Grimer (1 HP), Mightyena (2 Atk)
+24  3  13   6   6   0  16   Carvanha (1 Atk), Poochyena (1 Atk)
+25  4  16   6   6   0  16   Grimer (1 HP), Grimer (1 HP), Carvanha (1 Atk), Mightyena (2 Atk)
+26  4  18   6   6   0  18   Sharpedo (2 Atk), Golbat (2 Spd)
+27  4  18   8   9   0  18   Numel (1 Sp.Atk), Slugma (1 Sp.Atk), Numel (1 Sp.Atk), Torkoal (2 Def)
+28  5  18   8   9   0  21   Delcatty (1 HP, 1 Spd), Linoone (2 Spd)
+29  8  20   8   9   0  21   Zangoose (2 Atk), Slaking (3 HP)
+30  8  23   8   9   0  23   Vigoroth (2 Spd), Slaking (3 HP)
+31  9  25   8   9   0  23   Grimer (1 HP), Sharpedo (2 Atk)
