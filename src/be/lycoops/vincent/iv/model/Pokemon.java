@@ -96,13 +96,13 @@ public class Pokemon {
             baseValues.put(Stat.SP_ATK, 30);
             baseValues.put(Stat.SP_DEF, 30);
         } else {
-            level.set(30);
-            baseValues.put(Stat.HP, 80);
-            baseValues.put(Stat.ATK, 80);
+            level.set(45);
+            baseValues.put(Stat.HP, 100);
+            baseValues.put(Stat.ATK, 100);
             baseValues.put(Stat.DEF, 90);
-            baseValues.put(Stat.SP_ATK, 110);
-            baseValues.put(Stat.SP_DEF, 130);
-            baseValues.put(Stat.SPD, 110);
+            baseValues.put(Stat.SP_ATK, 150);
+            baseValues.put(Stat.SP_DEF, 140);
+            baseValues.put(Stat.SPD, 90);
         }
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
@@ -160,12 +160,12 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 30);
             baseValues.put(Stat.SPD, 65);
         } else {
-            baseValues.put(Stat.HP, 80);
-            baseValues.put(Stat.ATK, 80);
+            baseValues.put(Stat.HP, 100);
+            baseValues.put(Stat.ATK, 100);
             baseValues.put(Stat.DEF, 90);
-            baseValues.put(Stat.SP_ATK, 110);
-            baseValues.put(Stat.SP_DEF, 130);
-            baseValues.put(Stat.SPD, 110);
+            baseValues.put(Stat.SP_ATK, 150);
+            baseValues.put(Stat.SP_DEF, 140);
+            baseValues.put(Stat.SPD, 90);
         }
         evolved.set(false);
     }
@@ -175,7 +175,7 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 35 && !isPikipek && evolved.get()) {
+        if (level == 45 && !isPikipek && evolved.get()) {
 //            baseValues.put(Stat.HP, 80);
 //            baseValues.put(Stat.ATK, 74);
 //            baseValues.put(Stat.DEF, 74);
@@ -183,7 +183,7 @@ public class Pokemon {
 //            baseValues.put(Stat.SP_DEF, 116);
 //            baseValues.put(Stat.SPD, 60);
         }
-        if (level == 50) {
+        if (level == 70) {
             return;
         }
         this.level.set(level + 1);
