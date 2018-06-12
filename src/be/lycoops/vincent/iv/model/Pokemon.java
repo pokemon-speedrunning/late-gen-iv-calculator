@@ -98,10 +98,10 @@ public class Pokemon {
         } else {
             level.set(30);
             baseValues.put(Stat.HP, 80);
-            baseValues.put(Stat.ATK, 80);
-            baseValues.put(Stat.DEF, 90);
-            baseValues.put(Stat.SP_ATK, 110);
-            baseValues.put(Stat.SP_DEF, 130);
+            baseValues.put(Stat.ATK, 90);
+            baseValues.put(Stat.DEF, 80);
+            baseValues.put(Stat.SP_ATK, 130);
+            baseValues.put(Stat.SP_DEF, 110);
             baseValues.put(Stat.SPD, 110);
         }
         evolved.set(false);
