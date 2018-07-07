@@ -7,6 +7,9 @@
 11   1  0  3  1  0  5   Metapod (2 Def), Bonsly (1 Def)
 12   2  1  3  1  0  5   Ekans (1 Atk), Rowlet (1 HP)
 13   2  2  3  1  0  7   Zubat (1 Spd), Yungoos (1 Atk), Smeargle (1 Spd)
+                        Zubat (Lv. 9)  (Nature: Serious) (Moves: (None)/(None)/(None)/(None)) IVs: 0/0/0/0/0/0 EVs: 0/0/0/0/0/0
+                        Yungoos (Lv. 10)  (Nature: Adamant) (Moves: Tackle/Pursuit/Leer/(None)) IVs: 30/25/25/25/30/25 EVs: 0/0/252/0/252/0
+                        Smeargle (Lv. 11)  (Nature: Hasty) (Moves: Leafage/Tackle/(None)/(None)) IVs: 30/25/25/25/25/25 EVs: 170/170/0/170/0/0
 14   2  3  3  1  1  7   Drowzee (1 Sp.Def), Yungoos (1 Atk)
 15   2  6  3  1  2  7   Yungoos (1 Atk), Drowzee (1 Sp.Def), Gumshoos (2 Atk)
 16   2 12  3  1  2  7   Yungoos (2 Atk), Gumshoos (4 Atk)
@@ -15,6 +18,10 @@
 19   3 14  3  1  2 12   Noibat (1 Spd), Machop (1 Atk), Makuhita (1 HP), Crabrawler (1 Atk)
 20   3 15  3  3  3 12   Ekans (1 Atk), Mime Jr. (1 Sp.Def), Espeon (2 Sp.Atk)
 21   3 15  3  3  4 17   Torracat (2 Spd), Pikachu (2 Spd), Noibat (1 Spd), Eevee (1 Sp.Def)
+                        Torracat (Lv. 16) @Normalium Z (Nature: Serious) (Moves: Fire Fang/Lick/Scratch/(None)) IVs: 25/25/25/25/25/25 EVs: 252/252/0/0/0/0
+                        Pikachu (Lv. 15)  (Nature: Serious) (Moves: Electro Ball/Quick Attack/(None)/(None)) IVs: 15/15/15/15/15/15 EVs: 0/0/0/0/0/252
+                        Noibat (Lv. 14)  (Nature: Serious) (Moves: Tackle/Bite/(None)/(None)) IVs: 15/15/15/15/15/15 EVs: 0/0/0/0/0/252
+                        Eevee (Lv. 16)  (Nature: Serious) (Moves: Baby-Doll Eyes/Quick Attack/(None)/(None)) IVs: 15/15/15/15/15/15 EVs: 0/252/0/0/0/0
 22   7 15  3  4  4 18   Zorua (1 Sp.Atk), Zubat (1 Spd), Type: Null (2 HP), Wishiwashi (1 HP), Wishiwashi (1 HP)
 23   7 15  3  4 10 19   Araquanid (4 Sp.Def), Dewpider (2 Sp.Def), Poipole (1 Spd)
 24   7 15  5  6 11 19   Drowzee (1 Sp.Def), Marowak (2 Def), Magmar  (2 Sp.Atk)
@@ -40,6 +47,10 @@
 44   7 42 20 15 21 42
 45   7 42 20 15 21 42
 46   8 43 20 19 23 42   Hypno (2 Sp.Def), Muk (1 HP, 1 Atk), Magneton (2 Sp.Atk), Porygon 2 (2 Sp.Atk)
+                        Hypno (Lv. 43)  (Nature: Timid) (Moves: Psychic/Hypnosis/Disable/Nightmare) IVs: 25/25/25/30/25/30 EVs: 0/0/0/0/0/0
+                        Muk (Lv. 41)  (Nature: Serious) (Moves: (None)/(None)/(None)/(None)) IVs: 30/30/30/30/30/30 EVs: 0/0/0/0/0/0
+                        Magneton (Lv. 41)  (Nature: Serious) (Moves: (None)/(None)/(None)/(None)) IVs: 30/30/30/30/30/30 EVs: 0/0/0/0/0/0
+                        Porygon2 (Lv. 41)  (Nature: Serious) (Moves: (None)/(None)/(None)/(None)) IVs: 30/30/30/30/30/30 EVs: 0/0/0/0/0/0
 47   8 45 21 23 24 44   Gorebyss (2 Sp.Atk), Huntail (1 Atk, 1 Def), Anorith (1 Atk), Lileep (1 Sp.Def), Electabuzz (2 Spd), Magamar (2 Sp.Atk)
 48   8 45 21 25 28 46   Manectric (2 Spd), Houndoom (2 Sp.Atk), Ledian (2 Sp.Def), Claydol (2 Sp.Def)
 49   8 49 21 25 30 50   Pupitar (2 Atk), Hypno (2 Sp.Def), Bruxish (2 Atk), Golbat (2 Spd), Raticate (2 Spd)
