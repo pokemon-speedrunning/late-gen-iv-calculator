@@ -70,5 +70,3 @@
 63  21 102 51 53 37 79  Bisharp (2 Atk), Banette (2 Atk), Dhelmise (2 Atk), Palossand (2 Def), Froslass (2 Spd), Drifblim (2 HP)
 64  21 111 52 53 41 79  Armaldo (2 Atk), Cradily (2 Sp.Def), Gigalith (3 Atk), Lycanroc (2 Atk), Probopass (1 Def, 2 Sp.Def), Braviary (2 Atk)
 65  21 116 54 57 41 81  Hawlucha (2 Atk), Mandibuzz (2 Sp.Atk), Toucannon (3 Atk), Oricorio (2 Sp.Atk), Raichu (2 Spd), Leafeon (2 Def)
-
-
