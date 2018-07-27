@@ -96,13 +96,13 @@ public class Pokemon {
             baseValues.put(Stat.SP_ATK, 30);
             baseValues.put(Stat.SP_DEF, 30);
         } else {
-            level.set(5);
-            baseValues.put(Stat.HP, 45);
-            baseValues.put(Stat.ATK, 65);
-            baseValues.put(Stat.DEF, 40);
-            baseValues.put(Stat.SP_ATK, 60);
-            baseValues.put(Stat.SP_DEF, 40);
-            baseValues.put(Stat.SPD, 70);
+            level.set(19);
+            baseValues.put(Stat.HP, 78);
+            baseValues.put(Stat.ATK, 92);
+            baseValues.put(Stat.DEF, 75);
+            baseValues.put(Stat.SP_ATK, 74);
+            baseValues.put(Stat.SP_DEF, 63);
+            baseValues.put(Stat.SPD, 118);
         }
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
@@ -160,12 +160,12 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 30);
             baseValues.put(Stat.SPD, 65);
         } else {
-            baseValues.put(Stat.HP, 45);
-            baseValues.put(Stat.ATK, 65);
-            baseValues.put(Stat.DEF, 40);
-            baseValues.put(Stat.SP_ATK, 60);
-            baseValues.put(Stat.SP_DEF, 40);
-            baseValues.put(Stat.SPD, 70);
+            baseValues.put(Stat.HP, 78);
+            baseValues.put(Stat.ATK, 92);
+            baseValues.put(Stat.DEF, 75);
+            baseValues.put(Stat.SP_ATK, 74);
+            baseValues.put(Stat.SP_DEF, 63);
+            baseValues.put(Stat.SPD, 118);
         }
         evolved.set(false);
     }
@@ -194,7 +194,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if ((!isPikipek && level == 5) || level == 2) {
+        if ((!isPikipek && level == 19) || level == 2) {
             return;
         }
         this.level.set(level - 1);
