@@ -96,7 +96,7 @@ public class Pokemon {
             baseValues.put(Stat.SP_ATK, 30);
             baseValues.put(Stat.SP_DEF, 30);
         } else {
-            level.set(19);
+            level.set(20);
             baseValues.put(Stat.HP, 78);
             baseValues.put(Stat.ATK, 92);
             baseValues.put(Stat.DEF, 75);

@@ -1,13 +1,13 @@
-19	0	0	0	0	0	0
 20	0	0	0	0	0	0
 21	0	0	0	0	0	0
-22	1	2	0	1	0	0   Amaura (1 HP), Tyrunt (1 Atk), Lucario (1 Atk, 1 Sp.Atk)
-23  1   3   0   2   0   1   Lucario (1 Atk, 1 Sp.Atk), Linoone (2 Spd)
-24  1   6   0   2   0   2   Doduo (1 Atk), Helioptile (1 Spd), Granbull (2 Atk)
-25  1   7   0   3   1   4   Chimecho (1 Sp.Atk, 1 Sp.Def), Golett (1 Atk), Meowstic (2 Spd)
-26  1   9   0   5   1   4   Braixen (2 Sp.Atk), Absol (2 Atk)
-27  1   9   0   5   1   4
+22	0	0	0	0	0	0
+23	1	2	0	1	0	0   Amaura (1 HP), Tyrunt (1 Atk), Lucario (1 Atk, 1 Sp.Atk)
+24  1   3   0   2   0   1   Lucario (1 Atk, 1 Sp.Atk), Linoone (2 Spd)
+25  1   6   0   2   0   2   Doduo (1 Atk), Helioptile (1 Spd), Granbull (2 Atk)
+26  1   7   0   3   1   4   Chimecho (1 Sp.Atk, 1 Sp.Def), Golett (1 Atk), Meowstic (2 Spd)
+27  1   9   0   5   1   5   Braixen (2 Sp.Atk), Absol (2 Atk), Meditite (1 Spd)
 28  1   9   0   5   1   4
 29  1   9   0   5   1   4
 30  1   9   0   5   1   4
 31  1   9   0   5   1   4
+32  1   9   0   5   1   4
