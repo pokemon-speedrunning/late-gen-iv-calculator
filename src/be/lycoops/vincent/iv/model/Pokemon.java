@@ -96,18 +96,18 @@ public class Pokemon {
             baseValues.put(Stat.SP_ATK, 30);
             baseValues.put(Stat.SP_DEF, 30);
         } else {
-            level.set(8);
-            baseValues.put(Stat.HP, 78);
-            baseValues.put(Stat.ATK, 92);
-            baseValues.put(Stat.DEF, 75);
-            baseValues.put(Stat.SPD, 118);
-            baseValues.put(Stat.SP_ATK, 74);
-            baseValues.put(Stat.SP_DEF, 63);
+            level.set(10);
+            baseValues.put(Stat.HP, 52);
+            baseValues.put(Stat.ATK, 65);
+            baseValues.put(Stat.DEF, 55);
+            baseValues.put(Stat.SPD, 58);
+            baseValues.put(Stat.SP_ATK, 62);
+            baseValues.put(Stat.SP_DEF, 60);
         }
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
-            if (stat.equals(Stat.ATK)) {
+            if (stat.equals(Stat.SPD)) {
                 minMinusIndividualValues.get(stat).set(-1);
                 maxMinusIndividualValues.get(stat).set(-1);
                 minNeutralIndividualValues.get(stat).set(-1);
@@ -117,7 +117,7 @@ public class Pokemon {
                 minIndividualValues.get(stat).set(31);
                 maxIndividualValues.get(stat).set(31);
                 continue;
-            } else  if (stat.equals(Stat.SPD)) {
+            } else  if (stat.equals(Stat.SP_ATK)) {
                 minMinusIndividualValues.get(stat).set(0);
                 maxMinusIndividualValues.get(stat).set(31);
                 minNeutralIndividualValues.get(stat).set(-1);
@@ -141,10 +141,10 @@ public class Pokemon {
         }
         additionalEffortValues.reset();
         if (natureCalculator != null) {
-            natureCalculator.setPlusNature(Stat.ATK);
-            natureCalculator.setMinusNature(Stat.SPD);
+            natureCalculator.setPlusNature(Stat.SPD);
+            natureCalculator.setMinusNature(Stat.SP_ATK);
         }
-        setNature(Nature.BRAVE);
+        setNature(Nature.JOLLY);
     }
 
     /**
