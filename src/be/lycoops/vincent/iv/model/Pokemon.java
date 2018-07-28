@@ -215,7 +215,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if ((!isPikipek && level == 5) || level == 2) {
+        if ((!isPikipek && level == 10) || level == 2) {
             return;
         }
         this.level.set(level - 1);
