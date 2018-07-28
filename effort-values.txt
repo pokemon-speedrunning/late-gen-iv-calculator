@@ -1,0 +1,4 @@
+30  0   0   0   0   0   0
+31  1   5   0   1   0   2   Grimer (1 HP), Carvanha (1 Atk), Mightyena (2 Atk), Sharpedo (2 Atk), Slugma (1 Sp.Atk), Grovyle (2 Spd)
+32  2   5   2   1   2   4   Wailmer (1 HP), Swellow (2 Spd), Altaria (2 Sp.Def), Skarmory (2 Def)
+33  3   8   4   1   2   4   Pelipper (2 Def), Grimer (1 HP), Carvahna (1 Atk), Mightyena (2 Atk)
