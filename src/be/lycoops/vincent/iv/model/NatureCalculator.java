@@ -24,8 +24,8 @@ public class NatureCalculator {
     }
 
     public void reset() {
-        plusNature.set(Stat.ATK);
-        minusNature.set(Stat.SPD);
+        plusNature.set(Stat.SPD);
+        minusNature.set(Stat.SP_ATK);
         neutralNatures.clear();
     }
 

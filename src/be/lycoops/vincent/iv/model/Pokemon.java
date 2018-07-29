@@ -105,6 +105,21 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 60);
         }
         evolved.set(false);
+
+        for (final Stat stat: Stat.ALL_STATS) {
+            effortValues.get(stat).set(0);
+            minIndividualValues.get(stat).set(0);
+            maxIndividualValues.get(stat).set(31);
+            if (!stat.equals(Stat.HP)) {
+                minMinusIndividualValues.get(stat).set(0);
+                maxMinusIndividualValues.get(stat).set(31);
+                minNeutralIndividualValues.get(stat).set(0);
+                maxNeutralIndividualValues.get(stat).set(31);
+                minPlusIndividualValues.get(stat).set(0);
+                maxPlusIndividualValues.get(stat).set(31);
+            }
+        }
+
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
             if (stat.equals(Stat.SPD)) {
