@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: be.lycoops.vincent.iv.App
-Class-Path: libs/afterburner.fx-1.7.0.jar
