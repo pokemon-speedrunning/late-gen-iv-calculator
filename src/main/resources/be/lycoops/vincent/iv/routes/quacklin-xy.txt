@@ -1,0 +1,8 @@
+10  0   0   0   0   0   0
+11  0   0   2   0   0   2   Zigzagoon (1 Spd), Kakuna (2 Def), Combee (1 Spd)
+12  0   0   2   1   0   4   Surskit (1 Spd), Vivillon (1 HP, 1 Sp.Atk, 1 Spd)
+13  0   0   2   1   0   4
+14  0   0   3   2   0   5   Bulbasaur (1 Sp.Atk), Squirtle (1 Def), Charmander (1 Spd),
+15  0   2   3   2   0   6   Corphish (1 Atk), Corphish (1 Atk)
+16  0   2   3   2   1   7   Pikachu (1 Spd), Flabébé (1 Sp.Def)
+17  0   2   3   2   1   7

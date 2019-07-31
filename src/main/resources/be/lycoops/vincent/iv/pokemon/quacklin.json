@@ -1,0 +1,29 @@
+{
+  "startLevel" : 10,
+  "nature" : "Jolly",
+  "baseStats" : {
+    "hp" : 52,
+    "atk" : 90,
+    "def" : 55,
+    "spAtk" : 58,
+    "spDef" : 62,
+    "spd" : 60
+  },
+  "baseStatsEvo" : {
+    "hp" : 0,
+    "atk" : 0,
+    "def" : 0,
+    "spAtk" : 0,
+    "spDef" : 0,
+    "spd" : 0
+  },
+  "guaranteedStats" : {
+    "hp" : -1,
+    "atk" : -1,
+    "def" : -1,
+    "spAtk" : -1,
+    "spDef" : -1,
+    "spd" : 31
+  },
+  "randomGuaranteedPerfectStats" : 0
+}
