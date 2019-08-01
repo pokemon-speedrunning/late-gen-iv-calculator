@@ -79,10 +79,7 @@ public class Pokemon {
 
     @PostConstruct
     public void init() {
-//        TODO handle guaranteed IVs and fix guaranteed nature
-        if (!pokemonModelFromFile.get().getNature().isEmpty()) {
-            setNature(Nature.valueOf(pokemonModelFromFile.get().getNature().toUpperCase()));
-        }
+//        TODO handle guaranteed IVs and guaranteed nature
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.put(stat, new SimpleIntegerProperty(0));
             minIndividualValues.put(stat, new SimpleIntegerProperty(0));
@@ -112,10 +109,7 @@ public class Pokemon {
         baseValues.put(Stat.SP_DEF, pokemonModelFromFile.get().getBaseStats().getSpDef());
         baseValues.put(Stat.SPD, pokemonModelFromFile.get().getBaseStats().getSpd());
         evolved.set(false);
-//        TODO handle guaranteed IVs and fix guaranteed nature
-        if (!pokemonModelFromFile.get().getNature().isEmpty()) {
-            setNature(Nature.valueOf(pokemonModelFromFile.get().getNature().toUpperCase()));
-        }
+//        TODO handle guaranteed IVs and guaranteed nature
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
             minIndividualValues.get(stat).set(0);
@@ -135,6 +129,9 @@ public class Pokemon {
             natureCalculator.setMinusNature(null);
         }
         setNature(null);
+//        FIXME there is some listener on this to reset the view, this must not be needed
+        levelUp();
+        levelDown();
     }
 
     /**

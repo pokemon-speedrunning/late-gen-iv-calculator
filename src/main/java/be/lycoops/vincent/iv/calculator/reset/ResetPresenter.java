@@ -99,6 +99,7 @@ public class ResetPresenter implements Initializable {
         if (walk != null) {
             for (Iterator<Path> it = walk.iterator(); it.hasNext(); ) {
                 String route = it.next().getFileName().toString().split("\\.txt")[0];
+                if (route.equals("routes")) continue;
                 routeSelect.getItems().add(route);
                 if (route.equals(prefs.get(routePref, ""))) {
                     routeSelect.getSelectionModel().select(route);

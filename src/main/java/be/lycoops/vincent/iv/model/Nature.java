@@ -90,6 +90,23 @@ public enum Nature {
         return null;
     }
 
+    public Stat getPlusStat() {
+        if (atk > 0) return Stat.ATK;
+        if (def > 0) return Stat.DEF;
+        if (spAtk > 0) return Stat.SP_ATK;
+        if (spDef > 0) return Stat.SP_DEF;
+        if (spd > 0) return Stat.SPD;
+        return null;
+    }
+
+    public Stat getMinusStat() {
+        if (atk < 0) return Stat.ATK;
+        if (def < 0) return Stat.DEF;
+        if (spAtk < 0) return Stat.SP_ATK;
+        if (spDef < 0) return Stat.SP_DEF;
+        if (spd < 0) return Stat.SPD;
+        return null;
+    }
 
     public int getStat(Stat stat) {
         switch (stat) {
