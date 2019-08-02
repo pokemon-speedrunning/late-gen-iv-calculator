@@ -101,7 +101,6 @@ public class Pokemon {
      * Resets the Pokémon to standard
      */
     public void reset() {
-        level.set(pokemonModelFromFile.get().getStartLevel());
         baseValues.put(Stat.HP, pokemonModelFromFile.get().getBaseStats().getHp());
         baseValues.put(Stat.ATK, pokemonModelFromFile.get().getBaseStats().getAtk());
         baseValues.put(Stat.DEF, pokemonModelFromFile.get().getBaseStats().getDef());
@@ -109,6 +108,7 @@ public class Pokemon {
         baseValues.put(Stat.SP_DEF, pokemonModelFromFile.get().getBaseStats().getSpDef());
         baseValues.put(Stat.SPD, pokemonModelFromFile.get().getBaseStats().getSpd());
         evolved.set(false);
+        level.set(pokemonModelFromFile.get().getStartLevel());
 //        TODO handle guaranteed IVs and guaranteed nature
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -129,9 +129,6 @@ public class Pokemon {
             natureCalculator.setMinusNature(null);
         }
         setNature(null);
-//        FIXME there is some listener on this to reset the view, this must not be needed
-        levelUp();
-        levelDown();
     }
 
     /**

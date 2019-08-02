@@ -10,12 +10,12 @@
     "spd" : 110
   },
   "baseStatsEvo" : {
-    "hp" : 0,
-    "atk" : 0,
-    "def" : 0,
-    "spAtk" : 0,
-    "spDef" : 0,
-    "spd" : 0
+    "hp" : 80,
+    "atk" : 90,
+    "def" : 80,
+    "spAtk" : 130,
+    "spDef" : 110,
+    "spd" : 110
   },
   "guaranteedStats" : {
     "hp" : -1,
