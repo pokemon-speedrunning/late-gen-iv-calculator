@@ -18,12 +18,12 @@
                 <Insets top="10.0" />
             </VBox.margin>
         </Label>
-          <ComboBox fx:id="routeSelect" onAction="#routeChange" prefWidth="150.0">
+          <ComboBox fx:id="routeSelect" onAction="#reset" prefWidth="150.0">
              <VBox.margin>
                 <Insets top="5.0" />
              </VBox.margin>
           </ComboBox>
-      <CheckBox fx:id="askOnChangeButton" mnemonicParsing="false" onAction="#askOnChangeAction" text="Don't ask on change">
+      <CheckBox fx:id="askOnChangeButton" mnemonicParsing="false" onAction="#askOnChangeAction" text="Don't ask on reset">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin>

@@ -45,18 +45,6 @@ public class ResetPresenter implements Initializable {
     private History history;
 
     public void reset() {
-        pokemon.setPokemonModelFromFile(PokemonModelProvider.loadPokemonFile(EffortValueProvider.getRoute()));
-        pokemon.reset();
-        natureCalculator.reset();
-        pokemon.setHiddenPower(hiddenPowerCalculator.setUnknown());
-        history.reset();
-    }
-
-    public void askOnChangeAction() {
-        prefs.put(routePref, String.valueOf(askOnChangeButton.isSelected()));
-    }
-
-    public void routeChange() {
         if (!askOnChangeButton.isSelected()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Route Change");
@@ -65,21 +53,30 @@ public class ResetPresenter implements Initializable {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                changeRoute();
+                doReset();
             }
         } else {
-            changeRoute();
+            doReset();
         }
-
     }
 
-    private void changeRoute() {
+    public void askOnChangeAction() {
+        prefs.put(askOnChangePref, String.valueOf(askOnChangeButton.isSelected()));
+    }
+
+    private void doReset() {
         String route = routeSelect.getSelectionModel().getSelectedItem();
+        if (route == null || route.isEmpty()) {
+            routeSelect.getSelectionModel().select(0);
+        }
         EffortValueProvider.setRoute(route);
 
         prefs.put(routePref, route);
 
-        reset();
+        pokemon.reset();
+        natureCalculator.reset();
+        pokemon.setHiddenPower(hiddenPowerCalculator.setUnknown());
+        history.reset();
     }
 
     @Override
@@ -103,12 +100,11 @@ public class ResetPresenter implements Initializable {
                 routeSelect.getItems().add(route);
                 if (route.equals(prefs.get(routePref, ""))) {
                     routeSelect.getSelectionModel().select(route);
-                    EffortValueProvider.setRoute(route);
                 }
             }
         }
 
-        reset();
+        doReset();
     }
 
 }

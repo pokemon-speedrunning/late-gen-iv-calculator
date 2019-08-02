@@ -16,6 +16,10 @@ public class Pokemon {
         this.pokemonModelFromFile.set(pokemonModelFromFile);
     }
 
+    public ObjectProperty<PokemonModel> pokemonModelFromFileProperty() {
+        return pokemonModelFromFile;
+    }
+
     /**
      * Information about the current Pokémon.
      */
@@ -101,14 +105,17 @@ public class Pokemon {
      * Resets the Pokémon to standard
      */
     public void reset() {
-        baseValues.put(Stat.HP, pokemonModelFromFile.get().getBaseStats().getHp());
-        baseValues.put(Stat.ATK, pokemonModelFromFile.get().getBaseStats().getAtk());
-        baseValues.put(Stat.DEF, pokemonModelFromFile.get().getBaseStats().getDef());
-        baseValues.put(Stat.SP_ATK, pokemonModelFromFile.get().getBaseStats().getSpAtk());
-        baseValues.put(Stat.SP_DEF, pokemonModelFromFile.get().getBaseStats().getSpDef());
-        baseValues.put(Stat.SPD, pokemonModelFromFile.get().getBaseStats().getSpd());
+//        TODO order of setting values should not matter for the view, but it does
+        PokemonModel pokemonModel = PokemonModelProvider.loadPokemonFile(EffortValueProvider.getRoute());
+        baseValues.put(Stat.HP, pokemonModel.getBaseStats().getHp());
+        baseValues.put(Stat.ATK, pokemonModel.getBaseStats().getAtk());
+        baseValues.put(Stat.DEF, pokemonModel.getBaseStats().getDef());
+        baseValues.put(Stat.SP_ATK, pokemonModel.getBaseStats().getSpAtk());
+        baseValues.put(Stat.SP_DEF, pokemonModel.getBaseStats().getSpDef());
+        baseValues.put(Stat.SPD, pokemonModel.getBaseStats().getSpd());
         evolved.set(false);
-        level.set(pokemonModelFromFile.get().getStartLevel());
+        level.set(pokemonModel.getStartLevel());
+        setPokemonModelFromFile(pokemonModel);
 //        TODO handle guaranteed IVs and guaranteed nature
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);

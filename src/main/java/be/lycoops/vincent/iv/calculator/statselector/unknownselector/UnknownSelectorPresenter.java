@@ -78,6 +78,7 @@ public class UnknownSelectorPresenter implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> formatButtons());
+        pokemon.pokemonModelFromFileProperty().addListener((o, oldModel, newModel) -> formatButtons());
         natureCalculator.plusNatureProperty().addListener((o, oldPlus, newPlus) -> formatButtons());
         natureCalculator.minusNatureProperty().addListener((o, oldMinus, newMinus) -> formatButtons());
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> formatButtons());
