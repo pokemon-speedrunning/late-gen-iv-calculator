@@ -1,0 +1,29 @@
+{
+  "startLevel" : 30,
+  "nature" : "",
+  "baseStats" : {
+    "hp" : 80,
+    "atk" : 90,
+    "def" : 80,
+    "spAtk" : 130,
+    "spDef" : 110,
+    "spd" : 110
+  },
+  "baseStatsEvo" : {
+    "hp" : 80,
+    "atk" : 90,
+    "def" : 80,
+    "spAtk" : 130,
+    "spDef" : 110,
+    "spd" : 110
+  },
+  "guaranteedStats" : {
+    "hp" : -1,
+    "atk" : -1,
+    "def" : -1,
+    "spAtk" : -1,
+    "spDef" : -1,
+    "spd" : -1
+  },
+  "randomGuaranteedPerfectStats" : 3
+}
