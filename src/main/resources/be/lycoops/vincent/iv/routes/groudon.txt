@@ -1,0 +1,9 @@
+45  0   0   0   0   0   0
+46  0   0   0   0   0   0
+47  4   2   0   1   2   3   Luvdisc (1 Spd), Whiscash (2 HP), Sealeo (2 HP), Seaking (2 Atk), Milotic (2 Sp.Def), Froslass (2 Spd)
+48  6   5   1   1   6   3   Hitmontop (2 Sp.Def), Throh (2 HP), Mawile (1 Atk, 1 Def), Sawk (2 Atk), Altaria (2 Sp.Def)
+49  7  12   1   5   6   3   Roselia (2 Sp.Atk), Magneton (2 Sp.Atk), Delcatty (1 HP), Gallade (3 Atk), Mightyena (2 Atk), Sharpedo (2 Atk)
+50  7  12   1   5   6   3
+51  7  12   1   5   6   3
+52  7  12   1   5   6   3
+53  7  12   1   5   6   3
