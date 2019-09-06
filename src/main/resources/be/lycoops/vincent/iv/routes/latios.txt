@@ -1,0 +1,4 @@
+30  0   0   0   0   0   0
+31  0   3   1   3   0   2   Koffing (1 Def), Numel (1 Sp.Atk), Mightyena (2 Atk), Camerupt (1 Atk, 1 Sp.Atk), Slugma (1 Sp.Atk), Grovyle (2 Spd)
+32  1   3   3   3   2   4   Wailmer (1 HP), Swellow (2 Spd), Altaria (2 Sp.Def), Skarmory (2 Def)
+33  1   5   6   4   2   4   Pelipper (2 Def), Koffing (1 Def), Numel (1 Sp.Atk), Mightyena (2 Atk)
