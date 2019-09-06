@@ -1,14 +1,14 @@
-# Pokémon Sun and Moon IV calculator
+# Pokémon Gen 3+ IV calculator
 
-This tool allows to facilitate Gen 7 speedrunning by determining Popplio's Individual Values based on its stats as Popplio's levels go up.
+This tool allows to facilitate Gen 6 and 7 speedrunning by determining a Pokémon's Individual Values based on its stats as the Pokémon's levels go up.
 
 Effort values (EVs) are predetermined according to a specific route.
 
-Another useful feature is the Hidden Power calculator that allows Pokémon Sun runners to usually determine Popplio's Hidden Power before picking Hidden Power up.
+Another useful feature is the Hidden Power calculator that allows runners to usually determine a Pokémon's Hidden Power without explicitly checking its type.
 
 ## Download
 
-The IV-Calculator can be downloaded on the following page:
+The IV Calculator can be downloaded on the following page:
 
 http://vincent.lycoops.be/iv-calculator.html
 
@@ -19,10 +19,6 @@ http://vincent.lycoops.be/iv-calculator.html
 ## How to use
 
 The following guide describes the recommended steps when using this calculator.
-
-### Select the game
-
-On the left, make sure to select the game you are playing. EVs differ between Sun and Moon and therefore result in different stats at identical IVs.
 
 ### Nature
 
@@ -42,17 +38,17 @@ Once you know a stat at a given level, select the value of that stat to narrow d
 
 ### Level Up and Down
 
-On the left, by clicking on + and - you can increase and decrease Popplio's level.
+On the left, by clicking on + and - you can increase and decrease the Pokémon's level.
 
 ### Evolving
 
-Once Popplio evolves to Brionne, clicking _Evo_ will adapt its base stats to Brionne's. Make sure to click evolve after having written down level 17's stats.
+Once a Pokémon is supposed to be evovled (for example when Popplio evolves to Brionne), clicking _Evo_ will adapt its base stats to the evolved Pokémon's ones. 
 
 ### Fought an optional?
 
 In case something happened, you can add the EVs of the optional Pokémon manually at the bottom of each column.
 
-For reference, common failures or adapatations: 
+For reference, common failures or adapatations in Pokémon Sun/Moon: 
 
 * Gastly: +1 Sp. Atk
 * Pikachu: +2 Spd
@@ -66,7 +62,7 @@ For reference, common failures or adapatations:
 
 ### Hidden Power
 
-On the top, a list with all Hidden Powers is located. Next to each of them, a percentage shows how likely it is, based on the IV ranges that this Hidden Power will be Popplio's Hidden Power.
+On the top, a list with all Hidden Powers is located. Next to each of them, a percentage shows how likely it is, based on the IV ranges that this Hidden Power will be the Pokémon's Hidden Power.
 
 Once the Hidden Power is determined, left/right clicking _H. Power_ on the bottom sets the Hidden Power. You can also scroll with the mousewheel to do so. Pressing the mousewheel sets back an unkown Hidden Power.
 
