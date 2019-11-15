@@ -100,9 +100,9 @@ public class Pokemon {
             baseValues.put(Stat.HP, 52);
             baseValues.put(Stat.ATK, 65);
             baseValues.put(Stat.DEF, 55);
-            baseValues.put(Stat.SPD, 58);
-            baseValues.put(Stat.SP_ATK, 62);
-            baseValues.put(Stat.SP_DEF, 60);
+            baseValues.put(Stat.SP_ATK, 58);
+            baseValues.put(Stat.SP_DEF, 62);
+            baseValues.put(Stat.SPD, 60);
         }
         evolved.set(false);
 
@@ -265,6 +265,9 @@ public class Pokemon {
     }
 
     private static int getExpectedStat(Stat stat, int level, int iv, int ev, final Map<Stat, Integer> baseValues, int nature) {
+        if (iv == 31 && stat.equals(Stat.SPD)) {
+            int i = 1;
+        }
         int statValue = (2 * baseValues.get(stat) + iv + ev / 4) * level / 100 + 5;
         if (nature == 1) {
             statValue *= 1.1;
