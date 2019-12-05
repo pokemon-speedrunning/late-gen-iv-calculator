@@ -120,7 +120,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="hiddenPowerLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="?" textFill="WHITE">
+                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="?" textFill="WHITE">
                     <font>
                         <Font size="14.0" />
                     </font>

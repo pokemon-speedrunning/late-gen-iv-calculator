@@ -68,6 +68,7 @@ public class UnknownSelectorPresenter implements Initializable {
         int max = pokemon.getMaxIndividualValues().get(stat).get();
         history.addStat(stat, min, max);
         pokemon.setKnownStat(stat, value);
+        pokemon.setKnownStat(stat, value);
     }
 
     public void statUp() {

@@ -39,9 +39,6 @@ public class OutputPresenter implements Initializable {
     private Label spDefIvRange;
 
     @FXML
-    private Label hiddenPowerLabel;
-
-    @FXML
     private Label nature;
 
     private Map<Stat, Label> statRanges = new HashMap<>();
@@ -146,9 +143,6 @@ public class OutputPresenter implements Initializable {
             pokemon.getMaxPlusIndividualValues().get(stat).addListener((_o, o, n) -> displayIndividualValues(stat));
             displayIndividualValues(stat);
         }
-
-        pokemon.hiddenPowerProperty().addListener((o, oldHp, newHp) ->
-                hiddenPowerLabel.setText(newHp == null ? "?" : newHp.getName()));
 
         pokemon.natureProperty().addListener((o, oldNature, newNature) ->
                 nature.setText(newNature == null ? "?" : newNature.getName()));

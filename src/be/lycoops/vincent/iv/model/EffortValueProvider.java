@@ -11,12 +11,12 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class EffortValueProvider {
-    public static Map<Stat, Integer> getEffortValues(Game game, int level) {
+    public static Map<Stat, Integer> getEffortValues(int level, boolean onixSuccess) {
 
 
 
 
-        Map<Stat, Integer> effortValues = importEffortValues(level);
+        Map<Stat, Integer> effortValues = importEffortValues(level, onixSuccess);
 
         if (effortValues != null) {
             return effortValues;
@@ -90,15 +90,18 @@ public class EffortValueProvider {
 
     private static final Pattern pattern = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)");
 
-    private static Map<Stat, Integer> importEffortValues(int level) {
-        File file = new File("effort-values.txt");
+    private static Map<Stat, Integer> importEffortValues(int level, boolean onixSuccess) {
+        String fileName = onixSuccess ? "effort-values-onix-success.txt" : "effort-values-onix-fail.txt";
+
+        File file = new File(fileName);
         if (!file.exists() || !file.canRead()) {
             return null;
         }
 
         final Map<Stat, Integer> effortValues = new HashMap<>();
 
-        try (Stream<String> stream = Files.lines(Paths.get("effort-values.txt"))) {
+
+        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(line -> {
                 Matcher m = pattern.matcher(line);
                 if (m.find() && Integer.parseInt(m.group(1)) == level){
@@ -125,35 +128,5 @@ public class EffortValueProvider {
         } catch (IOException e) {
             return null;
         }
-    }
-
-    public static Map<Stat, Integer> getPikipekEffortValues(Game game, int level) {
-        Map<Stat, Integer> effortValues = new HashMap<>();
-        int hp = 0, atk = 0, def = 0, spd = 0, spAtk = 0, spDef = 0;
-        if (game.equals(Game.MOON)) {
-            switch (level) {
-                case 2:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-                case 3:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-                case 4:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-                case 5:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-                case 6:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-                default:
-                    hp = 0; atk = 0; def = 0; spd = 0; spAtk = 0; spDef = 0; break;
-            }
-        } else {
-            throw new RuntimeException();
-        }
-        effortValues.put(Stat.HP, hp);
-        effortValues.put(Stat.ATK, atk);
-        effortValues.put(Stat.DEF, def);
-        effortValues.put(Stat.SPD, spd);
-        effortValues.put(Stat.SP_ATK, spAtk);
-        effortValues.put(Stat.SP_DEF, spDef);
-        return effortValues;
     }
 }

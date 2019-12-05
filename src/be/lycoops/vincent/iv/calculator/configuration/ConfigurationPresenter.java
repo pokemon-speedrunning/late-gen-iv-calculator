@@ -22,10 +22,10 @@ public class ConfigurationPresenter implements Initializable {
     private Button evolved;
 
     @FXML
-    private Button sun;
+    private Button onixFail;
 
     @FXML
-    private Button moon;
+    private Button onixSuccess;
 
     @Inject
     private Pokemon pokemon;
@@ -49,12 +49,16 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setSun() {
-        gameService.setGame(Game.SUN);
+    public void setOnixFail() {
+        onixFail.setDisable(true);
+        onixSuccess.setDisable(false);
+        updateEffortValues();
     }
 
-    public void setMoon() {
-        gameService.setGame(Game.MOON);
+    public void setOnixSuccess() {
+        onixFail.setDisable(false);
+        onixSuccess.setDisable(true);
+        updateEffortValues();
     }
 
     @Override
@@ -64,24 +68,14 @@ public class ConfigurationPresenter implements Initializable {
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        gameService.gameProperty().addListener((o, old, newGame) -> setGame(newGame));
-        moon.setDisable(true);
+        onixSuccess.setDisable(true);
+        onixFail.setDisable(false);
     }
 
-    private void setGame(Game game) {
-        if (game.equals(Game.MOON)) {
-            sun.setDisable(false);
-            moon.setDisable(true);
-        } else {
-            sun.setDisable(true);
-            moon.setDisable(false);
-        }
-        updateEffortValues();
-    }
 
     private void updateEffortValues() {
         Map<Stat, IntegerProperty> effortValues = pokemon.getEffortValues();
-        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(gameService.getGame(), pokemon.getLevel());
+        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), onixSuccess.isDisabled());
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
     }
 }
