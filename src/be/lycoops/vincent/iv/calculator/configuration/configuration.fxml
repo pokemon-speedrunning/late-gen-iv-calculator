@@ -22,20 +22,37 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="onixSuccess" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setOnixSuccess" prefHeight="45.0" prefWidth="45.0" text="Success">
+        <Button fx:id="wooloo" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setWooloo" prefHeight="45.0" prefWidth="45.0" text="Wooloo">
             <font>
-                <Font size="11.0" />
+                <Font size="9.0" />
             </font>
             <VBox.margin>
                 <Insets top="15.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="onixFail" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setOnixFail" prefHeight="45.0" prefWidth="45.0" text="Fail">
+        <Button fx:id="skwovet" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setSkwovet" prefHeight="45.0" prefWidth="45.0" text="Skwovet">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
             <font>
-                <Font size="11.0" />
+                <Font size="9.0" />
+            </font>
+        </Button>
+
+        <Button fx:id="rookidee" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRookidee" prefHeight="45.0" prefWidth="45.0" text="Rookidee">
+            <font>
+                <Font size="9.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+        </Button>
+        <Button fx:id="nickit" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setNickit" prefHeight="45.0" prefWidth="45.0" text="Nickit">
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+            <font>
+                <Font size="9.0" />
             </font>
         </Button>
     </children>

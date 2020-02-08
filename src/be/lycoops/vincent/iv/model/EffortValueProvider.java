@@ -11,14 +11,18 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class EffortValueProvider {
-    public static Map<Stat, Integer> getEffortValues(int level, boolean onixSuccess) {
+    public static Map<Stat, Integer> getEffortValues(int level, Stat additionalEv) {
 
 
+        Map<Stat, Integer> effortValues = importEffortValues(level);
 
-
-        Map<Stat, Integer> effortValues = importEffortValues(level, onixSuccess);
 
         if (effortValues != null) {
+
+            if (additionalEv != null) {
+                effortValues.put(additionalEv, effortValues.get(additionalEv) + 1);
+            }
+
             return effortValues;
         }
         effortValues = new HashMap<>();
@@ -90,8 +94,8 @@ public class EffortValueProvider {
 
     private static final Pattern pattern = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)");
 
-    private static Map<Stat, Integer> importEffortValues(int level, boolean onixSuccess) {
-        String fileName = onixSuccess ? "effort-values-onix-success.txt" : "effort-values-onix-fail.txt";
+    private static Map<Stat, Integer> importEffortValues(int level) {
+        String fileName = "effort-values.txt";
 
         File file = new File(fileName);
         if (!file.exists() || !file.canRead()) {
@@ -103,6 +107,7 @@ public class EffortValueProvider {
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(line -> {
+                line = line.trim();
                 Matcher m = pattern.matcher(line);
                 if (m.find() && Integer.parseInt(m.group(1)) == level){
                     effortValues.put(Stat.HP, Integer.parseInt(m.group(2)));
