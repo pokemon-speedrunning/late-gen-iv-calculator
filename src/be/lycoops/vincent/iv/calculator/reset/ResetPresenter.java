@@ -1,13 +1,18 @@
 package be.lycoops.vincent.iv.calculator.reset;
 
-import be.lycoops.vincent.iv.model.HiddenPowerCalculator;
-import be.lycoops.vincent.iv.model.History;
-import be.lycoops.vincent.iv.model.NatureCalculator;
-import be.lycoops.vincent.iv.model.Pokemon;
+import be.lycoops.vincent.iv.model.*;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 import javax.inject.Inject;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ResetPresenter {
+public class ResetPresenter implements Initializable {
+
+    @FXML
+    private Button notation;
 
     @Inject
     private Pokemon pokemon;
@@ -21,6 +26,21 @@ public class ResetPresenter {
     @Inject
     private History history;
 
+    @Inject
+    private CalculatorConfig config;
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        config.shortNotationProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                notation.setText("Short");
+            } else {
+                notation.setText("Long");
+            }
+        });
+    }
+
     public void reset() {
         pokemon.reset();
         natureCalculator.reset();
@@ -28,4 +48,11 @@ public class ResetPresenter {
         history.reset();
     }
 
+    public void toggleShortNotation() {
+        if (config.shortNotationProperty().get()) {
+            config.disableShortNotation();
+        } else {
+            config.enableShortNotation();
+        }
+    }
 }

@@ -9,6 +9,12 @@
                 <Insets top="45.0" />
             </VBox.margin>
         </Button>
+
+        <Button fx:id="notation" mnemonicParsing="false" onAction="#toggleShortNotation" prefHeight="35.0" prefWidth="45.0" text="Long" textAlignment="CENTER">
+            <VBox.margin>
+                <Insets top="45.0" />
+            </VBox.margin>
+        </Button>
     </children>
     <padding>
         <Insets right="3.0" />

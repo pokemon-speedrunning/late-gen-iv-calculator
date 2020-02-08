@@ -5,6 +5,7 @@ import be.lycoops.vincent.iv.calculator.statselector.knownselector.KnownSelector
 import be.lycoops.vincent.iv.calculator.statselector.knownselector.KnownSelectorView;
 import be.lycoops.vincent.iv.calculator.statselector.unknownselector.UnknownSelectorPresenter;
 import be.lycoops.vincent.iv.calculator.statselector.unknownselector.UnknownSelectorView;
+import be.lycoops.vincent.iv.model.CalculatorConfig;
 import be.lycoops.vincent.iv.model.NatureCalculator;
 import be.lycoops.vincent.iv.model.Pokemon;
 import be.lycoops.vincent.iv.model.Stat;
@@ -55,6 +56,9 @@ public class StatSelectorPresenter implements Initializable {
 
     @Inject
     private NatureCalculator natureCalculator;
+
+    @Inject
+    private CalculatorConfig config;
 
     private void formatNatures(final Stat minusNature, final Stat plusNature) {
         for (final Stat stat: Stat.DEFAULT_STATS) {
@@ -201,5 +205,12 @@ public class StatSelectorPresenter implements Initializable {
 
         pokemon.natureProperty().addListener((o, old, newNature) ->
                 formatNatures(natureCalculator.minusNatureProperty().get(), natureCalculator.plusNatureProperty().get()));
+
+        config.shortNotationProperty().addListener((observable, oldValue, newValue) -> {
+            spAtkNatureLabel.setText(Stat.SP_ATK.getVisualName(newValue));
+            spDefNatureLabel.setText(Stat.SP_DEF.getVisualName(newValue));
+            spdNatureLabel.setText(Stat.SPD.getVisualName(newValue));
+        });
+
     }
 }

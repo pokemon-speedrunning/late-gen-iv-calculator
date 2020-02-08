@@ -69,6 +69,9 @@ public class OutputPresenter implements Initializable {
     @Inject
     private Pokemon pokemon;
 
+    @Inject
+    private CalculatorConfig config;
+
     public void makeNeutralNature() {
         natureCalculator.reset();
         pokemon.getMinMinusIndividualValues().forEach((stat, integerProperty) -> {
@@ -161,6 +164,11 @@ public class OutputPresenter implements Initializable {
             }
         });
 
+        config.shortNotationProperty().addListener((observable, oldValue, newValue) -> {
+            displayIndividualValues(Stat.SP_ATK);
+            displayIndividualValues(Stat.SP_DEF);
+            displayIndividualValues(Stat.SPD);
+        });
 
     }
 
@@ -202,7 +210,7 @@ public class OutputPresenter implements Initializable {
         boolean canBeNeutral = pokemon.getMinNeutralIndividualValues().get(stat).get() != -1;
         boolean canBePlus = pokemon.getMinPlusIndividualValues().get(stat).get() != -1;
 
-        String visualName = stat.getVisualName();
+        String visualName = stat.getVisualName(config.shortNotationProperty().get());
 
         Stat minusNature = natureCalculator.getMinusNature();
         Stat plusNature = natureCalculator.getPlusNature();
@@ -223,10 +231,11 @@ public class OutputPresenter implements Initializable {
                 visualName = "±" + visualName;
             } else if (canBeMinus) {
                 visualName = "-" + visualName;
-            } else if (canBePlus) {
+            } else {
                 visualName = "+" + visualName;
             }
         }
+
         natureLabels.get(stat).setText(visualName);
     }
 }
