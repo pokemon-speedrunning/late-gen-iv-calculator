@@ -9,7 +9,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Pokemon {
-    private boolean isPikipek = false;
 
     /**
      * Current level of the Pokémon.
@@ -87,23 +86,14 @@ public class Pokemon {
      * Resets the Pokémon to Popplio at level 5
      */
     public void reset() {
-        if (isPikipek) {
-            level.set(2);
-            baseValues.put(Stat.HP, 35);
-            baseValues.put(Stat.ATK, 75);
-            baseValues.put(Stat.DEF, 30);
-            baseValues.put(Stat.SPD, 65);
-            baseValues.put(Stat.SP_ATK, 30);
-            baseValues.put(Stat.SP_DEF, 30);
-        } else {
-            level.set(5);
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 70);
-            baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SP_ATK, 50);
-            baseValues.put(Stat.SP_DEF, 50);
-            baseValues.put(Stat.SPD, 40);
-        }
+        level.set(5);
+        baseValues.put(Stat.HP, 53);
+        baseValues.put(Stat.ATK, 51);
+        baseValues.put(Stat.DEF, 53);
+        baseValues.put(Stat.SP_ATK, 61);
+        baseValues.put(Stat.SP_DEF, 56);
+        baseValues.put(Stat.SPD, 40);
+
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -130,21 +120,13 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        if (isPikipek) {
-            baseValues.put(Stat.HP, 55);
-            baseValues.put(Stat.ATK, 85);
-            baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SP_ATK, 40);
-            baseValues.put(Stat.SP_DEF, 50);
-            baseValues.put(Stat.SPD, 75);
-        } else {
-            baseValues.put(Stat.HP, 70);
-            baseValues.put(Stat.ATK, 85);
-            baseValues.put(Stat.DEF, 70);
-            baseValues.put(Stat.SP_ATK, 60);
-            baseValues.put(Stat.SP_DEF, 70);
-            baseValues.put(Stat.SPD, 50);
-        }
+        baseValues.put(Stat.HP, 64);
+        baseValues.put(Stat.ATK, 66);
+        baseValues.put(Stat.DEF, 68);
+        baseValues.put(Stat.SP_ATK, 81);
+        baseValues.put(Stat.SP_DEF, 76);
+        baseValues.put(Stat.SPD, 50);
+
         evolved.set(true);
     }
 
@@ -152,21 +134,13 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        if (isPikipek) {
-            baseValues.put(Stat.HP, 35);
-            baseValues.put(Stat.ATK, 75);
-            baseValues.put(Stat.DEF, 30);
-            baseValues.put(Stat.SP_ATK, 30);
-            baseValues.put(Stat.SP_DEF, 30);
-            baseValues.put(Stat.SPD, 65);
-        } else {
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 70);
-            baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SP_ATK, 50);
-            baseValues.put(Stat.SP_DEF, 50);
-            baseValues.put(Stat.SPD, 40);
-        }
+        baseValues.put(Stat.HP, 53);
+        baseValues.put(Stat.ATK, 51);
+        baseValues.put(Stat.DEF, 53);
+        baseValues.put(Stat.SP_ATK, 61);
+        baseValues.put(Stat.SP_DEF, 56);
+        baseValues.put(Stat.SPD, 40);
+
         evolved.set(false);
     }
 
@@ -175,14 +149,6 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 35 && !isPikipek && evolved.get()) {
-            baseValues.put(Stat.HP, 80);
-            baseValues.put(Stat.ATK, 74);
-            baseValues.put(Stat.DEF, 74);
-            baseValues.put(Stat.SP_ATK, 126);
-            baseValues.put(Stat.SP_DEF, 116);
-            baseValues.put(Stat.SPD, 60);
-        }
         if (level == 50) {
             return;
         }
@@ -194,7 +160,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if ((!isPikipek && level == 5) || level == 2) {
+        if (level == 5) {
             return;
         }
         this.level.set(level - 1);
