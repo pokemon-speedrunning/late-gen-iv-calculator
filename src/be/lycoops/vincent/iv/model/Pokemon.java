@@ -86,13 +86,13 @@ public class Pokemon {
      */
     public void reset() {
 
-        level.set(5);
-        baseValues.put(Stat.HP, 50);
-        baseValues.put(Stat.ATK, 40);
+        level.set(15);
+        baseValues.put(Stat.HP, 40);
+        baseValues.put(Stat.ATK, 70);
         baseValues.put(Stat.DEF, 40);
-        baseValues.put(Stat.SP_ATK, 70);
+        baseValues.put(Stat.SP_ATK, 35);
         baseValues.put(Stat.SP_DEF, 40);
-        baseValues.put(Stat.SPD, 70);
+        baseValues.put(Stat.SPD, 60);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -119,11 +119,11 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 65);
-        baseValues.put(Stat.ATK, 60);
-        baseValues.put(Stat.DEF, 55);
-        baseValues.put(Stat.SP_ATK, 95);
-        baseValues.put(Stat.SP_DEF, 55);
+        baseValues.put(Stat.HP, 70);
+        baseValues.put(Stat.ATK, 110);
+        baseValues.put(Stat.DEF, 70);
+        baseValues.put(Stat.SP_ATK, 115);
+        baseValues.put(Stat.SP_DEF, 70);
         baseValues.put(Stat.SPD, 90);
         evolved.set(true);
     }
@@ -132,12 +132,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put(Stat.HP, 50);
-        baseValues.put(Stat.ATK, 40);
+        baseValues.put(Stat.HP, 40);
+        baseValues.put(Stat.ATK, 70);
         baseValues.put(Stat.DEF, 40);
-        baseValues.put(Stat.SP_ATK, 70);
+        baseValues.put(Stat.SP_ATK, 35);
         baseValues.put(Stat.SP_DEF, 40);
-        baseValues.put(Stat.SPD, 70);
+        baseValues.put(Stat.SPD, 60);
         evolved.set(false);
     }
 
@@ -146,14 +146,6 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 35 && evolved.get()) {
-            baseValues.put(Stat.HP, 70);
-            baseValues.put(Stat.ATK, 85);
-            baseValues.put(Stat.DEF, 65);
-            baseValues.put(Stat.SP_ATK, 125);
-            baseValues.put(Stat.SP_DEF, 65);
-            baseValues.put(Stat.SPD, 120);
-        }
         if (level == 50) {
             return;
         }
