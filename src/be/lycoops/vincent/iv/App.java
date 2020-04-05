@@ -17,7 +17,7 @@ public class App extends Application {
         Scene scene = new Scene(view.getView());
         presenter.setScene(scene);
         stage.setScene(scene);
-        stage.setTitle("wartab's Grookey IV Calculator");
+        stage.setTitle("wartab's Ninetales IV Calculator");
         stage.show();
     }
 

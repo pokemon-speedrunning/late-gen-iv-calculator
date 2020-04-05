@@ -22,16 +22,16 @@ public class ConfigurationPresenter implements Initializable {
     private Button evolved;
 
     @FXML
-    private Button skwovet;
+    private Button lv7;
 
     @FXML
-    private Button wooloo;
+    private Button lv8;
 
     @FXML
-    private Button rookidee;
+    private Button lv9;
 
     @FXML
-    private Button nickit;
+    private Button lv10;
 
     @Inject
     private Pokemon pokemon;
@@ -41,6 +41,9 @@ public class ConfigurationPresenter implements Initializable {
 
     @Inject
     private History history;
+
+    @Inject
+    private NatureCalculator natureCalculator;
 
     public void levelPlus() {
         pokemon.levelUp();
@@ -55,67 +58,59 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setSkwovet() {
-        skwovet.setDisable(true);
-        wooloo.setDisable(false);
-        rookidee.setDisable(false);
-        nickit.setDisable(false);
+    public void setL7() {
+        setBaseLevel(7);
+
         updateEffortValues();
     }
 
-    public void setWooloo() {
-        skwovet.setDisable(false);
-        wooloo.setDisable(true);
-        rookidee.setDisable(false);
-        nickit.setDisable(false);
+    public void setL8() {
+        setBaseLevel(8);
+
         updateEffortValues();
     }
 
-    public void setRookidee() {
-        skwovet.setDisable(false);
-        wooloo.setDisable(false);
-        rookidee.setDisable(true);
-        nickit.setDisable(false);
+    public void setL9() {
+        setBaseLevel(9);
+
         updateEffortValues();
     }
 
-    public void setNickit() {
-        skwovet.setDisable(false);
-        wooloo.setDisable(false);
-        rookidee.setDisable(false);
-        nickit.setDisable(true);
+    public void setL10() {
+        setBaseLevel(10);
+
         updateEffortValues();
+    }
+
+    public void setBaseLevel(int level) {
+        Button[] buttons = {lv7, lv8, lv9, lv10};
+        pokemon.reset(level);
+        natureCalculator.reset();
+        pokemon.setHiddenPower(null);
+        history.reset();
+        for (int i = 0; i < 4; ++i) {
+            buttons[i].setDisable(i == level - 7);
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        level.setText("L" + pokemon.getLevel());
         pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        wooloo.setDisable(false);
-        skwovet.setDisable(false);
-        rookidee.setDisable(false);
-        nickit.setDisable(false);
+        lv7.setDisable(true);
     }
 
 
     private void updateEffortValues() {
         Map<Stat, IntegerProperty> effortValues = pokemon.getEffortValues();
         Stat additionalEv = null;
-        if (skwovet.isDisabled()) {
-            additionalEv = Stat.HP;
-        } else if (wooloo.isDisabled()) {
-            additionalEv = Stat.DEF;
-        } else if (rookidee.isDisabled()) {
-            additionalEv = Stat.SPD;
-        } else if (nickit.isDisabled()) {
-            additionalEv = Stat.SP_DEF;
-        }
 
 
-        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), additionalEv);
+        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), pokemon.getBaseLevel());
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
     }
 }

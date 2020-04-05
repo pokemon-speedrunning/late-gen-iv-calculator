@@ -15,6 +15,11 @@ public class Pokemon {
     private IntegerProperty level = new SimpleIntegerProperty();
 
     /**
+     * Base level of the Pokémon.
+     */
+    private IntegerProperty baseLevel = new SimpleIntegerProperty();
+
+    /**
      * Nature of the Pokémon.
      */
     private ObjectProperty<Nature> nature = new SimpleObjectProperty<>(null);
@@ -27,7 +32,7 @@ public class Pokemon {
     /**
      * Whether the Pokémon is currently evolved.
      */
-    private BooleanProperty evolved = new SimpleBooleanProperty();
+    private BooleanProperty evolved = new SimpleBooleanProperty(true);
 
     /**
      * Amount of individual values of each stat that have already been collected.
@@ -78,22 +83,23 @@ public class Pokemon {
             }
 
         }
-        reset();
+        reset(7);
     }
 
     /**
      * Resets the Pokémon to Popplio at level 5
      */
-    public void reset() {
+    public void reset(int levelNum) {
 
-        level.set(5);
-        baseValues.put(Stat.HP, 50);
-        baseValues.put(Stat.ATK, 65);
-        baseValues.put(Stat.DEF, 50);
-        baseValues.put(Stat.SP_ATK, 40);
-        baseValues.put(Stat.SP_DEF, 40);
-        baseValues.put(Stat.SPD, 65);
-        evolved.set(false);
+        baseLevel.set(levelNum);
+        level.set(levelNum);
+        baseValues.put(Stat.HP, 73);
+        baseValues.put(Stat.ATK, 76);
+        baseValues.put(Stat.DEF, 75);
+        baseValues.put(Stat.SP_ATK, 81);
+        baseValues.put(Stat.SP_DEF, 100);
+        baseValues.put(Stat.SPD, 100);
+        evolved.set(true);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
             minIndividualValues.get(stat).set(0);
@@ -119,12 +125,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 70);
-        baseValues.put(Stat.ATK, 85);
-        baseValues.put(Stat.DEF, 70);
-        baseValues.put(Stat.SP_ATK, 55);
-        baseValues.put(Stat.SP_DEF, 60);
-        baseValues.put(Stat.SPD, 80);
+        baseValues.put(Stat.HP, 73);
+        baseValues.put(Stat.ATK, 76);
+        baseValues.put(Stat.DEF, 75);
+        baseValues.put(Stat.SP_ATK, 81);
+        baseValues.put(Stat.SP_DEF, 100);
+        baseValues.put(Stat.SPD, 100);
         evolved.set(true);
     }
 
@@ -173,6 +179,10 @@ public class Pokemon {
 
     public int getLevel() {
         return level.get();
+    }
+
+    public int getBaseLevel() {
+        return baseLevel.get();
     }
 
     public IntegerProperty levelProperty() {

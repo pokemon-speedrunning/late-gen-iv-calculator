@@ -22,7 +22,7 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="wooloo" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setWooloo" prefHeight="45.0" prefWidth="45.0" text="Wooloo">
+        <Button fx:id="lv7" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL7" prefHeight="45.0" prefWidth="45.0" text="L7">
             <font>
                 <Font size="9.0" />
             </font>
@@ -30,7 +30,7 @@
                 <Insets top="15.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="skwovet" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setSkwovet" prefHeight="45.0" prefWidth="45.0" text="Skwovet">
+        <Button fx:id="lv8" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL8" prefHeight="45.0" prefWidth="45.0" text="L8">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -39,7 +39,7 @@
             </font>
         </Button>
 
-        <Button fx:id="rookidee" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRookidee" prefHeight="45.0" prefWidth="45.0" text="Rookidee">
+        <Button fx:id="lv9" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL9" prefHeight="45.0" prefWidth="45.0" text="L9">
             <font>
                 <Font size="9.0" />
             </font>
@@ -47,7 +47,7 @@
                 <Insets top="5.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="nickit" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setNickit" prefHeight="45.0" prefWidth="45.0" text="Nickit">
+        <Button fx:id="lv10" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL10" prefHeight="45.0" prefWidth="45.0" text="L10">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>

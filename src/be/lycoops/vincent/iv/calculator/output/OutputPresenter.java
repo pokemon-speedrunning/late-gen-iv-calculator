@@ -1,7 +1,6 @@
 package be.lycoops.vincent.iv.calculator.output;
 
 import be.lycoops.vincent.iv.model.*;
-import javafx.beans.property.IntegerProperty;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +12,6 @@ import javafx.scene.paint.Paint;
 
 import javax.inject.Inject;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
