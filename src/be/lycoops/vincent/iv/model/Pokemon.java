@@ -88,11 +88,11 @@ public class Pokemon {
 
         level.set(5);
         baseValues.put(Stat.HP, 50);
-        baseValues.put(Stat.ATK, 40);
-        baseValues.put(Stat.DEF, 40);
-        baseValues.put(Stat.SP_ATK, 70);
+        baseValues.put(Stat.ATK, 65);
+        baseValues.put(Stat.DEF, 50);
+        baseValues.put(Stat.SP_ATK, 40);
         baseValues.put(Stat.SP_DEF, 40);
-        baseValues.put(Stat.SPD, 70);
+        baseValues.put(Stat.SPD, 65);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -119,12 +119,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 65);
-        baseValues.put(Stat.ATK, 60);
-        baseValues.put(Stat.DEF, 55);
-        baseValues.put(Stat.SP_ATK, 95);
-        baseValues.put(Stat.SP_DEF, 55);
-        baseValues.put(Stat.SPD, 90);
+        baseValues.put(Stat.HP, 70);
+        baseValues.put(Stat.ATK, 85);
+        baseValues.put(Stat.DEF, 70);
+        baseValues.put(Stat.SP_ATK, 55);
+        baseValues.put(Stat.SP_DEF, 60);
+        baseValues.put(Stat.SPD, 80);
         evolved.set(true);
     }
 
@@ -133,11 +133,11 @@ public class Pokemon {
      */
     public void unevolve() {
         baseValues.put(Stat.HP, 50);
-        baseValues.put(Stat.ATK, 40);
-        baseValues.put(Stat.DEF, 40);
-        baseValues.put(Stat.SP_ATK, 70);
+        baseValues.put(Stat.ATK, 65);
+        baseValues.put(Stat.DEF, 50);
+        baseValues.put(Stat.SP_ATK, 40);
         baseValues.put(Stat.SP_DEF, 40);
-        baseValues.put(Stat.SPD, 70);
+        baseValues.put(Stat.SPD, 65);
         evolved.set(false);
     }
 
@@ -154,7 +154,7 @@ public class Pokemon {
             baseValues.put(Stat.SP_DEF, 65);
             baseValues.put(Stat.SPD, 120);
         }
-        if (level == 50) {
+        if (level == 30) {
             return;
         }
         this.level.set(level + 1);
