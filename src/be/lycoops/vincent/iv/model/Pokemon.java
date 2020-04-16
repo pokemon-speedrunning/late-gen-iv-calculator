@@ -32,7 +32,7 @@ public class Pokemon {
     /**
      * Whether the Pokémon is currently evolved.
      */
-    private BooleanProperty evolved = new SimpleBooleanProperty(true);
+    private BooleanProperty evolved = new SimpleBooleanProperty();
 
     /**
      * Amount of individual values of each stat that have already been collected.
@@ -83,7 +83,7 @@ public class Pokemon {
             }
 
         }
-        reset(7);
+        reset(8);
     }
 
     /**
@@ -93,13 +93,13 @@ public class Pokemon {
 
         baseLevel.set(levelNum);
         level.set(levelNum);
-        baseValues.put(Stat.HP, 73);
-        baseValues.put(Stat.ATK, 76);
-        baseValues.put(Stat.DEF, 75);
-        baseValues.put(Stat.SP_ATK, 81);
-        baseValues.put(Stat.SP_DEF, 100);
-        baseValues.put(Stat.SPD, 100);
-        evolved.set(true);
+        baseValues.put(Stat.HP, 50);
+        baseValues.put(Stat.ATK, 65);
+        baseValues.put(Stat.DEF, 85);
+        baseValues.put(Stat.SP_ATK, 35);
+        baseValues.put(Stat.SP_DEF, 35);
+        baseValues.put(Stat.SPD, 55);
+        evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
             minIndividualValues.get(stat).set(0);
@@ -125,12 +125,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 73);
-        baseValues.put(Stat.ATK, 76);
-        baseValues.put(Stat.DEF, 75);
-        baseValues.put(Stat.SP_ATK, 81);
-        baseValues.put(Stat.SP_DEF, 100);
-        baseValues.put(Stat.SPD, 100);
+        baseValues.put(Stat.HP, 70);
+        baseValues.put(Stat.ATK, 105);
+        baseValues.put(Stat.DEF, 125);
+        baseValues.put(Stat.SP_ATK, 65);
+        baseValues.put(Stat.SP_DEF, 75);
+        baseValues.put(Stat.SPD, 45);
         evolved.set(true);
     }
 
@@ -140,10 +140,10 @@ public class Pokemon {
     public void unevolve() {
         baseValues.put(Stat.HP, 50);
         baseValues.put(Stat.ATK, 65);
-        baseValues.put(Stat.DEF, 50);
-        baseValues.put(Stat.SP_ATK, 40);
-        baseValues.put(Stat.SP_DEF, 40);
-        baseValues.put(Stat.SPD, 65);
+        baseValues.put(Stat.DEF, 85);
+        baseValues.put(Stat.SP_ATK, 35);
+        baseValues.put(Stat.SP_DEF, 35);
+        baseValues.put(Stat.SPD, 55);
         evolved.set(false);
     }
 

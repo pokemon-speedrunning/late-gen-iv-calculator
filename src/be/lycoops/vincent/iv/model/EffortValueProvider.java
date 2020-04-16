@@ -92,7 +92,7 @@ public class EffortValueProvider {
     private static final Pattern pattern = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)");
 
     private static Map<Stat, Integer> importEffortValues(int level, int baseLevel) {
-        String fileName = "effort-values-" + baseLevel + "-.txt";
+        String fileName = "effort-values-" + baseLevel + ".txt";
 
         File file = new File(fileName);
         if (!file.exists() || !file.canRead()) {
