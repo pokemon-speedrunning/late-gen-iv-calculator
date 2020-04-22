@@ -93,12 +93,12 @@ public class Pokemon {
 
         baseLevel.set(levelNum);
         level.set(levelNum);
-        baseValues.put(Stat.HP, 73);
-        baseValues.put(Stat.ATK, 76);
-        baseValues.put(Stat.DEF, 75);
-        baseValues.put(Stat.SP_ATK, 81);
-        baseValues.put(Stat.SP_DEF, 100);
-        baseValues.put(Stat.SPD, 100);
+        baseValues.put(Stat.HP, 60);
+        baseValues.put(Stat.ATK, 45);
+        baseValues.put(Stat.DEF, 50);
+        baseValues.put(Stat.SP_ATK, 90);
+        baseValues.put(Stat.SP_DEF, 80);
+        baseValues.put(Stat.SPD, 70);
         evolved.set(true);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
