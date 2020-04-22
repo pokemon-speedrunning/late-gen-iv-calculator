@@ -22,22 +22,6 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="sun" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setSun" prefHeight="45.0" prefWidth="45.0" text="Sun">
-            <font>
-                <Font size="11.0" />
-            </font>
-            <VBox.margin>
-                <Insets top="15.0" />
-            </VBox.margin>
-        </Button>
-        <Button fx:id="moon" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setMoon" prefHeight="45.0" prefWidth="45.0" text="Moon">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-            <font>
-                <Font size="11.0" />
-            </font>
-        </Button>
     </children>
     <BorderPane.margin>
         <Insets top="5.0" />

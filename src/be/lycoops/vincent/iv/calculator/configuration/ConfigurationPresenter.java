@@ -21,12 +21,6 @@ public class ConfigurationPresenter implements Initializable {
     @FXML
     private Button evolved;
 
-    @FXML
-    private Button sun;
-
-    @FXML
-    private Button moon;
-
     @Inject
     private Pokemon pokemon;
 
@@ -49,13 +43,6 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setSun() {
-        gameService.setGame(Game.SUN);
-    }
-
-    public void setMoon() {
-        gameService.setGame(Game.MOON);
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,19 +51,6 @@ public class ConfigurationPresenter implements Initializable {
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        gameService.gameProperty().addListener((o, old, newGame) -> setGame(newGame));
-        moon.setDisable(true);
-    }
-
-    private void setGame(Game game) {
-        if (game.equals(Game.MOON)) {
-            sun.setDisable(false);
-            moon.setDisable(true);
-        } else {
-            sun.setDisable(true);
-            moon.setDisable(false);
-        }
-        updateEffortValues();
     }
 
     private void updateEffortValues() {
