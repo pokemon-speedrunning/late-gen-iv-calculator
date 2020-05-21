@@ -18,9 +18,6 @@ public class ConfigurationPresenter implements Initializable {
     @FXML
     private Label level;
 
-    @FXML
-    private Button evolved;
-
     @Inject
     private Pokemon pokemon;
 
@@ -50,7 +47,6 @@ public class ConfigurationPresenter implements Initializable {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
     }
 
     private void updateEffortValues() {

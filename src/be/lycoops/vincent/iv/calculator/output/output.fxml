@@ -28,7 +28,7 @@
                 </Label>
             </children>
         </VBox>
-        <VBox layoutX="310.0" layoutY="10.0" prefWidth="75.0">
+        <VBox layoutX="310.0" layoutY="10.0" prefWidth="75.0" onMouseClicked="#promptAtk">
             <children>
                 <Label fx:id="atkText" alignment="CENTER" maxWidth="1.7976931348623157E308" text="ATK" textFill="WHITE">
                     <font>
@@ -42,7 +42,7 @@
                 </Label>
             </children>
         </VBox>
-        <VBox maxWidth="-Infinity" prefWidth="75.0">
+        <VBox maxWidth="-Infinity" prefWidth="75.0" onMouseClicked="#promptDef">
             <children>
                 <Label fx:id="defText" alignment="CENTER" maxWidth="1.7976931348623157E308" text="DEF" textFill="WHITE">
                     <font>
@@ -56,7 +56,7 @@
                 </Label>
             </children>
         </VBox>
-        <VBox maxWidth="-Infinity" prefWidth="75.0">
+        <VBox maxWidth="-Infinity" prefWidth="75.0" onMouseClicked="#promptSpAtk">
             <children>
                 <Label fx:id="spAtkText" alignment="CENTER" maxWidth="1.7976931348623157E308" text="SP.ATK" textFill="WHITE">
                     <font>
@@ -70,7 +70,7 @@
                 </Label>
             </children>
         </VBox>
-        <VBox layoutX="410.0" layoutY="10.0" maxWidth="-Infinity" prefWidth="75.0">
+        <VBox layoutX="410.0" layoutY="10.0" maxWidth="-Infinity" prefWidth="75.0" onMouseClicked="#promptSpDef">
             <children>
                 <Label fx:id="spDefText" alignment="CENTER" maxWidth="1.7976931348623157E308" text="SP.DEF" textFill="WHITE">
                     <font>
@@ -85,7 +85,7 @@
             </children>
         </VBox>
 
-        <VBox maxWidth="-Infinity" prefWidth="75.0">
+        <VBox maxWidth="-Infinity" prefWidth="75.0" onMouseClicked="#promptSpd">
             <children>
                 <Label fx:id="spdText" alignment="CENTER" maxWidth="1.7976931348623157E308" text="SPD" textFill="WHITE">
                     <font>

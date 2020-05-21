@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
@@ -13,10 +14,7 @@ import javafx.scene.paint.Paint;
 
 import javax.inject.Inject;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class OutputPresenter implements Initializable {
 
@@ -93,6 +91,86 @@ public class OutputPresenter implements Initializable {
         natureCalculator.addNeutralNature(Stat.SP_DEF);
         natureCalculator.addNeutralNature(Stat.SPD);
         pokemon.setNature(Nature.DOCILE);
+    }
+
+    public void promptAtk() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setContentText("Enter your Attack stat:");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            try {
+                int stat = Integer.parseInt(result.get());
+
+                pokemon.setKnownStat(Stat.ATK, stat);
+                pokemon.setKnownStat(Stat.ATK, stat);
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    public void promptDef() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setContentText("Enter your Defense stat:");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            try {
+                int stat = Integer.parseInt(result.get());
+
+                pokemon.setKnownStat(Stat.DEF, stat);
+                pokemon.setKnownStat(Stat.DEF, stat);
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    public void promptSpAtk() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setContentText("Enter your Sp. Atk stat:");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            try {
+                int stat = Integer.parseInt(result.get());
+
+                pokemon.setKnownStat(Stat.SP_ATK, stat);
+                pokemon.setKnownStat(Stat.SP_ATK, stat);
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    public void promptSpDef() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setContentText("Enter your Sp. Def stat:");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            try {
+                int stat = Integer.parseInt(result.get());
+
+                pokemon.setKnownStat(Stat.SP_DEF, stat);
+                pokemon.setKnownStat(Stat.SP_DEF, stat);
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    public void promptSpd() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setContentText("Enter your Speed stat:");
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            try {
+                int stat = Integer.parseInt(result.get());
+
+                pokemon.setKnownStat(Stat.SPD, stat);
+                pokemon.setKnownStat(Stat.SPD, stat);
+            } catch (Exception e) {
+
+            }
+        }
     }
 
     public void changeHiddenPower(Event event) {
