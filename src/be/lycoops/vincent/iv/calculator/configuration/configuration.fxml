@@ -7,7 +7,7 @@
 <VBox xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" BorderPane.alignment="CENTER" fx:controller="be.lycoops.vincent.iv.calculator.configuration.ConfigurationPresenter">
     <children>
         <Button fx:id="" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelPlus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="+" />
-        <Label fx:id="level" alignment="CENTER" prefHeight="35.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="L70" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+        <Label fx:id="level" alignment="CENTER" prefHeight="35.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="L4" textAlignment="CENTER" VBox.vgrow="ALWAYS">
             <VBox.margin>
                 <Insets bottom="5.0" top="5.0" />
             </VBox.margin>

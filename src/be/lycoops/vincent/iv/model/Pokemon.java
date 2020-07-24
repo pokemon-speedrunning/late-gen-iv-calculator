@@ -87,13 +87,13 @@ public class Pokemon {
      */
     public void reset() {
 
-        level.set(5);
-        baseValues.put(Stat.HP, 55);
-        baseValues.put(Stat.ATK, 55);
-        baseValues.put(Stat.DEF, 45);
-        baseValues.put(Stat.SP_ATK, 63);
-        baseValues.put(Stat.SP_DEF, 45);
-        baseValues.put(Stat.SPD, 45);
+        level.set(4);
+        baseValues.put(Stat.HP, 35);
+        baseValues.put(Stat.ATK, 75);
+        baseValues.put(Stat.DEF, 30);
+        baseValues.put(Stat.SP_ATK, 30);
+        baseValues.put(Stat.SP_DEF, 30);
+        baseValues.put(Stat.SPD, 65);
 
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
@@ -121,12 +121,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 75);
-        baseValues.put(Stat.ATK, 75);
-        baseValues.put(Stat.DEF, 60);
-        baseValues.put(Stat.SP_ATK, 83);
-        baseValues.put(Stat.SP_DEF, 60);
-        baseValues.put(Stat.SPD, 60);
+        baseValues.put(Stat.HP, 55);
+        baseValues.put(Stat.ATK, 85);
+        baseValues.put(Stat.DEF, 50);
+        baseValues.put(Stat.SP_ATK, 40);
+        baseValues.put(Stat.SP_DEF, 50);
+        baseValues.put(Stat.SPD, 75);
         evolved.set(true);
     }
 
@@ -134,12 +134,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put(Stat.HP, 106);
-        baseValues.put(Stat.ATK, 110);
-        baseValues.put(Stat.DEF, 90);
-        baseValues.put(Stat.SP_ATK, 154);
-        baseValues.put(Stat.SP_DEF, 90);
-        baseValues.put(Stat.SPD, 130);
+        baseValues.put(Stat.HP, 35);
+        baseValues.put(Stat.ATK, 75);
+        baseValues.put(Stat.DEF, 30);
+        baseValues.put(Stat.SP_ATK, 30);
+        baseValues.put(Stat.SP_DEF, 30);
+        baseValues.put(Stat.SPD, 65);
         evolved.set(false);
     }
 
@@ -159,7 +159,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if (level == 5) {
+        if (level == 4) {
             return;
         }
         this.level.set(level - 1);
