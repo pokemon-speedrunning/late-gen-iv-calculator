@@ -96,6 +96,7 @@ public class EffortValueProvider {
 
         File file = new File(fileName);
         if (!file.exists() || !file.canRead()) {
+            System.out.println("Could not open file" + fileName);
             return null;
         }
 
@@ -128,6 +129,7 @@ public class EffortValueProvider {
             System.out.println(effortValues.get(Stat.SP_DEF));
             return effortValues;
         } catch (IOException e) {
+            System.out.println("Could not load or parse file" + fileName);
             return null;
         }
     }
