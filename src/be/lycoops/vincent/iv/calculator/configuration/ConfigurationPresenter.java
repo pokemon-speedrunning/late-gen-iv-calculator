@@ -21,18 +21,6 @@ public class ConfigurationPresenter implements Initializable {
     @FXML
     private Button evolved;
 
-    @FXML
-    private Button skwovet;
-
-    @FXML
-    private Button wooloo;
-
-    @FXML
-    private Button rookidee;
-
-    @FXML
-    private Button nickit;
-
     @Inject
     private Pokemon pokemon;
 
@@ -55,37 +43,7 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setSkwovet() {
-        skwovet.setDisable(true);
-        wooloo.setDisable(false);
-        rookidee.setDisable(false);
-        nickit.setDisable(false);
-        updateEffortValues();
-    }
 
-    public void setWooloo() {
-        skwovet.setDisable(false);
-        wooloo.setDisable(true);
-        rookidee.setDisable(false);
-        nickit.setDisable(false);
-        updateEffortValues();
-    }
-
-    public void setRookidee() {
-        skwovet.setDisable(false);
-        wooloo.setDisable(false);
-        rookidee.setDisable(true);
-        nickit.setDisable(false);
-        updateEffortValues();
-    }
-
-    public void setNickit() {
-        skwovet.setDisable(false);
-        wooloo.setDisable(false);
-        rookidee.setDisable(false);
-        nickit.setDisable(true);
-        updateEffortValues();
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,26 +52,13 @@ public class ConfigurationPresenter implements Initializable {
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        wooloo.setDisable(false);
-        skwovet.setDisable(false);
-        rookidee.setDisable(false);
-        nickit.setDisable(false);
+
     }
 
 
     private void updateEffortValues() {
         Map<Stat, IntegerProperty> effortValues = pokemon.getEffortValues();
         Stat additionalEv = null;
-        if (skwovet.isDisabled()) {
-            additionalEv = Stat.HP;
-        } else if (wooloo.isDisabled()) {
-            additionalEv = Stat.DEF;
-        } else if (rookidee.isDisabled()) {
-            additionalEv = Stat.SPD;
-        } else if (nickit.isDisabled()) {
-            additionalEv = Stat.SP_DEF;
-        }
-
 
         Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), additionalEv);
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
