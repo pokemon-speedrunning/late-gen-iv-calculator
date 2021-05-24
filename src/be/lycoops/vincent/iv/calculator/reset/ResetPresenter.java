@@ -42,7 +42,7 @@ public class ResetPresenter implements Initializable {
     }
 
     public void reset() {
-        pokemon.reset(pokemon.getBaseLevel());
+        pokemon.reset();
         natureCalculator.reset();
         pokemon.setHiddenPower(hiddenPowerCalculator.setUnknown());
         history.reset();

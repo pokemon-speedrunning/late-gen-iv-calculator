@@ -15,9 +15,9 @@ public class Pokemon {
     private IntegerProperty level = new SimpleIntegerProperty();
 
     /**
-     * Base level of the Pokémon.
+     * Route of the Pokémon.
      */
-    private IntegerProperty baseLevel = new SimpleIntegerProperty();
+    private StringProperty route = new SimpleStringProperty();
 
     /**
      * Nature of the Pokémon.
@@ -83,22 +83,22 @@ public class Pokemon {
             }
 
         }
-        reset(4);
+        reset();
     }
 
     /**
      * Resets the Pokémon to Popplio at level 5
      */
-    public void reset(int levelNum) {
+    public void reset() {
 
-        baseLevel.set(levelNum);
-        level.set(levelNum);
-        baseValues.put(Stat.HP, 45);
-        baseValues.put(Stat.ATK, 60);
-        baseValues.put(Stat.DEF, 45);
-        baseValues.put(Stat.SP_ATK, 25);
-        baseValues.put(Stat.SP_DEF, 45);
-        baseValues.put(Stat.SPD, 55);
+        route.set("2");
+        level.set(5);
+        baseValues.put(Stat.HP, 44);
+        baseValues.put(Stat.ATK, 58);
+        baseValues.put(Stat.DEF, 44);
+        baseValues.put(Stat.SP_ATK, 58);
+        baseValues.put(Stat.SP_DEF, 44);
+        baseValues.put(Stat.SPD, 61);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -125,12 +125,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 65);
-        baseValues.put(Stat.ATK, 80);
-        baseValues.put(Stat.DEF, 65);
-        baseValues.put(Stat.SP_ATK, 35);
-        baseValues.put(Stat.SP_DEF, 65);
-        baseValues.put(Stat.SPD, 60);
+        baseValues.put(Stat.HP, 64);
+        baseValues.put(Stat.ATK, 78);
+        baseValues.put(Stat.DEF, 52);
+        baseValues.put(Stat.SP_ATK, 78);
+        baseValues.put(Stat.SP_DEF, 52);
+        baseValues.put(Stat.SPD, 81);
         evolved.set(true);
     }
 
@@ -138,12 +138,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put(Stat.HP, 45);
-        baseValues.put(Stat.ATK, 60);
-        baseValues.put(Stat.DEF, 45);
-        baseValues.put(Stat.SP_ATK, 25);
-        baseValues.put(Stat.SP_DEF, 45);
-        baseValues.put(Stat.SPD, 55);
+        baseValues.put(Stat.HP, 44);
+        baseValues.put(Stat.ATK, 58);
+        baseValues.put(Stat.DEF, 44);
+        baseValues.put(Stat.SP_ATK, 58);
+        baseValues.put(Stat.SP_DEF, 44);
+        baseValues.put(Stat.SPD, 61);
         evolved.set(false);
     }
 
@@ -152,15 +152,8 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 33 && evolved.get()) {
-            baseValues.put(Stat.HP, 85);
-            baseValues.put(Stat.ATK, 100);
-            baseValues.put(Stat.DEF, 90);
-            baseValues.put(Stat.SP_ATK, 45);
-            baseValues.put(Stat.SP_DEF, 90);
-            baseValues.put(Stat.SPD, 80);
-        }
-        if (level == 40) {
+
+        if (level == 36) {
             return;
         }
         this.level.set(level + 1);
@@ -171,7 +164,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if (level == 4) {
+        if (level == 5) {
             return;
         }
         this.level.set(level - 1);
@@ -181,8 +174,8 @@ public class Pokemon {
         return level.get();
     }
 
-    public int getBaseLevel() {
-        return baseLevel.get();
+    public String getRoute() {
+        return route.get();
     }
 
     public IntegerProperty levelProperty() {
@@ -541,4 +534,11 @@ public class Pokemon {
         }
     }
 
+    public void setRoute(String routeName) {
+        route.setValue(routeName);
+    }
+
+    public StringProperty routeProperty() {
+        return route;
+    }
 }

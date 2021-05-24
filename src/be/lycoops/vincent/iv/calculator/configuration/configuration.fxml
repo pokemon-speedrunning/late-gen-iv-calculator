@@ -8,7 +8,7 @@
 <VBox xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" BorderPane.alignment="CENTER" fx:controller="be.lycoops.vincent.iv.calculator.configuration.ConfigurationPresenter">
     <children>
         <Button fx:id="" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelPlus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="+" />
-        <Label fx:id="level" alignment="CENTER" prefHeight="35.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="L7" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+        <Label fx:id="level" alignment="CENTER" prefHeight="35.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="L5" textAlignment="CENTER" VBox.vgrow="ALWAYS">
             <VBox.margin>
                 <Insets bottom="5.0" top="5.0" />
             </VBox.margin>
@@ -22,7 +22,7 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="lv4" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL4" prefHeight="45.0" prefWidth="45.0" text="L4">
+        <Button fx:id="route2" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute2" prefHeight="45.0" prefWidth="45.0" text="2">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -31,7 +31,7 @@
             </font>
         </Button>
 
-        <Button fx:id="lv5" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL5" prefHeight="45.0" prefWidth="45.0" text="L5">
+        <Button fx:id="route4" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute4" prefHeight="45.0" prefWidth="45.0" text="4">
             <font>
                 <Font size="9.0" />
             </font>
@@ -39,7 +39,7 @@
                 <Insets top="5.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="lv6" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL6" prefHeight="45.0" prefWidth="45.0" text="L6">
+        <Button fx:id="route5" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute5" prefHeight="45.0" prefWidth="45.0" text="5">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -47,7 +47,16 @@
                 <Font size="9.0" />
             </font>
         </Button>
-        <Button fx:id="lv7" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL7" prefHeight="45.0" prefWidth="45.0" text="L7">
+        <Button fx:id="route8" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute8" prefHeight="45.0" prefWidth="45.0" text="8">
+            <font>
+                <Font size="9.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+        </Button>
+
+        <Button fx:id="route8k" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute8K" prefHeight="45.0" prefWidth="45.0" text="8K">
             <font>
                 <Font size="9.0" />
             </font>
