@@ -22,13 +22,7 @@ public class ConfigurationPresenter implements Initializable {
     private Button evolved;
 
     @FXML
-    private Button lv4;
-
-    @FXML
     private Button lv5;
-
-    @FXML
-    private Button lv6;
 
     @FXML
     private Button lv7;
@@ -83,14 +77,13 @@ public class ConfigurationPresenter implements Initializable {
     }
 
     public void setBaseLevel(int level) {
-        Button[] buttons = {lv4, lv5, lv6, lv7};
         pokemon.reset(level);
         natureCalculator.reset();
         pokemon.setHiddenPower(null);
         history.reset();
-        for (int i = 0; i < 4; ++i) {
-            buttons[i].setDisable(i == level - 4);
-        }
+
+        lv5.setDisable(level == 5);
+        lv7.setDisable(level != 5);
     }
 
     @Override
@@ -101,7 +94,7 @@ public class ConfigurationPresenter implements Initializable {
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        lv4.setDisable(true);
+        lv5.setDisable(true);
     }
 
 
