@@ -19,22 +19,16 @@ public class ConfigurationPresenter implements Initializable {
     private Label level;
 
     @FXML
-    private Button evolved;
+    private Button route1;
 
     @FXML
     private Button route2;
 
     @FXML
+    private Button route3;
+
+    @FXML
     private Button route4;
-
-    @FXML
-    private Button route5;
-
-    @FXML
-    private Button route8;
-
-    @FXML
-    private Button route8k;
 
     @Inject
     private Pokemon pokemon;
@@ -61,32 +55,26 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
+    public void setRoute1() {
+        setRoute("1");
+
+        updateEffortValues();
+    }
+
     public void setRoute2() {
         setRoute("2");
 
         updateEffortValues();
     }
 
+    public void setRoute3() {
+        setRoute("3");
+
+        updateEffortValues();
+    }
+
     public void setRoute4() {
         setRoute("4");
-
-        updateEffortValues();
-    }
-
-    public void setRoute5() {
-        setRoute("5");
-
-        updateEffortValues();
-    }
-
-    public void setRoute8() {
-        setRoute("8");
-
-        updateEffortValues();
-    }
-
-    public void setRoute8K() {
-        setRoute("8K");
 
         updateEffortValues();
     }
@@ -100,11 +88,10 @@ public class ConfigurationPresenter implements Initializable {
 
         pokemon.setRoute(routeName);
 
+        route1.setDisable(routeName.equals("1"));
         route2.setDisable(routeName.equals("2"));
+        route3.setDisable(routeName.equals("3"));
         route4.setDisable(routeName.equals("4"));
-        route5.setDisable(routeName.equals("5"));
-        route8.setDisable(routeName.equals("8"));
-        route8k.setDisable(routeName.equals("8K"));
     }
 
     @Override
@@ -114,14 +101,12 @@ public class ConfigurationPresenter implements Initializable {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        route2.setDisable(true);
+        route1.setDisable(true);
         pokemon.routeProperty().addListener((o, oldRoute, newRoute) -> {
+            route1.setDisable(newRoute.equals("1"));
             route2.setDisable(newRoute.equals("2"));
+            route3.setDisable(newRoute.equals("3"));
             route4.setDisable(newRoute.equals("4"));
-            route5.setDisable(newRoute.equals("5"));
-            route8.setDisable(newRoute.equals("8"));
-            route8k.setDisable(newRoute.equals("8K"));
         });
     }
 

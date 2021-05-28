@@ -14,15 +14,7 @@
             </VBox.margin>
         </Label>
         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelMinus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="-" />
-        <Button fx:id="evolved" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#evolve" prefHeight="45.0" prefWidth="45.0" text="Evo">
-            <VBox.margin>
-                <Insets top="15.0" />
-            </VBox.margin>
-            <font>
-                <Font name="System Bold" size="13.0" />
-            </font>
-        </Button>
-        <Button fx:id="route2" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute2" prefHeight="45.0" prefWidth="45.0" text="2">
+        <Button fx:id="route1" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute1" prefHeight="45.0" prefWidth="45.0" text="R1">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -31,7 +23,7 @@
             </font>
         </Button>
 
-        <Button fx:id="route4" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute4" prefHeight="45.0" prefWidth="45.0" text="4">
+        <Button fx:id="route2" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute2" prefHeight="45.0" prefWidth="45.0" text="R2">
             <font>
                 <Font size="9.0" />
             </font>
@@ -39,7 +31,7 @@
                 <Insets top="5.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="route5" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute5" prefHeight="45.0" prefWidth="45.0" text="5">
+        <Button fx:id="route3" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute3" prefHeight="45.0" prefWidth="45.0" text="R3">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -47,16 +39,7 @@
                 <Font size="9.0" />
             </font>
         </Button>
-        <Button fx:id="route8" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute8" prefHeight="45.0" prefWidth="45.0" text="8">
-            <font>
-                <Font size="9.0" />
-            </font>
-            <VBox.margin>
-                <Insets top="15.0" />
-            </VBox.margin>
-        </Button>
-
-        <Button fx:id="route8k" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute8K" prefHeight="45.0" prefWidth="45.0" text="8K">
+        <Button fx:id="route4" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute4" prefHeight="45.0" prefWidth="45.0" text="R4">
             <font>
                 <Font size="9.0" />
             </font>

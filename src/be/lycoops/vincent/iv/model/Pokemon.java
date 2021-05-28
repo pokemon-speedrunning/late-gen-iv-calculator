@@ -91,14 +91,14 @@ public class Pokemon {
      */
     public void reset() {
 
-        route.set("2");
-        level.set(5);
-        baseValues.put(Stat.HP, 44);
-        baseValues.put(Stat.ATK, 58);
-        baseValues.put(Stat.DEF, 44);
-        baseValues.put(Stat.SP_ATK, 58);
-        baseValues.put(Stat.SP_DEF, 44);
-        baseValues.put(Stat.SPD, 61);
+        route.set("1");
+        level.set(47);
+        baseValues.put(Stat.HP, 90);
+        baseValues.put(Stat.ATK, 120);
+        baseValues.put(Stat.DEF, 100);
+        baseValues.put(Stat.SP_ATK, 150);
+        baseValues.put(Stat.SP_DEF, 120);
+        baseValues.put(Stat.SPD, 100);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -153,7 +153,7 @@ public class Pokemon {
     public void levelUp() {
         int level = this.level.get();
 
-        if (level == 36) {
+        if (level == 61) {
             return;
         }
         this.level.set(level + 1);
@@ -164,7 +164,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if (level == 5) {
+        if (level == 47) {
             return;
         }
         this.level.set(level - 1);
