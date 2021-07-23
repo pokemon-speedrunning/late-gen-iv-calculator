@@ -2,6 +2,7 @@ package be.lycoops.vincent.iv.calculator;
 
 
 import be.lycoops.vincent.iv.calculator.configuration.ConfigurationView;
+import be.lycoops.vincent.iv.calculator.hiddenpower.HiddenPowerView;
 import be.lycoops.vincent.iv.calculator.output.OutputView;
 import be.lycoops.vincent.iv.calculator.reset.ResetView;
 import be.lycoops.vincent.iv.calculator.statselector.StatSelectorView;
@@ -38,6 +39,7 @@ public class CalculatorPresenter implements Initializable {
     private History history;
 
     public void initialize(URL location, ResourceBundle resources) {
+        pane.setTop(new HiddenPowerView().getView());
         pane.setLeft(new ConfigurationView().getView());
         pane.setRight(new ResetView().getView());
         pane.setBottom(new OutputView().getView());
