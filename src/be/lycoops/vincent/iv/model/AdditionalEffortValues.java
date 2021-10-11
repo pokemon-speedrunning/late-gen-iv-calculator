@@ -3,7 +3,6 @@ package be.lycoops.vincent.iv.model;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

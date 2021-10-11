@@ -91,14 +91,14 @@ public class Pokemon {
      */
     public void reset() {
 
-        route.set("2");
-        level.set(5);
-        baseValues.put(Stat.HP, 44);
-        baseValues.put(Stat.ATK, 58);
-        baseValues.put(Stat.DEF, 44);
-        baseValues.put(Stat.SP_ATK, 58);
-        baseValues.put(Stat.SP_DEF, 44);
-        baseValues.put(Stat.SPD, 61);
+        route.set("19");
+        level.set(21);
+        baseValues.put(Stat.HP, 78);
+        baseValues.put(Stat.ATK, 92);
+        baseValues.put(Stat.DEF, 75);
+        baseValues.put(Stat.SP_ATK, 74);
+        baseValues.put(Stat.SP_DEF, 63);
+        baseValues.put(Stat.SPD, 118);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -138,12 +138,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put(Stat.HP, 44);
-        baseValues.put(Stat.ATK, 58);
-        baseValues.put(Stat.DEF, 44);
-        baseValues.put(Stat.SP_ATK, 58);
-        baseValues.put(Stat.SP_DEF, 44);
-        baseValues.put(Stat.SPD, 61);
+        baseValues.put(Stat.HP, 78);
+        baseValues.put(Stat.ATK, 92);
+        baseValues.put(Stat.DEF, 75);
+        baseValues.put(Stat.SP_ATK, 74);
+        baseValues.put(Stat.SP_DEF, 63);
+        baseValues.put(Stat.SPD, 118);
         evolved.set(false);
     }
 
@@ -153,7 +153,7 @@ public class Pokemon {
     public void levelUp() {
         int level = this.level.get();
 
-        if (level == 36) {
+        if (level == 30) {
             return;
         }
         this.level.set(level + 1);
@@ -164,7 +164,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if (level == 5) {
+        if (level == 19) {
             return;
         }
         this.level.set(level - 1);
@@ -536,6 +536,10 @@ public class Pokemon {
 
     public void setRoute(String routeName) {
         route.setValue(routeName);
+
+        int level = Integer.parseInt(routeName) + 2;
+
+        setLevel(level);
     }
 
     public StringProperty routeProperty() {

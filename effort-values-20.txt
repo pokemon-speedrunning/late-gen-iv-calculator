@@ -1,0 +1,13 @@
+20	0	0	0	0	0	0
+21	0	0	0	0	0	0
+22	0	0	0	0	0	0
+23	1	2	0	1	0	0   Amaura (1 HP), Tyrunt (1 Atk), Lucario (1 Atk, 1 Sp.Atk)
+24  1   3   0   2   0   2   Lucario (1 Atk, 1 Sp.Atk), Linoone (2 Spd)
+25  1   6   0   2   0   3   Doduo (1 Atk), Helioptile (1 Spd), Granbull (2 Atk)
+26  1   17   10   3   1   5   Chimecho (1 Sp.Atk, 1 Sp.Def), Golett (1 Atk), Meowstic (2 Spd)
+27  1   19   10   5   1   6   Braixen (2 Sp.Atk), Absol (2 Atk), Meditite (1 Spd)
+28  1   19   10   5   1   6
+29  1   19   10   5   1   6
+30  1   19   10   5   1   6
+31  1   19   10   5   1   6
+32  1   19   10   5   1   6
