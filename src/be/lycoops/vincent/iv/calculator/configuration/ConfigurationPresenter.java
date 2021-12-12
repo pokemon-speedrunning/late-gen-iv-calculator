@@ -5,7 +5,6 @@ import be.lycoops.vincent.iv.model.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javax.inject.Inject;
@@ -17,9 +16,6 @@ public class ConfigurationPresenter implements Initializable {
 
     @FXML
     private Label level;
-
-    @FXML
-    private Button evolved;
 
     @Inject
     private Pokemon pokemon;
@@ -51,7 +47,7 @@ public class ConfigurationPresenter implements Initializable {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
+//        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
     }
 
 

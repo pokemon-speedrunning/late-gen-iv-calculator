@@ -212,5 +212,9 @@ public class StatSelectorPresenter implements Initializable {
             spdNatureLabel.setText(Stat.SPD.getVisualName(newValue));
         });
 
+        natureCalculator.setPlusNature(Stat.SP_ATK);
+        natureCalculator.setMinusNature(Stat.SPD);
+        pokemon.setNature(natureCalculator.computeNature());
+
     }
 }

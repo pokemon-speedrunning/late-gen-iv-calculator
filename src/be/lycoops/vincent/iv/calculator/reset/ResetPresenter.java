@@ -46,6 +46,10 @@ public class ResetPresenter implements Initializable {
         natureCalculator.reset();
         pokemon.setHiddenPower(hiddenPowerCalculator.setUnknown());
         history.reset();
+
+        natureCalculator.setPlusNature(Stat.SP_ATK);
+        natureCalculator.setMinusNature(Stat.SPD);
+        pokemon.setNature(natureCalculator.computeNature());
     }
 
     public void toggleShortNotation() {

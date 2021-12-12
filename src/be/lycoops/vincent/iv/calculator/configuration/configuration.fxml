@@ -14,15 +14,6 @@
             </VBox.margin>
         </Label>
         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelMinus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="-" />
-        <Button fx:id="evolved" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#evolve" prefHeight="45.0" prefWidth="45.0" text="Evo">
-            <VBox.margin>
-                <Insets top="15.0" />
-            </VBox.margin>
-            <font>
-                <Font name="System Bold" size="13.0" />
-            </font>
-        </Button>
-
     </children>
     <BorderPane.margin>
         <Insets top="5.0" />
