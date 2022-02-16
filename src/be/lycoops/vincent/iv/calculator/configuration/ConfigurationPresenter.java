@@ -22,16 +22,16 @@ public class ConfigurationPresenter implements Initializable {
     private Button evolved;
 
     @FXML
-    private Button lv2;
+    private Button lv16;
 
     @FXML
-    private Button lv3;
+    private Button lv17;
 
     @FXML
-    private Button lv4;
+    private Button lv18;
 
     @FXML
-    private Button lv11;
+    private Button lv19;
 
     @Inject
     private Pokemon pokemon;
@@ -58,32 +58,38 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setL2() {
-        setBaseLevel(2);
+    public void setL16() {
+        setBaseLevel(16);
 
         updateEffortValues();
     }
 
-    public void setL3() {
-        setBaseLevel(3);
+    public void setL17() {
+        setBaseLevel(17);
 
         updateEffortValues();
     }
 
-    public void setL4() {
-        setBaseLevel(4);
+    public void setL18() {
+        setBaseLevel(18);
+
+        updateEffortValues();
+    }
+
+    public void setL19() {
+        setBaseLevel(19);
 
         updateEffortValues();
     }
 
     public void setBaseLevel(int level) {
-        Button[] buttons = {lv2, lv3, lv4};
+        Button[] buttons = {lv16, lv17, lv18, lv19};
         pokemon.reset(level);
         natureCalculator.reset();
         pokemon.setHiddenPower(null);
         history.reset();
-        for (int i = 0; i < 3; ++i) {
-            buttons[i].setDisable(i == level - 2);
+        for (int i = 0; i < 4; ++i) {
+            buttons[i].setDisable(i == level - 16);
         }
     }
 
@@ -95,7 +101,8 @@ public class ConfigurationPresenter implements Initializable {
             updateEffortValues();
         });
         pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        lv2.setDisable(true);
+        lv16.setDisable(true);
+        updateEffortValues();
     }
 
 
