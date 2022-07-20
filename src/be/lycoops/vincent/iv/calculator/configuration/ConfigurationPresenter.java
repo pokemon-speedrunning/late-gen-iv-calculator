@@ -28,7 +28,10 @@ public class ConfigurationPresenter implements Initializable {
     private Button lv17;
 
     @FXML
-    private Button lv18;
+    private Button lv18sr;
+
+    @FXML
+    private Button lv18sf;
 
     @FXML
     private Button lv19;
@@ -44,6 +47,8 @@ public class ConfigurationPresenter implements Initializable {
 
     @Inject
     private NatureCalculator natureCalculator;
+
+    private String ability = "";
 
     public void levelPlus() {
         pokemon.levelUp();
@@ -70,8 +75,14 @@ public class ConfigurationPresenter implements Initializable {
         updateEffortValues();
     }
 
-    public void setL18() {
-        setBaseLevel(18);
+    public void setL18Sr() {
+        setBaseLevel(18, "sr");
+
+        updateEffortValues();
+    }
+
+    public void setL18Sf() {
+        setBaseLevel(18, "sf");
 
         updateEffortValues();
     }
@@ -83,14 +94,23 @@ public class ConfigurationPresenter implements Initializable {
     }
 
     public void setBaseLevel(int level) {
-        Button[] buttons = {lv16, lv17, lv18, lv19};
+        setBaseLevel(level, null);
+    }
+
+    public void setBaseLevel(int level, String ability) {
+
+        this.ability = ability;
+
         pokemon.reset(level);
         natureCalculator.reset();
         pokemon.setHiddenPower(null);
         history.reset();
-        for (int i = 0; i < 4; ++i) {
-            buttons[i].setDisable(i == level - 16);
-        }
+
+        lv16.setDisable(level == 16);
+        lv17.setDisable(level == 17);
+        lv18sr.setDisable(level == 18 && ability.equals("sr"));
+        lv18sf.setDisable(level == 18 && ability.equals("sf"));
+        lv19.setDisable(level == 19);
     }
 
     @Override
@@ -111,7 +131,7 @@ public class ConfigurationPresenter implements Initializable {
         Stat additionalEv = null;
 
 
-        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), pokemon.getBaseLevel());
+        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), pokemon.getBaseLevel(), ability);
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
     }
 }

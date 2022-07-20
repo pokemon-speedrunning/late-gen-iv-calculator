@@ -14,7 +14,15 @@
             </VBox.margin>
         </Label>
         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelMinus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="-" />
-        <Button fx:id="lv16" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL16" prefHeight="45.0" prefWidth="45.0" text="L16">
+        <Button fx:id="evolved" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#evolve" prefHeight="45.0" prefWidth="45.0" text="Evo">
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Button>
+        <Button fx:id="lv16" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL16" prefHeight="45.0" prefWidth="45.0" text="16">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -23,7 +31,7 @@
             </font>
         </Button>
 
-        <Button fx:id="lv17" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL17" prefHeight="45.0" prefWidth="45.0" text="L17">
+        <Button fx:id="lv17" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL17" prefHeight="45.0" prefWidth="45.0" text="17">
             <font>
                 <Font size="9.0" />
             </font>
@@ -31,7 +39,7 @@
                 <Insets top="5.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="lv18" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL18" prefHeight="45.0" prefWidth="45.0" text="L18">
+        <Button fx:id="lv18sr" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL18Sr" prefHeight="45.0" prefWidth="45.0" text="18SR">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -39,7 +47,15 @@
                 <Font size="9.0" />
             </font>
         </Button>
-        <Button fx:id="lv19" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL19" prefHeight="45.0" prefWidth="45.0" text="L19">
+        <Button fx:id="lv18sf" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL18Sf" prefHeight="45.0" prefWidth="45.0" text="18SF">
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+            <font>
+                <Font size="9.0" />
+            </font>
+        </Button>
+        <Button fx:id="lv19" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL19" prefHeight="45.0" prefWidth="45.0" text="19">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>

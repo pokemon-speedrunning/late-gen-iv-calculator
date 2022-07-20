@@ -94,11 +94,11 @@ public class Pokemon {
         baseLevel.set(levelNum);
         level.set(levelNum);
         baseValues.put(Stat.HP, 60);
-        baseValues.put(Stat.ATK, 45);
-        baseValues.put(Stat.DEF, 70);
-        baseValues.put(Stat.SP_ATK, 45);
-        baseValues.put(Stat.SP_DEF, 90);
-        baseValues.put(Stat.SPD, 95);
+        baseValues.put(Stat.ATK, 85);
+        baseValues.put(Stat.DEF, 40);
+        baseValues.put(Stat.SP_ATK, 30);
+        baseValues.put(Stat.SP_DEF, 45);
+        baseValues.put(Stat.SPD, 68);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -125,12 +125,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 65);
-        baseValues.put(Stat.ATK, 80);
-        baseValues.put(Stat.DEF, 65);
-        baseValues.put(Stat.SP_ATK, 35);
+        baseValues.put(Stat.HP, 110);
+        baseValues.put(Stat.ATK, 135);
+        baseValues.put(Stat.DEF, 60);
+        baseValues.put(Stat.SP_ATK, 50);
         baseValues.put(Stat.SP_DEF, 65);
-        baseValues.put(Stat.SPD, 60);
+        baseValues.put(Stat.SPD, 88);
         evolved.set(true);
     }
 
@@ -139,11 +139,11 @@ public class Pokemon {
      */
     public void unevolve() {
         baseValues.put(Stat.HP, 60);
-        baseValues.put(Stat.ATK, 45);
-        baseValues.put(Stat.DEF, 70);
-        baseValues.put(Stat.SP_ATK, 45);
-        baseValues.put(Stat.SP_DEF, 90);
-        baseValues.put(Stat.SPD, 95);
+        baseValues.put(Stat.ATK, 85);
+        baseValues.put(Stat.DEF, 40);
+        baseValues.put(Stat.SP_ATK, 30);
+        baseValues.put(Stat.SP_DEF, 45);
+        baseValues.put(Stat.SPD, 68);
         evolved.set(false);
     }
 
@@ -160,7 +160,7 @@ public class Pokemon {
 //            baseValues.put(Stat.SP_DEF, 65);
 //            baseValues.put(Stat.SPD, 120);
 //        }
-        if (level == 40) {
+        if (level == 41) {
             return;
         }
         this.level.set(level + 1);

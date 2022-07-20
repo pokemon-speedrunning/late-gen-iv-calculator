@@ -70,6 +70,22 @@ public class KnownSelectorPresenter implements Initializable {
         history.addEvAdded(stat);
     }
 
+    public void statUp10() {
+
+        for (int i = 0; i < 10; ++i)
+            pokemon.addAdditionalEffortValue(stat);
+
+        history.addEvAdded(stat);
+    }
+
+    public void statUpIfRightClick(MouseEvent event) {
+
+        if (event.isSecondaryButtonDown()) {
+            pokemon.addAdditionalEffortValue(stat);
+            history.addEvAdded(stat);
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> formatButtons());

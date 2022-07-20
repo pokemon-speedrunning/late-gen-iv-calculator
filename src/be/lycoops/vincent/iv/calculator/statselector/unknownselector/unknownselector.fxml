@@ -73,6 +73,11 @@
                 <Insets top="3.0" />
             </GridPane.margin>
         </Label>
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#statUp10" text="+10EV" GridPane.rowIndex="17">
+            <GridPane.margin>
+                <Insets top="3.0" />
+            </GridPane.margin>
+        </Button>
     </children>
 
     <fx:define>

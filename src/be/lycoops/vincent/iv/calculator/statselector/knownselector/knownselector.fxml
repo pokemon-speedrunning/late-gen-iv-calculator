@@ -63,7 +63,7 @@
         <Button fx:id="statButton29" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#setStat" text="" GridPane.columnIndex="1" GridPane.rowIndex="14" />
         <Button fx:id="statButton30" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#setStat" text="" GridPane.rowIndex="15" />
         <Button fx:id="statButton31" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#setStat" text="" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#statUp" text="+1EV" GridPane.rowIndex="16">
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#statUp" onMouseClicked="#statUpIfRightClick" text="+1EV" GridPane.rowIndex="16">
             <GridPane.margin>
                 <Insets top="3.0" />
             </GridPane.margin>
@@ -76,6 +76,11 @@
                 <Insets top="3.0" />
             </GridPane.margin>
         </Label>
+        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#statUp10" onMouseClicked="#statUpIfRightClick" text="+10EV" GridPane.rowIndex="17">
+            <GridPane.margin>
+                <Insets top="3.0" />
+            </GridPane.margin>
+        </Button>
     </children>
 
     <fx:define>
