@@ -87,12 +87,12 @@ public class Pokemon {
     public void reset() {
 
         level.set(5);
-        baseValues.put(Stat.HP, 44);
-        baseValues.put(Stat.ATK, 58);
-        baseValues.put(Stat.DEF, 44);
-        baseValues.put(Stat.SP_ATK, 58);
-        baseValues.put(Stat.SP_DEF, 44);
-        baseValues.put(Stat.SPD, 61);
+        baseValues.put(Stat.HP, 40);
+        baseValues.put(Stat.ATK, 40);
+        baseValues.put(Stat.DEF, 55);
+        baseValues.put(Stat.SP_ATK, 40);
+        baseValues.put(Stat.SP_DEF, 70);
+        baseValues.put(Stat.SPD, 55);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -132,12 +132,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put(Stat.HP, 44);
-        baseValues.put(Stat.ATK, 58);
-        baseValues.put(Stat.DEF, 44);
-        baseValues.put(Stat.SP_ATK, 58);
-        baseValues.put(Stat.SP_DEF, 44);
-        baseValues.put(Stat.SPD, 61);
+        baseValues.put(Stat.HP, 40);
+        baseValues.put(Stat.ATK, 40);
+        baseValues.put(Stat.DEF, 55);
+        baseValues.put(Stat.SP_ATK, 40);
+        baseValues.put(Stat.SP_DEF, 70);
+        baseValues.put(Stat.SPD, 55);
         evolved.set(false);
     }
 
@@ -146,7 +146,7 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 28) {
+        if (level == 20) {
             return;
         }
         this.level.set(level + 1);
