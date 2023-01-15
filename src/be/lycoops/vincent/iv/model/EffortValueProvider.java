@@ -93,13 +93,7 @@ public class EffortValueProvider {
 
     private static Map<Stat, Integer> importEffortValues(int level, int baseLevel, String ability) {
 
-        String fileName = "effort-values-" + baseLevel;
-
-        if (ability != null) {
-            fileName+= ability;
-        }
-
-        fileName+= ".txt";
+        String fileName = "effort-values.txt";
 
         System.out.println(fileName);
 

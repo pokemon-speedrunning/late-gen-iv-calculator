@@ -5,7 +5,6 @@ import be.lycoops.vincent.iv.model.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javax.inject.Inject;
@@ -17,24 +16,6 @@ public class ConfigurationPresenter implements Initializable {
 
     @FXML
     private Label level;
-
-    @FXML
-    private Button evolved;
-
-    @FXML
-    private Button lv16;
-
-    @FXML
-    private Button lv17;
-
-    @FXML
-    private Button lv18sr;
-
-    @FXML
-    private Button lv18sf;
-
-    @FXML
-    private Button lv19;
 
     @Inject
     private Pokemon pokemon;
@@ -52,6 +33,12 @@ public class ConfigurationPresenter implements Initializable {
 
     public void levelPlus() {
         pokemon.levelUp();
+    }
+
+    public void level10Plus() {
+        for (int i = 0; i < 10; ++i) {
+            pokemon.levelUp();
+        }
     }
 
     public void levelMinus() {
@@ -105,12 +92,6 @@ public class ConfigurationPresenter implements Initializable {
         natureCalculator.reset();
         pokemon.setHiddenPower(null);
         history.reset();
-
-        lv16.setDisable(level == 16);
-        lv17.setDisable(level == 17);
-        lv18sr.setDisable(level == 18 && ability.equals("sr"));
-        lv18sf.setDisable(level == 18 && ability.equals("sf"));
-        lv19.setDisable(level == 19);
     }
 
     @Override
@@ -120,8 +101,6 @@ public class ConfigurationPresenter implements Initializable {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        lv16.setDisable(true);
         updateEffortValues();
     }
 
