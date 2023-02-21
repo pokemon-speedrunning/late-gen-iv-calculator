@@ -21,17 +21,9 @@ public class ConfigurationPresenter implements Initializable {
     @FXML
     private Button evolved;
 
-    @FXML
-    private Button sun;
-
-    @FXML
-    private Button moon;
-
     @Inject
     private Pokemon pokemon;
 
-    @Inject
-    private GameService gameService;
 
     @Inject
     private History history;
@@ -49,39 +41,18 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setSun() {
-        gameService.setGame(Game.SUN);
-    }
-
-    public void setMoon() {
-        gameService.setGame(Game.MOON);
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> {
             level.setText("L" + newLevel);
             updateEffortValues();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> evolved.setDisable(isEvolved));
-        gameService.gameProperty().addListener((o, old, newGame) -> setGame(newGame));
-        moon.setDisable(true);
-    }
-
-    private void setGame(Game game) {
-        if (game.equals(Game.MOON)) {
-            sun.setDisable(false);
-            moon.setDisable(true);
-        } else {
-            sun.setDisable(true);
-            moon.setDisable(false);
-        }
-        updateEffortValues();
+        pokemon.evolutionProperty().addListener((o, oldStage, stage) -> evolved.setDisable(stage.equals(3)));
     }
 
     private void updateEffortValues() {
         Map<Stat, IntegerProperty> effortValues = pokemon.getEffortValues();
-        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(gameService.getGame(), pokemon.getLevel());
+        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel());
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
     }
 }

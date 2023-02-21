@@ -68,6 +68,7 @@ public class UnknownSelectorPresenter implements Initializable {
         int max = pokemon.getMaxIndividualValues().get(stat).get();
         history.addStat(stat, min, max);
         pokemon.setKnownStat(stat, value);
+        pokemon.setKnownStat(stat, value);
     }
 
     public void statUp() {
@@ -80,7 +81,7 @@ public class UnknownSelectorPresenter implements Initializable {
         pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> formatButtons());
         natureCalculator.plusNatureProperty().addListener((o, oldPlus, newPlus) -> formatButtons());
         natureCalculator.minusNatureProperty().addListener((o, oldMinus, newMinus) -> formatButtons());
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> formatButtons());
+        pokemon.evolutionProperty().addListener((o, wasEvolved, isEvolved) -> formatButtons());
     }
 
     private void formatButtons() {

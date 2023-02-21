@@ -29,7 +29,7 @@ public class Pokemon {
     /**
      * Whether the Pokémon is currently evolved.
      */
-    private BooleanProperty evolved = new SimpleBooleanProperty();
+    private IntegerProperty evolution = new SimpleIntegerProperty(1);
 
     /**
      * Amount of individual values of each stat that have already been collected.
@@ -87,24 +87,15 @@ public class Pokemon {
      * Resets the Pokémon to Popplio at level 5
      */
     public void reset() {
-        if (isPikipek) {
-            level.set(2);
-            baseValues.put(Stat.HP, 35);
-            baseValues.put(Stat.ATK, 75);
-            baseValues.put(Stat.DEF, 30);
-            baseValues.put(Stat.SPD, 65);
-            baseValues.put(Stat.SP_ATK, 30);
-            baseValues.put(Stat.SP_DEF, 30);
-        } else {
-            level.set(5);
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 70);
-            baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SP_ATK, 50);
-            baseValues.put(Stat.SP_DEF, 50);
-            baseValues.put(Stat.SPD, 40);
-        }
-        evolved.set(false);
+
+        level.set(6);
+        baseValues.put(Stat.HP, 55);
+        baseValues.put(Stat.ATK, 40);
+        baseValues.put(Stat.DEF, 40);
+        baseValues.put(Stat.SP_ATK, 65);
+        baseValues.put(Stat.SP_DEF, 45);
+        baseValues.put(Stat.SPD, 35);
+        evolution.set(1);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
             minIndividualValues.get(stat).set(0);
@@ -130,44 +121,45 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        if (isPikipek) {
-            baseValues.put(Stat.HP, 55);
-            baseValues.put(Stat.ATK, 85);
-            baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SP_ATK, 40);
-            baseValues.put(Stat.SP_DEF, 50);
-            baseValues.put(Stat.SPD, 75);
-        } else {
+        int evo = evolution.getValue();
+        if (evo == 1) {
             baseValues.put(Stat.HP, 70);
-            baseValues.put(Stat.ATK, 85);
-            baseValues.put(Stat.DEF, 70);
-            baseValues.put(Stat.SP_ATK, 60);
-            baseValues.put(Stat.SP_DEF, 70);
-            baseValues.put(Stat.SPD, 50);
+            baseValues.put(Stat.ATK, 55);
+            baseValues.put(Stat.DEF, 55);
+            baseValues.put(Stat.SP_ATK, 80);
+            baseValues.put(Stat.SP_DEF, 60);
+            baseValues.put(Stat.SPD, 45);
+        } else {
+            baseValues.put(Stat.HP, 90);
+            baseValues.put(Stat.ATK, 75);
+            baseValues.put(Stat.DEF, 75);
+            baseValues.put(Stat.SP_ATK, 115);
+            baseValues.put(Stat.SP_DEF, 90);
+            baseValues.put(Stat.SPD, 55);
         }
-        evolved.set(true);
+        evolution.set(evo + 1);
     }
 
     /**
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        if (isPikipek) {
-            baseValues.put(Stat.HP, 35);
-            baseValues.put(Stat.ATK, 75);
-            baseValues.put(Stat.DEF, 30);
-            baseValues.put(Stat.SP_ATK, 30);
-            baseValues.put(Stat.SP_DEF, 30);
-            baseValues.put(Stat.SPD, 65);
-        } else {
-            baseValues.put(Stat.HP, 50);
-            baseValues.put(Stat.ATK, 70);
-            baseValues.put(Stat.DEF, 50);
-            baseValues.put(Stat.SP_ATK, 50);
-            baseValues.put(Stat.SP_DEF, 50);
-            baseValues.put(Stat.SPD, 40);
-        }
-        evolved.set(false);
+//        if (isPikipek) {
+//            baseValues.put(Stat.HP, 35);
+//            baseValues.put(Stat.ATK, 75);
+//            baseValues.put(Stat.DEF, 30);
+//            baseValues.put(Stat.SP_ATK, 30);
+//            baseValues.put(Stat.SP_DEF, 30);
+//            baseValues.put(Stat.SPD, 65);
+//        } else {
+//            baseValues.put(Stat.HP, 50);
+//            baseValues.put(Stat.ATK, 70);
+//            baseValues.put(Stat.DEF, 50);
+//            baseValues.put(Stat.SP_ATK, 50);
+//            baseValues.put(Stat.SP_DEF, 50);
+//            baseValues.put(Stat.SPD, 40);
+//        }
+//        evolved.set(false);
     }
 
     /**
@@ -175,14 +167,6 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 35 && !isPikipek && evolved.get()) {
-            baseValues.put(Stat.HP, 80);
-            baseValues.put(Stat.ATK, 74);
-            baseValues.put(Stat.DEF, 74);
-            baseValues.put(Stat.SP_ATK, 126);
-            baseValues.put(Stat.SP_DEF, 116);
-            baseValues.put(Stat.SPD, 60);
-        }
         if (level == 50) {
             return;
         }
@@ -194,7 +178,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if ((!isPikipek && level == 5) || level == 2) {
+        if (level == 6) {
             return;
         }
         this.level.set(level - 1);
@@ -376,12 +360,20 @@ public class Pokemon {
         return effortValues;
     }
 
-    public boolean isEvolved() {
-        return evolved.get();
+    public boolean isFirstStage() {
+        return evolution.getValue() == 1;
     }
 
-    public BooleanProperty evolvedProperty() {
-        return evolved;
+    public boolean isSecondStage() {
+        return evolution.getValue() == 2;
+    }
+
+    public boolean isThirdStage() {
+        return evolution.getValue() == 3;
+    }
+
+    public IntegerProperty evolutionProperty() {
+        return evolution;
     }
 
     public Nature getNature() {

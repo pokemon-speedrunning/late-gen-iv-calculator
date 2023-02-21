@@ -43,7 +43,7 @@ public class KnownSelectorPresenter implements Initializable {
             statEv.setText(String.valueOf(newEv));
             formatButtons();
         });
-        pokemon.evolvedProperty().addListener((o, wasEvolved, isEvolved) -> formatButtons());
+        pokemon.evolutionProperty().addListener((o, wasEvolved, isEvolved) -> formatButtons());
         formatButtons();
     }
 

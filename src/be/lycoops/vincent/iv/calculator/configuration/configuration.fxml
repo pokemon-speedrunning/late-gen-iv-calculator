@@ -8,7 +8,7 @@
 <VBox xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" BorderPane.alignment="CENTER" fx:controller="be.lycoops.vincent.iv.calculator.configuration.ConfigurationPresenter">
     <children>
         <Button fx:id="" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelPlus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="+" />
-        <Label fx:id="level" alignment="CENTER" prefHeight="35.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="L5" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+        <Label fx:id="level" alignment="CENTER" prefHeight="35.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="L6" textAlignment="CENTER" VBox.vgrow="ALWAYS">
             <VBox.margin>
                 <Insets bottom="5.0" top="5.0" />
             </VBox.margin>
@@ -20,22 +20,6 @@
             </VBox.margin>
             <font>
                 <Font name="System Bold" size="13.0" />
-            </font>
-        </Button>
-        <Button fx:id="sun" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setSun" prefHeight="45.0" prefWidth="45.0" text="Sun">
-            <font>
-                <Font size="11.0" />
-            </font>
-            <VBox.margin>
-                <Insets top="15.0" />
-            </VBox.margin>
-        </Button>
-        <Button fx:id="moon" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setMoon" prefHeight="45.0" prefWidth="45.0" text="Moon">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-            <font>
-                <Font size="11.0" />
             </font>
         </Button>
     </children>

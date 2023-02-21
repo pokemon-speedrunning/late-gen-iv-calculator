@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class EffortValueProvider {
-    public static Map<Stat, Integer> getEffortValues(Game game, int level) {
+    public static Map<Stat, Integer> getEffortValues(int level) {
 
 
 
