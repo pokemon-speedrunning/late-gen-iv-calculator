@@ -83,7 +83,7 @@ public class Pokemon {
             }
 
         }
-        reset(2);
+        reset(9);
     }
 
     /**
@@ -93,12 +93,12 @@ public class Pokemon {
 
         baseLevel.set(levelNum);
         level.set(levelNum);
-        baseValues.put(Stat.HP, 45);
-        baseValues.put(Stat.ATK, 60);
-        baseValues.put(Stat.DEF, 45);
-        baseValues.put(Stat.SP_ATK, 25);
-        baseValues.put(Stat.SP_DEF, 45);
-        baseValues.put(Stat.SPD, 55);
+        baseValues.put(Stat.HP, 40);
+        baseValues.put(Stat.ATK, 55);
+        baseValues.put(Stat.DEF, 30);
+        baseValues.put(Stat.SP_ATK, 30);
+        baseValues.put(Stat.SP_DEF, 30);
+        baseValues.put(Stat.SPD, 60);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -125,12 +125,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Brionne's base stats
      */
     public void evolve() {
-        baseValues.put(Stat.HP, 65);
-        baseValues.put(Stat.ATK, 80);
-        baseValues.put(Stat.DEF, 65);
-        baseValues.put(Stat.SP_ATK, 35);
-        baseValues.put(Stat.SP_DEF, 65);
-        baseValues.put(Stat.SPD, 60);
+        baseValues.put(Stat.HP, 55);
+        baseValues.put(Stat.ATK, 75);
+        baseValues.put(Stat.DEF, 50);
+        baseValues.put(Stat.SP_ATK, 40);
+        baseValues.put(Stat.SP_DEF, 40);
+        baseValues.put(Stat.SPD, 80);
         evolved.set(true);
     }
 
@@ -138,12 +138,12 @@ public class Pokemon {
      * Defines the base stats of the Pokémon to Popplio's base stats
      */
     public void unevolve() {
-        baseValues.put(Stat.HP, 45);
-        baseValues.put(Stat.ATK, 60);
-        baseValues.put(Stat.DEF, 45);
-        baseValues.put(Stat.SP_ATK, 25);
-        baseValues.put(Stat.SP_DEF, 45);
-        baseValues.put(Stat.SPD, 55);
+        baseValues.put(Stat.HP, 40);
+        baseValues.put(Stat.ATK, 55);
+        baseValues.put(Stat.DEF, 30);
+        baseValues.put(Stat.SP_ATK, 30);
+        baseValues.put(Stat.SP_DEF, 30);
+        baseValues.put(Stat.SPD, 60);
         evolved.set(false);
     }
 
@@ -152,15 +152,7 @@ public class Pokemon {
      */
     public void levelUp() {
         int level = this.level.get();
-        if (level == 35 && evolved.get()) {
-            baseValues.put(Stat.HP, 70);
-            baseValues.put(Stat.ATK, 85);
-            baseValues.put(Stat.DEF, 65);
-            baseValues.put(Stat.SP_ATK, 125);
-            baseValues.put(Stat.SP_DEF, 65);
-            baseValues.put(Stat.SPD, 120);
-        }
-        if (level == 30) {
+        if (level == 50) {
             return;
         }
         this.level.set(level + 1);
@@ -171,7 +163,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if (level == 5) {
+        if (level == 9) {
             return;
         }
         this.level.set(level - 1);

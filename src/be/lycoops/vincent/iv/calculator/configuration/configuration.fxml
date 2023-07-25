@@ -22,7 +22,7 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="lv2" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL2" prefHeight="45.0" prefWidth="45.0" text="L2">
+        <Button fx:id="lv9" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL9" prefHeight="45.0" prefWidth="45.0" text="L9">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -31,7 +31,7 @@
             </font>
         </Button>
 
-        <Button fx:id="lv3" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL3" prefHeight="45.0" prefWidth="45.0" text="L3">
+        <Button fx:id="lv10" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL10" prefHeight="45.0" prefWidth="45.0" text="L10">
             <font>
                 <Font size="9.0" />
             </font>
@@ -39,7 +39,7 @@
                 <Insets top="5.0" />
             </VBox.margin>
         </Button>
-        <Button fx:id="lv4" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL4" prefHeight="45.0" prefWidth="45.0" text="L4">
+        <Button fx:id="lv11" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL11" prefHeight="45.0" prefWidth="45.0" text="L11">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
