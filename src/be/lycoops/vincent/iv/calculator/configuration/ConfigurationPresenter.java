@@ -19,10 +19,7 @@ public class ConfigurationPresenter implements Initializable {
     private Label level;
 
     @FXML
-    private Button route19;
-
-    @FXML
-    private Button route20;
+    private Button l49;
 
     @Inject
     private Pokemon pokemon;
@@ -49,30 +46,11 @@ public class ConfigurationPresenter implements Initializable {
         history.addEvolution();
     }
 
-    public void setRoute19() {
-        setRoute("19");
-
+    public void setL49() {
+        pokemon.setLevel(49);
         updateEffortValues();
     }
 
-    public void setRoute20() {
-        setRoute("20");
-
-        updateEffortValues();
-    }
-
-    public void setRoute(String routeName) {
-
-        pokemon.reset();
-        natureCalculator.reset();
-        pokemon.setHiddenPower(null);
-        history.reset();
-
-        pokemon.setRoute(routeName);
-
-        route19.setDisable(routeName.equals("19"));
-        route20.setDisable(routeName.equals("20"));
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,11 +58,6 @@ public class ConfigurationPresenter implements Initializable {
         pokemon.levelProperty().addListener((o, oldLevel, newLevel) -> {
             level.setText("L" + newLevel);
             updateEffortValues();
-        });
-        route19.setDisable(true);
-        pokemon.routeProperty().addListener((o, oldRoute, newRoute) -> {
-            route19.setDisable(newRoute.equals("19"));
-            route20.setDisable(newRoute.equals("20"));
         });
     }
 
@@ -94,7 +67,7 @@ public class ConfigurationPresenter implements Initializable {
         Stat additionalEv = null;
 
 
-        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel(), pokemon.getRoute());
+        Map<Stat, Integer> newEffortValues = EffortValueProvider.getEffortValues(pokemon.getLevel());
         effortValues.forEach((stat, effortValue) -> effortValue.set(newEffortValues.get(stat)));
     }
 }

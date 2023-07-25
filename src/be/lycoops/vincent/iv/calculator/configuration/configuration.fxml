@@ -14,7 +14,7 @@
             </VBox.margin>
         </Label>
         <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#levelMinus" prefHeight="45.0" prefWidth="45.0" style="-fx-font-size: 20px;" text="-" />
-        <Button fx:id="route19" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute19" prefHeight="45.0" prefWidth="45.0" text="19">
+        <Button fx:id="l49" alignment="CENTER" layoutX="13.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setL49" prefHeight="45.0" prefWidth="45.0" text="49">
             <VBox.margin>
                 <Insets top="5.0" />
             </VBox.margin>
@@ -23,14 +23,6 @@
             </font>
         </Button>
 
-        <Button fx:id="route20" alignment="CENTER" layoutX="13.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setRoute20" prefHeight="45.0" prefWidth="45.0" text="20">
-            <font>
-                <Font size="9.0" />
-            </font>
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Button>
     </children>
     <BorderPane.margin>
         <Insets top="5.0" />

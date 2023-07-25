@@ -11,10 +11,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class EffortValueProvider {
-    public static Map<Stat, Integer> getEffortValues(int level, String route) {
+    public static Map<Stat, Integer> getEffortValues(int level) {
 
 
-        Map<Stat, Integer> effortValues = importEffortValues(level, route);
+        Map<Stat, Integer> effortValues = importEffortValues(level);
 
 
         if (effortValues != null) {
@@ -91,8 +91,8 @@ public class EffortValueProvider {
 
     private static final Pattern pattern = Pattern.compile("^(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+(\\d+)");
 
-    private static Map<Stat, Integer> importEffortValues(int level, String route) {
-        String fileName = "effort-values-" + route.toLowerCase() + ".txt";
+    private static Map<Stat, Integer> importEffortValues(int level) {
+        String fileName = "effort-values.txt";
 
         File file = new File(fileName);
         if (!file.exists() || !file.canRead()) {

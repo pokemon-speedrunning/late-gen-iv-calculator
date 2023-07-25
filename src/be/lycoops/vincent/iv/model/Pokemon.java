@@ -15,11 +15,6 @@ public class Pokemon {
     private IntegerProperty level = new SimpleIntegerProperty();
 
     /**
-     * Route of the Pokémon.
-     */
-    private StringProperty route = new SimpleStringProperty();
-
-    /**
      * Nature of the Pokémon.
      */
     private ObjectProperty<Nature> nature = new SimpleObjectProperty<>(null);
@@ -90,15 +85,13 @@ public class Pokemon {
      * Resets the Pokémon to Popplio at level 5
      */
     public void reset() {
-
-        route.set("19");
-        level.set(21);
-        baseValues.put(Stat.HP, 78);
-        baseValues.put(Stat.ATK, 92);
-        baseValues.put(Stat.DEF, 75);
-        baseValues.put(Stat.SP_ATK, 74);
-        baseValues.put(Stat.SP_DEF, 63);
-        baseValues.put(Stat.SPD, 118);
+        level.set(25);
+        baseValues.put(Stat.HP, 82);
+        baseValues.put(Stat.ATK, 115);
+        baseValues.put(Stat.DEF, 74);
+        baseValues.put(Stat.SP_ATK, 75);
+        baseValues.put(Stat.SP_DEF, 64);
+        baseValues.put(Stat.SPD, 90);
         evolved.set(false);
         for (final Stat stat: Stat.ALL_STATS) {
             effortValues.get(stat).set(0);
@@ -153,7 +146,7 @@ public class Pokemon {
     public void levelUp() {
         int level = this.level.get();
 
-        if (level == 30) {
+        if (level == 100) {
             return;
         }
         this.level.set(level + 1);
@@ -164,7 +157,7 @@ public class Pokemon {
      */
     public void levelDown() {
         int level = this.level.get();
-        if (level == 19) {
+        if (level == 25) {
             return;
         }
         this.level.set(level - 1);
@@ -172,10 +165,6 @@ public class Pokemon {
 
     public int getLevel() {
         return level.get();
-    }
-
-    public String getRoute() {
-        return route.get();
     }
 
     public IntegerProperty levelProperty() {
@@ -532,17 +521,5 @@ public class Pokemon {
                 }
             }
         }
-    }
-
-    public void setRoute(String routeName) {
-        route.setValue(routeName);
-
-        int level = Integer.parseInt(routeName) + 2;
-
-        setLevel(level);
-    }
-
-    public StringProperty routeProperty() {
-        return route;
     }
 }
