@@ -196,8 +196,8 @@ public class OutputPresenter implements Initializable {
     private static Paint getTextFillColor(int value) {
         String color;
         switch (value) {
-            case -1: color = "#79CEE3"; break;
-            case 1: color = "#FF5555"; break;
+            case -1: color = "#02465f"; break;
+            case 1: color = "#970726"; break;
             default: color = "white"; break;
         }
         return Paint.valueOf(color);
